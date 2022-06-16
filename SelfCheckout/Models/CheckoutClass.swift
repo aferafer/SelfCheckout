@@ -9,67 +9,6 @@ import Combine
 
 class CheckoutClass: ObservableObject {
     @Published var totalPrice = 0.00
-    @Published var cartDict:[String:Int] = [
-        "Large Carrot Bag": 0,
-        "Small Carrot Bag": 0,
-        "Head Lettuce": 0,
-        "Salad Green Bag": 0,
-        "Kale Bunch": 0,
-        "Swiss Chard Bunch": 0,
-        "Leek Bunch": 0,
-        "Spinach Bag": 0,
-        "Tomato Basket": 0,
-        "Cherry Tomato Basket": 0,
-        "Egg Plant": 0,
-        "Cucumber": 0,
-        "Parsley Bunch": 0,
-        "Cilantro Bunch": 0,
-        "Dill Bunch": 0,
-        "Basil Bunch": 0,
-        "Fennel": 0,
-        "Kohlrabi": 0,
-        "Green Onion Bunch": 0,
-        "Garlic Bulb": 0,
-        "Onion": 0,
-        "Summer Squash": 0,
-        "Squash": 0,
-        "Snow Pea Bag": 0,
-        "Microgreen Bag": 0,
-        "Radish Bunch": 0,
-        "Turnip Bunch": 0,
-        "Cabbage": 0,
-        "Salsa Jar": 0,
-        "Phil Sauce Jar": 0,
-        "Pickled Onion Jar": 0,
-        "Baguette": 0,
-        "Potato Bag": 0,
-        "Cheese Pack": 0,
-        "Soup": 0,
-        "Pickled Beet Jar": 0,
-        "Pickled Carrot Jar": 0,
-        "Chicken": 0,
-        "Coffee Bean Bag": 0,
-        "Sweet Carrot Jar": 0,
-        "Ground Beef Pack": 0,
-        "Stewing Beef Pack": 0,
-        "Lamb Lasagna Meal": 0,
-        "Whole Chicken": 0,
-        "Carrot Cake": 0,
-        
-        //Beet types:
-        "Striped Beet Bunch": 0,
-        "Cylindra Beet Bunch": 0,
-        "Golden Beet Bunch": 0,
-        
-        //Pepper types:
-        "Green Pepper": 0,
-        "Colored Pepper": 0,
-        
-        //Melon sizes:
-        "Small Melon": 0,
-        "Medium Melon": 0,
-        "Large Melon": 0
-    ]
     
     var priceDict:[String:String] = [
         "Small Carrot Bag": "3.25",
@@ -131,5 +70,9 @@ class CheckoutClass: ObservableObject {
         "Small Melon": "3.00",
         "Medium Melon": "4.00",
         "Large Melon": "5.00"
+    ]
+    
+    @Published var cartObjects:[CartObject] = [
+        CartObject(name: "Empty Cart", price: "999", quantity: 0)
     ]
 }

@@ -7,9 +7,24 @@
 
 import Foundation
 
-struct CartObject: Identifiable {
-    let id: UUID = UUID()
-    var name: String = "Default Name"
-    var price: String = "99.00"
-    var quantity: Int = 1
+struct CartObject: Identifiable, Equatable {
+    let id: UUID
+    var name: String
+    var price: String
+    var quantity: Int
+    
+    init(id: UUID = UUID(), name: String, price: String, quantity: Int) {
+        self.id = id
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+    }
+}
+
+extension CartObject {
+    static func == (lhs: CartObject, rhs: CartObject) -> Bool {
+        return
+            lhs.name == rhs.name &&
+            lhs.price == rhs.price
+    }
 }

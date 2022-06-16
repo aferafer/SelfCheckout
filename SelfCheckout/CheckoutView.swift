@@ -16,24 +16,26 @@ struct CheckoutView: View {
             Text("Your Items")
                 .underline()
             Divider()
-            ForEach(myCart.cartDict.sorted(by: <), id: \.key) { key, value in
-                if (myCart.cartDict[key]! > 0) {
+            ForEach(myCart.cartObjects) { item in
+                if (item.quantity > 0) {
                     HStack {
-                        Text(String(myCart.cartDict[key]!))
+                        Text(String(item.quantity))
                         Text("·").bold().font(.custom("San Francisco", size: 25))
-                        Text(key + "s")
+                        Text(item.name)
                         Spacer()
-                        Text(String(format: "%.2f", Double(myCart.priceDict[key]!)! * Double(myCart.cartDict[key]!)))
+                        Text(String(format: "%.2f", Double(item.price)! * Double(item.quantity)))
                         Button {
-                            myCart.cartDict[key] = 0
-                            
-                        } label: {
+                            let findObject = CartObject.init(name: item.name, price: item.price, quantity: 0)
+                            myCart.cartObjects = myCart.cartObjects.filter { $0 != findObject }
+                            print("clear item not working")
+                        }  label: {
                             Text("x")
                                 .foregroundColor(Color.black)
                                 .bold()
                                 .font(.custom("San Francisco", size: 25))
                                 .offset(x: 0, y: -2)
                         }
+
                     }
                 }
             }
@@ -48,16 +50,14 @@ struct CheckoutView: View {
                     makePayment()
                     
                 } label: {
-                    Text("checkout")
+                    Text("Checkout")
                         .padding(10)
                         .foregroundColor(Color.black)
                         .background(Color.accentColor)
                         .cornerRadius(12)
                 }
                 Button {
-                    for (myKey, _) in myCart.cartDict {
-                        myCart.cartDict[myKey] = 0
-                        }
+                    myCart.cartObjects = []
                 } label: {
                     Text("Clear All")
                         .padding(10)
