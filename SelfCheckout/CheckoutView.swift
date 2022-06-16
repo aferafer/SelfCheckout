@@ -58,6 +58,7 @@ struct CheckoutView: View {
                 }
                 Button {
                     myCart.cartObjects = []
+                    myCart.totalPrice = 0
                 } label: {
                     Text("Clear All")
                         .padding(10)
