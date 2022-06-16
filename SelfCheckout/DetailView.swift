@@ -30,6 +30,7 @@ struct DetailView: View {
                         print(myCart.priceDict)
                         myCart.priceDict["Squash50"] = customPrice //sets stored price for item to inputed price
                         myCart.cartDict["Squash50"] = 1
+                        myCart.cartObjects.append(CartObject(name: "Squash", price: customPrice, quantity: 1))
                         print(myCart.priceDict)
                         print(myCart.cartDict)
                         myCart.totalPrice += Double(customPrice)!

@@ -132,4 +132,72 @@ class CheckoutClass: ObservableObject {
         "Medium Melon": "4.00",
         "Large Melon": "5.00"
     ]
+    
+    @Published var cartObjects:[CartObject] = [
+        CartObject(name: "Empty Cart", price: "999", quantity: 0)
+    ]
+    /*
+    @Published var cartObjects:[String: CartObject] = [
+        "Large Carrot Bag":CartObject(name: "Large Carrot Bag", price: "6.25", quantity: 0),
+        "Small Carrot Bag":CartObject(name: "Small Carrot Bag", price: "6.25", quantity: 0),
+        "Head Lettuce":CartObject(name: "Head Lettuce", price: "6.25", quantity: 0),
+        "Salad Green Bag":CartObject(name: "Salad Green Bag", price: "6.25", quantity: 0),
+        "Kale Bunch":CartObject(name: "Kale Bunch", price: "6.25", quantity: 0),
+        "Swiss Chard Bunch":CartObject(name: "Swiss Chard Bunch", price: "6.25", quantity: 0),
+        "Leek Bunch":CartObject(name: "Leek Bunch", price: "6.25", quantity: 0),
+        "Spinach Bag":CartObject(name: "Spinach Bag", price: "6.25", quantity: 0),
+        "Tomato Basket":CartObject(name: "Tomato Basket", price: "6.25", quantity: 0),
+        "Cherry Tomato Basket":CartObject(name: "Cherry Tomato Basket", price: "6.25", quantity: 0),
+        "Egg Plant":CartObject(name: "Egg Plant", price: "6.25", quantity: 0),
+        "Cucumber":CartObject(name: "Cucumber", price: "6.25", quantity: 0),
+        "Parsley Bunch":CartObject(name: "Parsley Bunch", price: "6.25", quantity: 0),
+        "Cilantro Bunch":CartObject(name: "Cilantro Bunch", price: "6.25", quantity: 0),
+        "Dill Bunch":CartObject(name: "Dill Bunch", price: "6.25", quantity: 0),
+        "Basil Bunch":CartObject(name: "Basil Bunch", price: "6.25", quantity: 0),
+        "Fennel":CartObject(name: "Fennel", price: "6.25", quantity: 0),
+        "Kohlrabi":CartObject(name: "Kohlrabi", price: "6.25", quantity: 0),
+        "Green Onion Bunch":CartObject(name: "Green Onion Bunch", price: "6.25", quantity: 0),
+        "Garlic Bulb":CartObject(name: "Garlic Bulb", price: "6.25", quantity: 0),
+        "Onion":CartObject(name: "Onion", price: "6.25", quantity: 0),
+        "Summer Squash":CartObject(name: "Summer Squash", price: "6.25", quantity: 0),
+        "Squash":CartObject(name: "Squash", price: "6.25", quantity: 0),
+        "Snow Pea Bag":CartObject(name: "Snow Pea Bag", price: "6.25", quantity: 0),
+        "Microgreen Bag":CartObject(name: "Microgreen Bag", price: "6.25", quantity: 0),
+        CartObject(name: "Radish Bunch", price: "6.25", quantity: 0),
+        CartObject(name: "Turnip Bunch", price: "6.25", quantity: 0),
+        CartObject(name: "Cabbage", price: "6.25", quantity: 0),
+        CartObject(name: "Salsa Jar", price: "6.25", quantity: 0),
+        CartObject(name: "Phil Sauce Jar", price: "6.25", quantity: 0),
+        CartObject(name: "Pickled Onion Jar", price: "6.25", quantity: 0),
+        CartObject(name: "Baguette", price: "6.25", quantity: 0),
+        CartObject(name: "Potato Bag", price: "6.25", quantity: 0),
+        CartObject(name: "Cheese Pack", price: "6.25", quantity: 0),
+        CartObject(name: "Soup", price: "6.25", quantity: 0),
+        CartObject(name: "Pickled Beet Jar", price: "6.25", quantity: 0),
+        CartObject(name: "Pickled Carrot Jar", price: "6.25", quantity: 0),
+        CartObject(name: "Chicken", price: "6.25", quantity: 0),
+        CartObject(name: "Coffee Bean Bag", price: "6.25", quantity: 0),
+        CartObject(name: "Sweet Carrot Jar", price: "6.25", quantity: 0),
+        CartObject(name: "Ground Beef Pack", price: "6.25", quantity: 0),
+        CartObject(name: "Stewing Beef Pack", price: "6.25", quantity: 0),
+        CartObject(name: "Lamb Lasagna Meal", price: "6.25", quantity: 0),
+        CartObject(name: "Whole Chicken", price: "6.25", quantity: 0),
+        CartObject(name: "Carrot Cake", price: "6.25", quantity: 0),
+    
+        //Beet types:
+        CartObject(name: "Striped Beet Bunch", price: "6.25", quantity: 0),
+        CartObject(name: "Cylindra Beet Bunch", price: "6.25", quantity: 0),
+        CartObject(name: "Golden Beet Bunch", price: "6.25", quantity: 0),
+        
+        //Pepper types:
+        CartObject(name: "Green Pepper", price: "6.25", quantity: 0),
+        CartObject(name: "Colored Pepper", price: "6.25", quantity: 0),
+        
+        //Melon sizes:
+        CartObject(name: "Small Melon", price: "6.25", quantity: 0),
+        CartObject(name: "Medium Melon", price: "6.25", quantity: 0),
+        CartObject(name: "Large Melon", price: "6.25", quantity: 0),
+    ]
+     */
+    
 }
