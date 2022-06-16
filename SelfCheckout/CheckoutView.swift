@@ -25,7 +25,8 @@ struct CheckoutView: View {
                         Spacer()
                         Text(String(format: "%.2f", Double(item.price)! * Double(item.quantity)))
                         Button {
-                            //item.quantity = 0
+                            let findObject = CartObject.init(name: item.name, price: item.price, quantity: 0)
+                            myCart.cartObjects = myCart.cartObjects.filter { $0 != findObject }
                             print("clear item not working")
                         }  label: {
                             Text("x")
@@ -49,16 +50,14 @@ struct CheckoutView: View {
                     makePayment()
                     
                 } label: {
-                    Text("checkout")
+                    Text("Checkout")
                         .padding(10)
                         .foregroundColor(Color.black)
                         .background(Color.accentColor)
                         .cornerRadius(12)
                 }
                 Button {
-                    for (myKey, _) in myCart.cartDict {
-                        myCart.cartDict[myKey] = 0
-                        }
+                    myCart.cartObjects = []
                 } label: {
                     Text("Clear All")
                         .padding(10)

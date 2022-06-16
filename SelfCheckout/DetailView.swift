@@ -21,21 +21,23 @@ struct DetailView: View {
                 Spacer()
                     .frame(height: 50)
                 VStack {
-                    TextField("Enter Price", text: $customPrice, onEditingChanged: { (isBegin) in
-                        if isBegin {
-                            print("Begins editing")
-                        }
-                    },
-                    onCommit: {
-                        print(myCart.priceDict)
-                        myCart.priceDict["Squash50"] = customPrice //sets stored price for item to inputed price
-                        myCart.cartDict["Squash50"] = 1
-                        myCart.cartObjects.append(CartObject(name: "Squash", price: customPrice, quantity: 1))
-                        print(myCart.priceDict)
-                        print(myCart.cartDict)
-                        myCart.totalPrice += Double(customPrice)!
-                        action: do { self.presentationMode.wrappedValue.dismiss() }
-                    })
+                    HStack {
+                        TextField("Enter Price Here", text: $customPrice, onEditingChanged: { (isBegin) in
+                            if isBegin {
+                                print("Begins editing")
+                            }
+                        },
+                        onCommit: {
+                            myCart.cartObjects.append(CartObject(name: scrum.name, price: customPrice, quantity: 1))
+                            myCart.totalPrice += Double(customPrice)!
+                            action: do { self.presentationMode.wrappedValue.dismiss() }
+                        })
+                        .keyboardType(.decimalPad)
+                        .padding(20)
+                        .frame(width: 240, height: 100)
+                        .font(.largeTitle)
+                        .border(Color.black)
+                    }
                 }
             }
             if (scrum.options == DailyScrum.customOptions.uniqueTypes || scrum.options == DailyScrum.customOptions.uniqueSize) {
@@ -49,10 +51,14 @@ struct DetailView: View {
                         if (productType.parentProduct == parentType) { //display all product variations for parent product
                             Spacer()
                             ProductTypeView(productVariation: productType).onTapGesture {
-                                print("productType.productVariation: " + productType.productVariation)
-                                print("myCart.cartDict[productType.productVariation] : " + String(myCart.cartDict[productType.productVariation]!))
                                 myCart.totalPrice += Double(myCart.priceDict[productType.productVariation]!)!
-                                myCart.cartDict[productType.productVariation]! += 1
+                                let checkEquality = CartObject.init(name: productType.productVariation, price: productType.price, quantity: 0)
+                                let endOfArray = myCart.cartObjects.endIndex
+                                if (myCart.cartObjects.contains(checkEquality)) {
+                                    myCart.cartObjects[endOfArray-1].quantity += 1 //add one to already existing checkout item
+                                } else {
+                                    myCart.cartObjects.append(CartObject(name: productType.productVariation, price: productType.price, quantity: 1)) //create new checkout object for item since none currently exist
+                                }
                                 action: do { self.presentationMode.wrappedValue.dismiss() }
                                 }
                         }

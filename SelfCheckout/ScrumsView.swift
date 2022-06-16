@@ -66,8 +66,7 @@ struct ScrumsView: View {
                                             } else {
                                                 cartClass.cartObjects.append(CartObject(name: scrum.name, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
                                             }
-                                            
-                                            }
+                                        }
                                     } //end if-else
                                 } //end if
                                 
@@ -85,8 +84,14 @@ struct ScrumsView: View {
                                         CardView(scrum: scrum).onTapGesture {
                                             cartClass.totalPrice += Double(scrum.price)!
                                             //cartClass.cartDict[scrum.name]! += 1
-                                            cartClass.cartObjects.append(CartObject(name: scrum.name, price: scrum.price, quantity: 1))
+                                            let checkEquality = CartObject.init(name: scrum.name, price: scrum.price, quantity: 0)
+                                            let endOfArray = cartClass.cartObjects.endIndex
+                                            if (cartClass.cartObjects.contains(checkEquality)) {
+                                                cartClass.cartObjects[endOfArray-1].quantity += 1 //add one to already existing checkout item
+                                            } else {
+                                                cartClass.cartObjects.append(CartObject(name: scrum.name, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
                                             }
+                                        }
                                     } //end if-else
                                 }
                             }
@@ -103,8 +108,14 @@ struct ScrumsView: View {
                                         CardView(scrum: scrum).onTapGesture {
                                             cartClass.totalPrice += Double(scrum.price)!
                                             //cartClass.cartDict[scrum.name]! += 1
-                                            cartClass.cartObjects.append(CartObject(name: scrum.name, price: scrum.price, quantity: 1))
+                                            let checkEquality = CartObject.init(name: scrum.name, price: scrum.price, quantity: 0)
+                                            let endOfArray = cartClass.cartObjects.endIndex
+                                            if (cartClass.cartObjects.contains(checkEquality)) {
+                                                cartClass.cartObjects[endOfArray-1].quantity += 1 //add one to already existing checkout item
+                                            } else {
+                                                cartClass.cartObjects.append(CartObject(name: scrum.name, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
                                             }
+                                        }
                                     } //end if-else
                                 }
                             }
