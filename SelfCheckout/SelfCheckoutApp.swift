@@ -11,7 +11,10 @@ import SwiftUI
 struct SelfCheckoutApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ScrumsView(scrums: DailyScrum.sampleData, total: 0)
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }
