@@ -52,12 +52,12 @@ struct DetailView: View {
                             Spacer()
                             ProductTypeView(productVariation: productType).onTapGesture {
                                 myCart.totalPrice += Double(myCart.priceDict[productType.productVariation]!)!
-                                let checkEquality = CartObject.init(name: productType.productVariation, price: productType.price, quantity: 0)
-                                let endOfArray = myCart.cartObjects.endIndex
-                                if (myCart.cartObjects.contains(checkEquality)) {
-                                    myCart.cartObjects[endOfArray-1].quantity += 1 //add one to already existing checkout item
-                                } else {
+                                let findObject = CartObject.init(name: productType.productVariation, price: productType.price, quantity: 0)
+                                let itemIndex = myCart.cartObjects.firstIndex(of: findObject)
+                                if (itemIndex == nil) {
                                     myCart.cartObjects.append(CartObject(name: productType.productVariation, price: productType.price, quantity: 1)) //create new checkout object for item since none currently exist
+                                } else {
+                                    myCart.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
                                 }
                                 action: do { self.presentationMode.wrappedValue.dismiss() }
                                 }

@@ -72,7 +72,5 @@ class CheckoutClass: ObservableObject {
         "Large Melon": "5.00"
     ]
     
-    @Published var cartObjects:[CartObject] = [
-        CartObject(name: "Empty Cart", price: "999", quantity: 0)
-    ]
+    @Published var cartObjects:[CartObject] = []
 }
