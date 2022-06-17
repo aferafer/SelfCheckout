@@ -16,26 +16,20 @@ struct CheckoutView: View {
             Text("Your Items")
                 .underline()
             Divider()
-            ForEach(myCart.cartObjects) { item in
-                if (item.quantity > 0) {
-                    HStack {
-                        Text(String(item.quantity))
-                        Text("·").bold().font(.custom("San Francisco", size: 25))
-                        Text(item.name)
-                        Spacer()
-                        Text(String(format: "%.2f", Double(item.price)! * Double(item.quantity)))
-                        Button {
-                            let findObject = CartObject.init(name: item.name, price: item.price, quantity: 0)
-                            myCart.cartObjects = myCart.cartObjects.filter { $0 != findObject }
-                            print("clear item not working")
-                        }  label: {
-                            Text("x")
-                                .foregroundColor(Color.black)
-                                .bold()
-                                .font(.custom("San Francisco", size: 25))
-                                .offset(x: 0, y: -2)
+            ScrollViewReader { scrollView in
+                ScrollView {
+                    VStack {
+                        ForEach($myCart.cartObjects) { $item in
+                            if (item.quantity > 0) {
+                                CheckoutObjectView(myCart: myCart, item: $item)
+                            }
                         }
-
+                    }
+                    .id("last")
+                }
+                .onChange(of: myCart.cartObjects) { _ in
+                    withAnimation {
+                        scrollView.scrollTo("last", anchor: .bottom)
                     }
                 }
             }

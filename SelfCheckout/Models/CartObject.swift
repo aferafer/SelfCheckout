@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CartObject: Identifiable, Equatable {
+struct CartObject: Identifiable, Equatable, Hashable {
     let id: UUID
     var name: String
     var price: String

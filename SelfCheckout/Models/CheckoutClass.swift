@@ -7,7 +7,11 @@
 
 import Combine
 
-class CheckoutClass: ObservableObject {
+class CheckoutClass: ObservableObject, Equatable {
+    static func == (lhs: CheckoutClass, rhs: CheckoutClass) -> Bool {
+        return lhs.cartObjects == rhs.cartObjects
+    }
+    
     @Published var totalPrice = 0.00
     
     var priceDict:[String:String] = [
