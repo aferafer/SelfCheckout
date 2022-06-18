@@ -19,9 +19,7 @@ struct CheckoutObjectView: View {
             Text(String(format: "%.2f", Double(item.price)! * Double(item.quantity)))
             Button { //"x" to delete items
                 let findObject = CartObject.init(name: item.name, price: item.price, quantity: 0)
-                //myCart.cartObjects = myCart.cartObjects.filter { $0 != findObject }
-                print(myCart.cartObjects)
-                print("clear item not working")
+                myCart.cartObjects = myCart.cartObjects.filter { $0 != findObject }
             }  label: {
                 Text("x")
                     .foregroundColor(Color.black)

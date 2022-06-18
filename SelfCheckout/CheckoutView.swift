@@ -22,15 +22,17 @@ struct CheckoutView: View {
                         ForEach($myCart.cartObjects) { $item in
                             if (item.quantity > 0) {
                                 CheckoutObjectView(myCart: myCart, item: $item)
+                                    .id(myCart.cartObjects.count)
                             }
                         }
                     }
-                    .id("last")
                 }
                 .onChange(of: myCart.cartObjects) { _ in
-                    withAnimation {
-                        scrollView.scrollTo("last", anchor: .bottom)
-                    }
+                    print("count: " + String(myCart.cartObjects.count))
+                    scrollView.scrollTo(myCart.cartObjects.count)
+                }
+                if (myCart.cartObjects.count > 17) {
+                    Text("Display space exceeded. Scroll down to view new checkout items")
                 }
             }
             Spacer()
