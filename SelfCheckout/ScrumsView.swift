@@ -10,7 +10,7 @@ import SwiftUI
 struct ScrumsView: View {
     let scrums: [DailyScrum]
     let produceColor: Color = Color(red: 153/255, green: 255/255, blue: 153/255)
-    @State private var isActive : Bool = false //always false. Prevents products with customOptions.noOptions from going to detail view
+    //@State private var isActive : Bool = false //always false. Prevents products with customOptions.noOptions from going to detail view
     @StateObject var cartClass = CheckoutClass()
     @State var total: Double
     var rows = [
