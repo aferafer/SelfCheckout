@@ -26,6 +26,7 @@
 		0EC6089F2847D53E00E16B3E /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6089E2847D53E00E16B3E /* CheckoutView.swift */; };
 		0EF88FF5285E6E910042D579 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF88FF4285E6E910042D579 /* AdminView.swift */; };
 		0EF88FF7285FA1630042D579 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF88FF6285FA1630042D579 /* ChoiceView.swift */; };
+		0EF88FF9285FBA8C0042D579 /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF88FF8285FBA8C0042D579 /* ProductData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		0EC6089E2847D53E00E16B3E /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		0EF88FF4285E6E910042D579 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
 		0EF88FF6285FA1630042D579 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
+		0EF88FF8285FBA8C0042D579 /* ProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				0EB206F52856614E004EE9E9 /* ProductType.swift */,
 				0EB206F128529961004EE9E9 /* CheckoutClass.swift */,
 				0E268ACE285B76B4007FA970 /* CartObject.swift */,
+				0EF88FF8285FBA8C0042D579 /* ProductData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E29D6A52846762A00519E03 /* DetailView.swift in Sources */,
+				0EF88FF9285FBA8C0042D579 /* ProductData.swift in Sources */,
 				0E29D69F2843DBC500519E03 /* DailyScrum.swift in Sources */,
 				0EF88FF7285FA1630042D579 /* ChoiceView.swift in Sources */,
 				0EF88FF5285E6E910042D579 /* AdminView.swift in Sources */,

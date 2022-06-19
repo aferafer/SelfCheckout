@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct DailyScrum {
+struct DailyScrum: Hashable {
     var displayTitle: String //what is displayed on product cards
     var name: String
     var price: String

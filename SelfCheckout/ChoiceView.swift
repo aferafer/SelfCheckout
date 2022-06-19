@@ -16,7 +16,7 @@ struct ChoiceView: View {
                     Text("Click here to continue to the app")
                 }
                 Spacer(minLength: 50)
-                NavigationLink(destination: SpecialView()) {
+                NavigationLink(destination: AdminView(scrums: DailyScrum.sampleData)) {
                     Text("Click here to go to the admin page")
                 }
             }

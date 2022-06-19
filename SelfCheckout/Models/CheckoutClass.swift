@@ -6,6 +6,7 @@
 //
 
 import Combine
+import SwiftUI
 
 class CheckoutClass: ObservableObject, Equatable {
     static func == (lhs: CheckoutClass, rhs: CheckoutClass) -> Bool {
@@ -75,6 +76,8 @@ class CheckoutClass: ObservableObject, Equatable {
         "Medium Melon": "4.00",
         "Large Melon": "5.00"
     ]
+    
+    @Published var isAvailable:[String:Bool] = [:]//bool to represent whether each product is available and should be displayed
     
     @Published var cartObjects:[CartObject] = []
 }
