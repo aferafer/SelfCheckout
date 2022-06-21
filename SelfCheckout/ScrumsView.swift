@@ -49,7 +49,7 @@ struct ScrumsView: View {
                     HStack {
                         LazyHGrid(rows: rows, spacing: 10) {
                             ForEach(scrums, id: \.displayTitle) { scrum in
-                                if (scrum.catagory == DailyScrum.produceCatagory.produce) {
+                                if (scrum.catagory == DailyScrum.produceCatagory.produce && cartClass.isAvailable[scrum.name]!) {
                                     if (scrum.options != DailyScrum.customOptions.noOptions) {
                                         NavigationLink(destination: DetailView(myCart: cartClass, scrum: scrum)) {
                                             CardView(scrum: scrum)
@@ -73,7 +73,7 @@ struct ScrumsView: View {
                         Spacer(minLength: 50)
                         LazyHGrid(rows: rows, spacing: 10) {
                             ForEach(scrums, id: \.displayTitle) { scrum in
-                                if (scrum.catagory == DailyScrum.produceCatagory.valueAdded) {
+                                if (scrum.catagory == DailyScrum.produceCatagory.valueAdded && cartClass.isAvailable[scrum.name]!) {
                                     if (scrum.options != DailyScrum.customOptions.noOptions) {
                                         NavigationLink(destination: DetailView(myCart: cartClass, scrum: scrum)) {
                                             CardView(scrum: scrum)
@@ -96,7 +96,7 @@ struct ScrumsView: View {
                         Spacer(minLength: 50)
                         LazyHGrid(rows: rows, spacing: 10) {
                             ForEach(scrums, id: \.displayTitle) { scrum in
-                                if (scrum.catagory == DailyScrum.produceCatagory.retail) {
+                                if (scrum.catagory == DailyScrum.produceCatagory.retail && cartClass.isAvailable[scrum.name]!) {
                                     if (scrum.options != DailyScrum.customOptions.noOptions) {
                                         NavigationLink(destination: DetailView(myCart: cartClass, scrum: scrum)) {
                                             CardView(scrum: scrum)
