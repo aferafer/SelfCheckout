@@ -14,11 +14,11 @@ struct CheckoutObjectView: View {
         HStack {
             Text(String(item.quantity))
             Text("·").bold().font(.custom("San Francisco", size: 25))
-            Text(item.name)
+            Text(item.cartName)
             Spacer()
             Text(String(format: "%.2f", Double(item.price)! * Double(item.quantity)))
             Button { //"x" to delete items
-                let findObject = CartObject.init(name: item.name, price: item.price, quantity: 0)
+                let findObject = CartObject.init(cartName: item.cartName, price: item.price, quantity: 0)
                 myCart.cartObjects = myCart.cartObjects.filter { $0 != findObject }
             }  label: {
                 Text("x")

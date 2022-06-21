@@ -10,7 +10,6 @@ import SwiftUI
 struct ScrumsView: View {
     let scrums: [DailyScrum]
     let produceColor: Color = Color(red: 153/255, green: 255/255, blue: 153/255)
-    //@State private var isActive : Bool = false //always false. Prevents products with customOptions.noOptions from going to detail view
     @ObservedObject var cartClass: CheckoutClass
     @State var total: Double
     var rows = [
@@ -49,7 +48,7 @@ struct ScrumsView: View {
                     HStack {
                         LazyHGrid(rows: rows, spacing: 10) {
                             ForEach(scrums, id: \.displayTitle) { scrum in
-                                if (scrum.catagory == DailyScrum.produceCatagory.produce && cartClass.isAvailable[scrum.name]!) {
+                                if (scrum.catagory == DailyScrum.produceCatagory.produce && cartClass.isAvailable[scrum.cartName]!) {
                                     if (scrum.options != DailyScrum.customOptions.noOptions) {
                                         NavigationLink(destination: DetailView(myCart: cartClass, scrum: scrum)) {
                                             CardView(scrum: scrum)
@@ -57,10 +56,10 @@ struct ScrumsView: View {
                                     } else {
                                         CardView(scrum: scrum).onTapGesture {
                                             cartClass.totalPrice += Double(scrum.price)!
-                                            let findObject = CartObject.init(name: scrum.name, price: scrum.price, quantity: 0)
+                                            let findObject = CartObject.init(cartName: scrum.cartName, price: scrum.price, quantity: 0)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
-                                                cartClass.cartObjects.append(CartObject(name: scrum.name, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
+                                                cartClass.cartObjects.append(CartObject(cartName: scrum.cartName, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
                                             } else {
                                                 cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
                                             }
@@ -73,7 +72,7 @@ struct ScrumsView: View {
                         Spacer(minLength: 50)
                         LazyHGrid(rows: rows, spacing: 10) {
                             ForEach(scrums, id: \.displayTitle) { scrum in
-                                if (scrum.catagory == DailyScrum.produceCatagory.valueAdded && cartClass.isAvailable[scrum.name]!) {
+                                if (scrum.catagory == DailyScrum.produceCatagory.valueAdded && cartClass.isAvailable[scrum.cartName]!) {
                                     if (scrum.options != DailyScrum.customOptions.noOptions) {
                                         NavigationLink(destination: DetailView(myCart: cartClass, scrum: scrum)) {
                                             CardView(scrum: scrum)
@@ -81,10 +80,10 @@ struct ScrumsView: View {
                                     } else {
                                         CardView(scrum: scrum).onTapGesture {
                                             cartClass.totalPrice += Double(scrum.price)!
-                                            let findObject = CartObject.init(name: scrum.name, price: scrum.price, quantity: 0)
+                                            let findObject = CartObject.init(cartName: scrum.cartName, price: scrum.price, quantity: 0)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
-                                                cartClass.cartObjects.append(CartObject(name: scrum.name, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
+                                                cartClass.cartObjects.append(CartObject(cartName: scrum.cartName, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
                                             } else {
                                                 cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
                                             }
@@ -96,7 +95,7 @@ struct ScrumsView: View {
                         Spacer(minLength: 50)
                         LazyHGrid(rows: rows, spacing: 10) {
                             ForEach(scrums, id: \.displayTitle) { scrum in
-                                if (scrum.catagory == DailyScrum.produceCatagory.retail && cartClass.isAvailable[scrum.name]!) {
+                                if (scrum.catagory == DailyScrum.produceCatagory.retail && cartClass.isAvailable[scrum.cartName]!) {
                                     if (scrum.options != DailyScrum.customOptions.noOptions) {
                                         NavigationLink(destination: DetailView(myCart: cartClass, scrum: scrum)) {
                                             CardView(scrum: scrum)
@@ -104,10 +103,10 @@ struct ScrumsView: View {
                                     } else {
                                         CardView(scrum: scrum).onTapGesture {
                                             cartClass.totalPrice += Double(scrum.price)!
-                                            let findObject = CartObject.init(name: scrum.name, price: scrum.price, quantity: 0)
+                                            let findObject = CartObject.init(cartName: scrum.cartName, price: scrum.price, quantity: 0)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
-                                                cartClass.cartObjects.append(CartObject(name: scrum.name, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
+                                                cartClass.cartObjects.append(CartObject(cartName: scrum.cartName, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
                                             } else {
                                                 cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
                                             }

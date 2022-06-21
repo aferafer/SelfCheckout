@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 @main
 struct SelfCheckoutApp: App {
     @State var shouldI = false
