@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ChoiceView: View {
+    @StateObject var cartClass = CheckoutClass()
     var body: some View {
         NavigationView {
             Text("Welcome to Am Braigh Farm")
             ScrollView {
-                NavigationLink(destination: ScrumsView(scrums: DailyScrum.sampleData, total: 0)) {
+                NavigationLink(destination: ScrumsView(scrums: DailyScrum.sampleData, cartClass: cartClass, total: 0)) {
                     Text("Click here to continue to the app")
                 }
                 Spacer(minLength: 50)
-                NavigationLink(destination: AdminView(scrums: DailyScrum.sampleData)) {
+                NavigationLink(destination: AdminView(scrums: DailyScrum.sampleData, cartData: cartClass)) {
                     Text("Click here to go to the admin page")
                 }
             }

@@ -11,7 +11,7 @@ struct ScrumsView: View {
     let scrums: [DailyScrum]
     let produceColor: Color = Color(red: 153/255, green: 255/255, blue: 153/255)
     //@State private var isActive : Bool = false //always false. Prevents products with customOptions.noOptions from going to detail view
-    @StateObject var cartClass = CheckoutClass()
+    @ObservedObject var cartClass: CheckoutClass
     @State var total: Double
     var rows = [
         GridItem(.flexible()),
@@ -130,7 +130,7 @@ struct ScrumsView: View {
 struct ScrumsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ScrumsView(scrums: DailyScrum.sampleData, total: 0)
+            ScrumsView(scrums: DailyScrum.sampleData, cartClass: CheckoutClass(), total: 0)
         }
     }
 }
