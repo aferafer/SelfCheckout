@@ -13,53 +13,53 @@ struct AdminView: View {
     
     
     //whether or not item is available and should be displayed
-    @AppStorage(isVisible.carrots.rawValue) var CarrotsVisible = true
-    @AppStorage(isVisible.headLettuce.rawValue) var HeadLettuceVisible = true
-    @AppStorage(isVisible.saladGreens.rawValue) var SaladGreensVisible = true
-    @AppStorage(isVisible.kale.rawValue) var KaleVisible = true
-    @AppStorage(isVisible.swissChard.rawValue) var SwissChardVisible = true
-    @AppStorage(isVisible.beets.rawValue) var BeetsVisible = true
-    @AppStorage(isVisible.leeks.rawValue) var LeeksVisible = true
-    @AppStorage(isVisible.spinach.rawValue) var SpinachVisible = true
-    @AppStorage(isVisible.tomatoes.rawValue) var TomatoesVisible = true
-    @AppStorage(isVisible.cherryTomatoes.rawValue) var CherryTomatoesVisible = true
-    @AppStorage(isVisible.peppers.rawValue) var PeppersVisible = true
-    @AppStorage(isVisible.eggPlant.rawValue) var EggPlantVisible = true
-    @AppStorage(isVisible.cucumbers.rawValue) var CucumbersVisible = true
-    @AppStorage(isVisible.parsley.rawValue) var ParsleyVisible = true
-    @AppStorage(isVisible.cilantro.rawValue) var CilantroVisible = true
-    @AppStorage(isVisible.dill.rawValue) var DillVisible = true
-    @AppStorage(isVisible.basil.rawValue) var BasilVisible = true
-    @AppStorage(isVisible.fennel.rawValue) var FennelVisible = true
-    @AppStorage(isVisible.kohlrabi.rawValue) var KohlrabiVisible = true
-    @AppStorage(isVisible.greenOnions.rawValue) var GreenOnionsVisible = true
-    @AppStorage(isVisible.garlic.rawValue) var GarlicVisible = true
-    @AppStorage(isVisible.onions.rawValue) var OnionsVisible = true
-    @AppStorage(isVisible.summerSquash.rawValue) var SummerSquashVisible = true
-    @AppStorage(isVisible.squash.rawValue) var SquashVisible = true
-    @AppStorage(isVisible.melons.rawValue) var MelonsVisible = true
-    @AppStorage(isVisible.snowPeas.rawValue) var SnowPeasVisible = true
-    @AppStorage(isVisible.microgreens.rawValue) var MicrogreensVisible = true
-    @AppStorage(isVisible.radishes.rawValue) var RadishesVisible = true
-    @AppStorage(isVisible.turnips.rawValue) var TurnipsVisible = true
-    @AppStorage(isVisible.cabbage.rawValue) var CabbageVisible = true
-    @AppStorage(isVisible.potatoes.rawValue) var PotatoesVisible = true
-    @AppStorage(isVisible.salsa.rawValue) var SalsaVisible = true
-    @AppStorage(isVisible.philSauce.rawValue) var PhilSauceVisible = true
-    @AppStorage(isVisible.pickledOnions.rawValue) var PickledOnionsVisible = true
-    @AppStorage(isVisible.soup.rawValue) var SoupVisible = true
-    @AppStorage(isVisible.pickledBeets.rawValue) var PickledBeetsVisible = true
-    @AppStorage(isVisible.pickledCarrots.rawValue) var PickledCarrotsVisible = true
-    @AppStorage(isVisible.sweetCarrots.rawValue) var SweetCarrotsVisible = true
-    @AppStorage(isVisible.lambLasagna.rawValue) var LambLasagnaVisible = true
-    @AppStorage(isVisible.carrotCake.rawValue) var CarrotCakeVisible = true
-    @AppStorage(isVisible.baguette.rawValue) var BaguetteVisible = true
-    @AppStorage(isVisible.cheese.rawValue) var CheeseVisible = true
-    @AppStorage(isVisible.chicken.rawValue) var ChickenVisible = true
-    @AppStorage(isVisible.coffee.rawValue) var CoffeeVisible = true
-    @AppStorage(isVisible.groundBeef.rawValue) var GroundBeefVisible = true
-    @AppStorage(isVisible.stewingBeef.rawValue) var StewingBeefVisible = true
-    @AppStorage(isVisible.wholeChicken.rawValue) var WholeChickenVisible = true
+    @AppStorage(isVisible.Carrots.rawValue) var CarrotsVisible = true
+    @AppStorage(isVisible.Head_Lettuce.rawValue) var HeadLettuceVisible = true
+    @AppStorage(isVisible.Salad_Greens.rawValue) var SaladGreensVisible = true
+    @AppStorage(isVisible.Kale.rawValue) var KaleVisible = true
+    @AppStorage(isVisible.Swiss_Chard.rawValue) var SwissChardVisible = true
+    @AppStorage(isVisible.Beets.rawValue) var BeetsVisible = true
+    @AppStorage(isVisible.Leeks.rawValue) var LeeksVisible = true
+    @AppStorage(isVisible.Spinach.rawValue) var SpinachVisible = true
+    @AppStorage(isVisible.Tomatoes.rawValue) var TomatoesVisible = true
+    @AppStorage(isVisible.Cherry_Tomatoes.rawValue) var CherryTomatoesVisible = true
+    @AppStorage(isVisible.Peppers.rawValue) var PeppersVisible = true
+    @AppStorage(isVisible.Egg_Plant.rawValue) var EggPlantVisible = true
+    @AppStorage(isVisible.Cucumbers.rawValue) var CucumbersVisible = true
+    @AppStorage(isVisible.Parsley.rawValue) var ParsleyVisible = true
+    @AppStorage(isVisible.Cilantro.rawValue) var CilantroVisible = true
+    @AppStorage(isVisible.Dill.rawValue) var DillVisible = true
+    @AppStorage(isVisible.Basil.rawValue) var BasilVisible = true
+    @AppStorage(isVisible.Fennel.rawValue) var FennelVisible = true
+    @AppStorage(isVisible.Kohlrabi.rawValue) var KohlrabiVisible = true
+    @AppStorage(isVisible.Green_Onions.rawValue) var GreenOnionsVisible = true
+    @AppStorage(isVisible.Garlic.rawValue) var GarlicVisible = true
+    @AppStorage(isVisible.Onions.rawValue) var OnionsVisible = true
+    @AppStorage(isVisible.Summer_Squash.rawValue) var SummerSquashVisible = true
+    @AppStorage(isVisible.Squash.rawValue) var SquashVisible = true
+    @AppStorage(isVisible.Melons.rawValue) var MelonsVisible = true
+    @AppStorage(isVisible.Snow_Peas.rawValue) var SnowPeasVisible = true
+    @AppStorage(isVisible.Microgreens.rawValue) var MicrogreensVisible = true
+    @AppStorage(isVisible.Radishes.rawValue) var RadishesVisible = true
+    @AppStorage(isVisible.Turnips.rawValue) var TurnipsVisible = true
+    @AppStorage(isVisible.Cabbage.rawValue) var CabbageVisible = true
+    @AppStorage(isVisible.Potatoes.rawValue) var PotatoesVisible = true
+    @AppStorage(isVisible.Salsa.rawValue) var SalsaVisible = true
+    @AppStorage(isVisible.Phil_Sauce.rawValue) var PhilSauceVisible = true
+    @AppStorage(isVisible.Pickled_Onions.rawValue) var PickledOnionsVisible = true
+    @AppStorage(isVisible.Soup.rawValue) var SoupVisible = true
+    @AppStorage(isVisible.Pickled_Beets.rawValue) var PickledBeetsVisible = true
+    @AppStorage(isVisible.Pickled_Carrots.rawValue) var PickledCarrotsVisible = true
+    @AppStorage(isVisible.Sweet_Carrots.rawValue) var SweetCarrotsVisible = true
+    @AppStorage(isVisible.Lamb_Lasagna.rawValue) var LambLasagnaVisible = true
+    @AppStorage(isVisible.Carrot_Cake.rawValue) var CarrotCakeVisible = true
+    @AppStorage(isVisible.Baguette.rawValue) var BaguetteVisible = true
+    @AppStorage(isVisible.Cheese.rawValue) var CheeseVisible = true
+    @AppStorage(isVisible.Chicken.rawValue) var ChickenVisible = true
+    @AppStorage(isVisible.Coffee.rawValue) var CoffeeVisible = true
+    @AppStorage(isVisible.Ground_Beef.rawValue) var GroundBeefVisible = true
+    @AppStorage(isVisible.Stewing_Beef.rawValue) var StewingBeefVisible = true
+    @AppStorage(isVisible.Whole_Chicken.rawValue) var WholeChickenVisible = true
     
     //item prices
     @AppStorage(price.P_carrots.rawValue) var CarrotsPrice = "3.25" //variations
@@ -115,53 +115,54 @@ struct AdminView: View {
         //var prices = [WholeChickenPrice, GroundBeefPrice, StewingBeefPrice, CoffeePrice, ChickenPrice, CheesePrice]
         Button("Load settings") {
             print("loading")
-            cartData.isAvailable[isVisible.carrots.rawValue] = CarrotsVisible
-            cartData.isAvailable[isVisible.headLettuce.rawValue] = HeadLettuceVisible
-            cartData.isAvailable[isVisible.saladGreens.rawValue] = SaladGreensVisible
-            cartData.isAvailable[isVisible.kale.rawValue] = KaleVisible
-            cartData.isAvailable[isVisible.swissChard.rawValue] = SwissChardVisible
-            cartData.isAvailable[isVisible.beets.rawValue] = BeetsVisible
-            cartData.isAvailable[isVisible.leeks.rawValue] = LeeksVisible
-            cartData.isAvailable[isVisible.spinach.rawValue] = SpinachVisible
-            cartData.isAvailable[isVisible.tomatoes.rawValue] = TomatoesVisible
-            cartData.isAvailable[isVisible.cherryTomatoes.rawValue] = CherryTomatoesVisible
-            cartData.isAvailable[isVisible.peppers.rawValue] = PeppersVisible
-            cartData.isAvailable[isVisible.eggPlant.rawValue] = EggPlantVisible
-            cartData.isAvailable[isVisible.cucumbers.rawValue] = CucumbersVisible
-            cartData.isAvailable[isVisible.parsley.rawValue] = ParsleyVisible
-            cartData.isAvailable[isVisible.cilantro.rawValue] = CilantroVisible
-            cartData.isAvailable[isVisible.dill.rawValue] = DillVisible
-            cartData.isAvailable[isVisible.basil.rawValue] = BasilVisible
-            cartData.isAvailable[isVisible.fennel.rawValue] = FennelVisible
-            cartData.isAvailable[isVisible.kohlrabi.rawValue] = KohlrabiVisible
-            cartData.isAvailable[isVisible.greenOnions.rawValue] = GreenOnionsVisible
-            cartData.isAvailable[isVisible.garlic.rawValue] = GarlicVisible
-            cartData.isAvailable[isVisible.onions.rawValue] = OnionsVisible
-            cartData.isAvailable[isVisible.summerSquash.rawValue] = SummerSquashVisible
-            cartData.isAvailable[isVisible.squash.rawValue] = SquashVisible
-            cartData.isAvailable[isVisible.melons.rawValue] = MelonsVisible
-            cartData.isAvailable[isVisible.snowPeas.rawValue] = SnowPeasVisible
-            cartData.isAvailable[isVisible.microgreens.rawValue] = MicrogreensVisible
-            cartData.isAvailable[isVisible.beets.rawValue] = BeetsVisible
-            cartData.isAvailable[isVisible.turnips.rawValue] = TurnipsVisible
-            cartData.isAvailable[isVisible.cabbage.rawValue] = CabbageVisible
-            cartData.isAvailable[isVisible.potatoes.rawValue] = PotatoesVisible
-            cartData.isAvailable[isVisible.salsa.rawValue] = SalsaVisible
-            cartData.isAvailable[isVisible.philSauce.rawValue] = PhilSauceVisible
-            cartData.isAvailable[isVisible.pickledOnions.rawValue] = PickledOnionsVisible
-            cartData.isAvailable[isVisible.soup.rawValue] = SoupVisible
-            cartData.isAvailable[isVisible.pickledBeets.rawValue] = PickledBeetsVisible
-            cartData.isAvailable[isVisible.pickledCarrots.rawValue] = PickledCarrotsVisible
-            cartData.isAvailable[isVisible.sweetCarrots.rawValue] = SweetCarrotsVisible
-            cartData.isAvailable[isVisible.lambLasagna.rawValue] = LambLasagnaVisible
-            cartData.isAvailable[isVisible.carrotCake.rawValue] = CarrotCakeVisible
-            cartData.isAvailable[isVisible.baguette.rawValue] = BaguetteVisible
-            cartData.isAvailable[isVisible.cheese.rawValue] = CheeseVisible
-            cartData.isAvailable[isVisible.chicken.rawValue] = ChickenVisible
-            cartData.isAvailable[isVisible.coffee.rawValue] = CoffeeVisible
-            cartData.isAvailable[isVisible.groundBeef.rawValue] = GroundBeefVisible
-            cartData.isAvailable[isVisible.stewingBeef.rawValue] = StewingBeefVisible
-            cartData.isAvailable[isVisible.wholeChicken.rawValue] = WholeChickenVisible
+            cartData.isAvailable[isVisible.Carrots.rawValue] = CarrotsVisible
+            cartData.isAvailable[isVisible.Head_Lettuce.rawValue] = HeadLettuceVisible
+            cartData.isAvailable[isVisible.Salad_Greens.rawValue] = SaladGreensVisible
+            cartData.isAvailable[isVisible.Kale.rawValue] = KaleVisible
+            cartData.isAvailable[isVisible.Swiss_Chard.rawValue] = SwissChardVisible
+            cartData.isAvailable[isVisible.Beets.rawValue] = BeetsVisible
+            cartData.isAvailable[isVisible.Leeks.rawValue] = LeeksVisible
+            cartData.isAvailable[isVisible.Spinach.rawValue] = SpinachVisible
+            cartData.isAvailable[isVisible.Tomatoes.rawValue] = TomatoesVisible
+            cartData.isAvailable[isVisible.Cherry_Tomatoes.rawValue] = CherryTomatoesVisible
+            cartData.isAvailable[isVisible.Peppers.rawValue] = PeppersVisible
+            cartData.isAvailable[isVisible.Egg_Plant.rawValue] = EggPlantVisible
+            cartData.isAvailable[isVisible.Cucumbers.rawValue] = CucumbersVisible
+            cartData.isAvailable[isVisible.Parsley.rawValue] = ParsleyVisible
+            cartData.isAvailable[isVisible.Cilantro.rawValue] = CilantroVisible
+            cartData.isAvailable[isVisible.Dill.rawValue] = DillVisible
+            cartData.isAvailable[isVisible.Basil.rawValue] = BasilVisible
+            cartData.isAvailable[isVisible.Fennel.rawValue] = FennelVisible
+            cartData.isAvailable[isVisible.Kohlrabi.rawValue] = KohlrabiVisible
+            cartData.isAvailable[isVisible.Green_Onions.rawValue] = GreenOnionsVisible
+            cartData.isAvailable[isVisible.Garlic.rawValue] = GarlicVisible
+            cartData.isAvailable[isVisible.Onions.rawValue] = OnionsVisible
+            cartData.isAvailable[isVisible.Summer_Squash.rawValue] = SummerSquashVisible
+            cartData.isAvailable[isVisible.Radishes.rawValue] = RadishesVisible
+            cartData.isAvailable[isVisible.Squash.rawValue] = SquashVisible
+            cartData.isAvailable[isVisible.Melons.rawValue] = MelonsVisible
+            cartData.isAvailable[isVisible.Snow_Peas.rawValue] = SnowPeasVisible
+            cartData.isAvailable[isVisible.Microgreens.rawValue] = MicrogreensVisible
+            cartData.isAvailable[isVisible.Beets.rawValue] = BeetsVisible
+            cartData.isAvailable[isVisible.Turnips.rawValue] = TurnipsVisible
+            cartData.isAvailable[isVisible.Cabbage.rawValue] = CabbageVisible
+            cartData.isAvailable[isVisible.Potatoes.rawValue] = PotatoesVisible
+            cartData.isAvailable[isVisible.Salsa.rawValue] = SalsaVisible
+            cartData.isAvailable[isVisible.Phil_Sauce.rawValue] = PhilSauceVisible
+            cartData.isAvailable[isVisible.Pickled_Onions.rawValue] = PickledOnionsVisible
+            cartData.isAvailable[isVisible.Soup.rawValue] = SoupVisible
+            cartData.isAvailable[isVisible.Pickled_Beets.rawValue] = PickledBeetsVisible
+            cartData.isAvailable[isVisible.Pickled_Carrots.rawValue] = PickledCarrotsVisible
+            cartData.isAvailable[isVisible.Sweet_Carrots.rawValue] = SweetCarrotsVisible
+            cartData.isAvailable[isVisible.Lamb_Lasagna.rawValue] = LambLasagnaVisible
+            cartData.isAvailable[isVisible.Carrot_Cake.rawValue] = CarrotCakeVisible
+            cartData.isAvailable[isVisible.Baguette.rawValue] = BaguetteVisible
+            cartData.isAvailable[isVisible.Cheese.rawValue] = CheeseVisible
+            cartData.isAvailable[isVisible.Chicken.rawValue] = ChickenVisible
+            cartData.isAvailable[isVisible.Coffee.rawValue] = CoffeeVisible
+            cartData.isAvailable[isVisible.Ground_Beef.rawValue] = GroundBeefVisible
+            cartData.isAvailable[isVisible.Stewing_Beef.rawValue] = StewingBeefVisible
+            cartData.isAvailable[isVisible.Whole_Chicken.rawValue] = WholeChickenVisible
             
             print(cartData.isAvailable)
             
@@ -188,6 +189,7 @@ struct AdminView: View {
             cartData.priceDict[price.P_garlic.rawValue] = GarlicPrice
             cartData.priceDict[price.P_onions.rawValue] = OnionsPrice
             cartData.priceDict[price.P_summerSquash.rawValue] = SummerSquashPrice
+            cartData.priceDict[price.P_radishes.rawValue] = RadishesPrice
             cartData.priceDict[price.P_squash.rawValue] = SquashPrice
             cartData.priceDict[price.P_melons.rawValue] = MelonsPrice
             cartData.priceDict[price.P_snowPeas.rawValue] = SnowPeasPrice
@@ -799,52 +801,52 @@ extension AdminView {
     }
     
     enum isVisible: String {
-        case carrots
-        case beets
-        case peppers
-        case dill
-        case garlic
-        case snowPeas
-        case potatoes
-        case saladGreens
-        case leeks
-        case eggPlant
-        case basil
-        case onions
-        case microgreens
-        case headLettuce
-        case spinach
-        case cucumbers
-        case fennel
-        case summerSquash
-        case radishes
-        case kale
-        case tomatoes
-        case parsley
-        case kohlrabi
-        case squash
-        case turnips
-        case swissChard
-        case cherryTomatoes
-        case cilantro
-        case greenOnions
-        case melons
-        case cabbage
-        case salsa
-        case pickledCarrots
-        case philSauce
-        case sweetCarrots
-        case pickledOnions
-        case lambLasagna
-        case soup
-        case carrotCake
-        case pickledBeets
-        case baguette
-        case stewingBeef
-        case cheese
-        case wholeChicken
-        case chicken
-        case coffee
-        case groundBeef
+        case Carrots
+        case Beets
+        case Peppers
+        case Dill
+        case Garlic
+        case Snow_Peas
+        case Potatoes
+        case Salad_Greens
+        case Leeks
+        case Egg_Plant
+        case Basil
+        case Onions
+        case Microgreens
+        case Head_Lettuce
+        case Spinach
+        case Cucumbers
+        case Fennel
+        case Summer_Squash
+        case Radishes
+        case Kale
+        case Tomatoes
+        case Parsley
+        case Kohlrabi
+        case Squash
+        case Turnips
+        case Swiss_Chard
+        case Cherry_Tomatoes
+        case Cilantro
+        case Green_Onions
+        case Melons
+        case Cabbage
+        case Salsa
+        case Pickled_Carrots
+        case Phil_Sauce
+        case Sweet_Carrots
+        case Pickled_Onions
+        case Lamb_Lasagna
+        case Soup
+        case Carrot_Cake
+        case Pickled_Beets
+        case Baguette
+        case Stewing_Beef
+        case Cheese
+        case Whole_Chicken
+        case Chicken
+        case Coffee
+        case Ground_Beef
     }
 }
