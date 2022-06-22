@@ -56,10 +56,10 @@ struct ScrumsView: View {
                                     } else {
                                         CardView(scrum: scrum).onTapGesture {
                                             cartClass.totalPrice += Double(scrum.price)!
-                                            let findObject = CartObject.init(cartName: scrum.cartName, price: scrum.price, quantity: 0)
+                                            let findObject = CartObject.init(cartName: scrum.cartName, price: cartClass.priceDict[scrum.referenceName]!, quantity: 1)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
-                                                cartClass.cartObjects.append(CartObject(cartName: scrum.cartName, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
+                                                cartClass.cartObjects.append(findObject) //add new checkout object
                                             } else {
                                                 cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
                                             }
@@ -80,10 +80,10 @@ struct ScrumsView: View {
                                     } else {
                                         CardView(scrum: scrum).onTapGesture {
                                             cartClass.totalPrice += Double(scrum.price)!
-                                            let findObject = CartObject.init(cartName: scrum.cartName, price: scrum.price, quantity: 0)
+                                            let findObject = CartObject.init(cartName: scrum.cartName, price: cartClass.priceDict[scrum.referenceName]!, quantity: 1)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
-                                                cartClass.cartObjects.append(CartObject(cartName: scrum.cartName, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
+                                                cartClass.cartObjects.append(findObject) //add new checkout object
                                             } else {
                                                 cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
                                             }
@@ -103,10 +103,10 @@ struct ScrumsView: View {
                                     } else {
                                         CardView(scrum: scrum).onTapGesture {
                                             cartClass.totalPrice += Double(scrum.price)!
-                                            let findObject = CartObject.init(cartName: scrum.cartName, price: scrum.price, quantity: 0)
+                                            let findObject = CartObject.init(cartName: scrum.cartName, price: cartClass.priceDict[scrum.referenceName]!, quantity: 1)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
-                                                cartClass.cartObjects.append(CartObject(cartName: scrum.cartName, price: scrum.price, quantity: 1)) //create new checkout object for item since none currently exist
+                                                cartClass.cartObjects.append(findObject) //add new checkout object
                                             } else {
                                                 cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
                                             }

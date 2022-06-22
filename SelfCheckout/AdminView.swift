@@ -11,6 +11,14 @@ struct AdminView: View {
     var scrums: [DailyScrum]
     @ObservedObject var cartData: CheckoutClass
     
+    func toReference(priceEnum: price) -> String {
+        //converts a price Enum to a product reference String. Example: price.PCarrots returns "Carrots"
+        var stringForm = priceEnum.rawValue
+        stringForm.remove(at: stringForm.startIndex)
+        return stringForm
+    }
+        
+    
     
     //whether or not item is available and should be displayed
     @AppStorage(isVisible.Carrots.rawValue) var CarrotsVisible = true
@@ -62,53 +70,53 @@ struct AdminView: View {
     @AppStorage(isVisible.Whole_Chicken.rawValue) var WholeChickenVisible = true
     
     //item prices
-    @AppStorage(price.P_carrots.rawValue) var CarrotsPrice = "3.25" //variations
-    @AppStorage(price.P_headLettuce.rawValue) var HeadLettucePrice = "3.75"
-    @AppStorage(price.P_saladGreens.rawValue) var SaladGreensPrice = "5.25"
-    @AppStorage(price.P_kale.rawValue) var KalePrice = "5.50"
-    @AppStorage(price.P_swissChard.rawValue) var SwissChardPrice = "5.50"
-    @AppStorage(price.P_beets.rawValue) var BeetsPrice = "3.00" //variations
-    @AppStorage(price.P_leeks.rawValue) var LeeksPrice = "5.00"
-    @AppStorage(price.P_spinach.rawValue) var SpinachPrice = "5.50"
-    @AppStorage(price.P_tomatoes.rawValue) var TomatoesPrice = "5.00"
-    @AppStorage(price.P_cherryTomatoes.rawValue) var CherryTomatoesPrice = "5.50"
-    @AppStorage(price.P_peppers.rawValue) var PeppersPrice = "3.00" //variations
-    @AppStorage(price.P_eggPlant.rawValue) var EggPlantPrice = "1.75"
-    @AppStorage(price.P_cucumbers.rawValue) var CucumbersPrice = "1.75"
-    @AppStorage(price.P_parsley.rawValue) var ParsleyPrice = "3.00"
-    @AppStorage(price.P_cilantro.rawValue) var CilantroPrice = "3.00"
-    @AppStorage(price.P_dill.rawValue) var DillPrice = "3.00"
-    @AppStorage(price.P_basil.rawValue) var BasilPrice = "3.00"
-    @AppStorage(price.P_fennel.rawValue) var FennelPrice = "3.50"
-    @AppStorage(price.P_kohlrabi.rawValue) var KohlrabiPrice = "3.75"
-    @AppStorage(price.P_greenOnions.rawValue) var GreenOnionsPrice = "3.00"
-    @AppStorage(price.P_garlic.rawValue) var GarlicPrice = "3.00"
-    @AppStorage(price.P_onions.rawValue) var OnionsPrice = "1.75"
-    @AppStorage(price.P_summerSquash.rawValue) var SummerSquashPrice = "1.50"
-    @AppStorage(price.P_squash.rawValue) var SquashPrice = "1.50"
-    @AppStorage(price.P_melons.rawValue) var MelonsPrice = "3.00" //variations
-    @AppStorage(price.P_snowPeas.rawValue) var SnowPeasPrice = "4.00"
-    @AppStorage(price.P_microgreens.rawValue) var MicrogreensPrice = "4.75"
-    @AppStorage(price.P_radishes.rawValue) var RadishesPrice = "3.00"
-    @AppStorage(price.P_turnips.rawValue) var TurnipsPrice = "3.50"
-    @AppStorage(price.P_cabbage.rawValue) var CabbagePrice = "5.00"
-    @AppStorage(price.P_potatoes.rawValue) var PotatoesPrice = "5.00"
-    @AppStorage(price.P_salsa.rawValue) var SalsaPrice = "5.00"
-    @AppStorage(price.P_philSauce.rawValue) var PhilSaucePrice = "5.00"
-    @AppStorage(price.P_pickledOnions.rawValue) var PickledOnionsPrice = "5.00"
-    @AppStorage(price.P_soup.rawValue) var SoupPrice = "5.00"
-    @AppStorage(price.P_pickledBeets.rawValue) var PickledBeetsPrice = "3.00"
-    @AppStorage(price.P_pickledCarrots.rawValue) var PickledCarrotsPrice = "3.00"
-    @AppStorage(price.P_sweetCarrots.rawValue) var SweetCarrotsPrice = "3.00"
-    @AppStorage(price.P_lambLasagna.rawValue) var LambLasagnaPrice = "3.00"
-    @AppStorage(price.P_carrotCake.rawValue) var CarrotCakePrice = "3.00"
-    @AppStorage(price.P_baguette.rawValue) var BaguettePrice = "3.00"
-    @AppStorage(price.P_cheese.rawValue) var CheesePrice = "3.00"
-    @AppStorage(price.P_chicken.rawValue) var ChickenPrice = "3.00"
-    @AppStorage(price.P_coffee.rawValue) var CoffeePrice = "3.00"
-    @AppStorage(price.P_groundBeef.rawValue) var GroundBeefPrice = "3.00"
-    @AppStorage(price.P_stewingBeef.rawValue) var StewingBeefPrice = "3.00"
-    @AppStorage(price.P_wholeChicken.rawValue) var WholeChickenPrice = "3.00"
+    @AppStorage(price.PCarrots.rawValue) var CarrotsPrice = "3.25" //variations
+    @AppStorage(price.PHead_Lettuce.rawValue) var HeadLettucePrice = "3.75"
+    @AppStorage(price.PSalad_Greens.rawValue) var SaladGreensPrice = "5.25"
+    @AppStorage(price.PKale.rawValue) var KalePrice = "5.50"
+    @AppStorage(price.PSwiss_Chard.rawValue) var SwissChardPrice = "5.50"
+    @AppStorage(price.PBeets.rawValue) var BeetsPrice = "3.00" //variations
+    @AppStorage(price.PLeeks.rawValue) var LeeksPrice = "5.00"
+    @AppStorage(price.PSpinach.rawValue) var SpinachPrice = "5.50"
+    @AppStorage(price.PTomatoes.rawValue) var TomatoesPrice = "5.00"
+    @AppStorage(price.PCherry_Tomatoes.rawValue) var CherryTomatoesPrice = "5.50"
+    @AppStorage(price.PPeppers.rawValue) var PeppersPrice = "3.00" //variations
+    @AppStorage(price.PEgg_Plant.rawValue) var EggPlantPrice = "1.75"
+    @AppStorage(price.PCucumbers.rawValue) var CucumbersPrice = "1.75"
+    @AppStorage(price.PParsley.rawValue) var ParsleyPrice = "3.00"
+    @AppStorage(price.PCilantro.rawValue) var CilantroPrice = "3.00"
+    @AppStorage(price.PDill.rawValue) var DillPrice = "3.00"
+    @AppStorage(price.PBasil.rawValue) var BasilPrice = "3.00"
+    @AppStorage(price.PFennel.rawValue) var FennelPrice = "3.50"
+    @AppStorage(price.PKohlrabi.rawValue) var KohlrabiPrice = "3.75"
+    @AppStorage(price.PGreen_Onions.rawValue) var GreenOnionsPrice = "3.00"
+    @AppStorage(price.PGarlic.rawValue) var GarlicPrice = "3.00"
+    @AppStorage(price.POnions.rawValue) var OnionsPrice = "1.75"
+    @AppStorage(price.PSummer_Squash.rawValue) var SummerSquashPrice = "1.50"
+    @AppStorage(price.PSquash.rawValue) var SquashPrice = "1.50"
+    @AppStorage(price.PMelons.rawValue) var MelonsPrice = "3.00" //variations
+    @AppStorage(price.PSnow_Peas.rawValue) var SnowPeasPrice = "4.00"
+    @AppStorage(price.PMicrogreens.rawValue) var MicrogreensPrice = "4.75"
+    @AppStorage(price.PRadishes.rawValue) var RadishesPrice = "3.00"
+    @AppStorage(price.PTurnips.rawValue) var TurnipsPrice = "3.50"
+    @AppStorage(price.PCabbage.rawValue) var CabbagePrice = "5.00"
+    @AppStorage(price.PPotatoes.rawValue) var PotatoesPrice = "5.00"
+    @AppStorage(price.PSalsa.rawValue) var SalsaPrice = "5.00"
+    @AppStorage(price.PPhil_Sauce.rawValue) var PhilSaucePrice = "5.00"
+    @AppStorage(price.PPickled_Onions.rawValue) var PickledOnionsPrice = "5.00"
+    @AppStorage(price.PSoup.rawValue) var SoupPrice = "5.00"
+    @AppStorage(price.PPickled_Beets.rawValue) var PickledBeetsPrice = "3.00"
+    @AppStorage(price.PPickled_Carrots.rawValue) var PickledCarrotsPrice = "3.00"
+    @AppStorage(price.PSweet_Carrots.rawValue) var SweetCarrotsPrice = "3.00"
+    @AppStorage(price.PLamb_Lasagna.rawValue) var LambLasagnaPrice = "3.00"
+    @AppStorage(price.PCarrot_Cake.rawValue) var CarrotCakePrice = "3.00"
+    @AppStorage(price.PBaguette.rawValue) var BaguettePrice = "3.00"
+    @AppStorage(price.PCheese.rawValue) var CheesePrice = "3.00"
+    @AppStorage(price.PChicken.rawValue) var ChickenPrice = "3.00"
+    @AppStorage(price.PCoffee.rawValue) var CoffeePrice = "3.00"
+    @AppStorage(price.PGround_Beef.rawValue) var GroundBeefPrice = "3.00"
+    @AppStorage(price.PStewing_Beef.rawValue) var StewingBeefPrice = "3.00"
+    @AppStorage(price.PWhole_Chicken.rawValue) var WholeChickenPrice = "3.00"
     
 
     var body: some View {
@@ -166,54 +174,54 @@ struct AdminView: View {
             
             print(cartData.isAvailable)
             
-            cartData.priceDict[price.P_carrots.rawValue] = CarrotsPrice
-            cartData.priceDict[price.P_headLettuce.rawValue] = HeadLettucePrice
-            cartData.priceDict[price.P_saladGreens.rawValue] = SaladGreensPrice
-            cartData.priceDict[price.P_kale.rawValue] = KalePrice
-            cartData.priceDict[price.P_swissChard.rawValue] = SwissChardPrice
-            cartData.priceDict[price.P_beets.rawValue] = BeetsPrice
-            cartData.priceDict[price.P_leeks.rawValue] = LeeksPrice
-            cartData.priceDict[price.P_spinach.rawValue] = SpinachPrice
-            cartData.priceDict[price.P_tomatoes.rawValue] = TomatoesPrice
-            cartData.priceDict[price.P_cherryTomatoes.rawValue] = CherryTomatoesPrice
-            cartData.priceDict[price.P_peppers.rawValue] = PeppersPrice
-            cartData.priceDict[price.P_eggPlant.rawValue] = EggPlantPrice
-            cartData.priceDict[price.P_cucumbers.rawValue] = CucumbersPrice
-            cartData.priceDict[price.P_parsley.rawValue] = ParsleyPrice
-            cartData.priceDict[price.P_cilantro.rawValue] = CilantroPrice
-            cartData.priceDict[price.P_dill.rawValue] = DillPrice
-            cartData.priceDict[price.P_basil.rawValue] = BasilPrice
-            cartData.priceDict[price.P_fennel.rawValue] = FennelPrice
-            cartData.priceDict[price.P_kohlrabi.rawValue] = KohlrabiPrice
-            cartData.priceDict[price.P_greenOnions.rawValue] = GreenOnionsPrice
-            cartData.priceDict[price.P_garlic.rawValue] = GarlicPrice
-            cartData.priceDict[price.P_onions.rawValue] = OnionsPrice
-            cartData.priceDict[price.P_summerSquash.rawValue] = SummerSquashPrice
-            cartData.priceDict[price.P_radishes.rawValue] = RadishesPrice
-            cartData.priceDict[price.P_squash.rawValue] = SquashPrice
-            cartData.priceDict[price.P_melons.rawValue] = MelonsPrice
-            cartData.priceDict[price.P_snowPeas.rawValue] = SnowPeasPrice
-            cartData.priceDict[price.P_microgreens.rawValue] = MicrogreensPrice
-            cartData.priceDict[price.P_beets.rawValue] = BeetsPrice
-            cartData.priceDict[price.P_turnips.rawValue] = TurnipsPrice
-            cartData.priceDict[price.P_cabbage.rawValue] = CabbagePrice
-            cartData.priceDict[price.P_potatoes.rawValue] = PotatoesPrice
-            cartData.priceDict[price.P_salsa.rawValue] = SalsaPrice
-            cartData.priceDict[price.P_philSauce.rawValue] = PhilSaucePrice
-            cartData.priceDict[price.P_pickledOnions.rawValue] = PickledOnionsPrice
-            cartData.priceDict[price.P_soup.rawValue] = SoupPrice
-            cartData.priceDict[price.P_pickledBeets.rawValue] = PickledBeetsPrice
-            cartData.priceDict[price.P_pickledCarrots.rawValue] = PickledCarrotsPrice
-            cartData.priceDict[price.P_sweetCarrots.rawValue] = SweetCarrotsPrice
-            cartData.priceDict[price.P_lambLasagna.rawValue] = LambLasagnaPrice
-            cartData.priceDict[price.P_carrotCake.rawValue] = CarrotCakePrice
-            cartData.priceDict[price.P_baguette.rawValue] = BaguettePrice
-            cartData.priceDict[price.P_cheese.rawValue] = CheesePrice
-            cartData.priceDict[price.P_chicken.rawValue] = ChickenPrice
-            cartData.priceDict[price.P_coffee.rawValue] = CoffeePrice
-            cartData.priceDict[price.P_groundBeef.rawValue] = GroundBeefPrice
-            cartData.priceDict[price.P_stewingBeef.rawValue] = StewingBeefPrice
-            cartData.priceDict[price.P_wholeChicken.rawValue] = WholeChickenPrice
+            cartData.priceDict[toReference(priceEnum: price.PCarrots)] = CarrotsPrice
+            cartData.priceDict[toReference(priceEnum: price.PHead_Lettuce)] = HeadLettucePrice
+            cartData.priceDict[toReference(priceEnum: price.PSalad_Greens)] = SaladGreensPrice
+            cartData.priceDict[toReference(priceEnum: price.PKale)] = KalePrice
+            cartData.priceDict[toReference(priceEnum: price.PSwiss_Chard)] = SwissChardPrice
+            cartData.priceDict[toReference(priceEnum: price.PBeets)] = BeetsPrice
+            cartData.priceDict[toReference(priceEnum: price.PLeeks)] = LeeksPrice
+            cartData.priceDict[toReference(priceEnum: price.PSpinach)] = SpinachPrice
+            cartData.priceDict[toReference(priceEnum: price.PTomatoes)] = TomatoesPrice
+            cartData.priceDict[toReference(priceEnum: price.PCherry_Tomatoes)] = CherryTomatoesPrice
+            cartData.priceDict[toReference(priceEnum: price.PPeppers)] = PeppersPrice
+            cartData.priceDict[toReference(priceEnum: price.PEgg_Plant)] = EggPlantPrice
+            cartData.priceDict[toReference(priceEnum: price.PCucumbers)] = CucumbersPrice
+            cartData.priceDict[toReference(priceEnum: price.PParsley)] = ParsleyPrice
+            cartData.priceDict[toReference(priceEnum: price.PCilantro)] = CilantroPrice
+            cartData.priceDict[toReference(priceEnum: price.PDill)] = DillPrice
+            cartData.priceDict[toReference(priceEnum: price.PBasil)] = BasilPrice
+            cartData.priceDict[toReference(priceEnum: price.PFennel)] = FennelPrice
+            cartData.priceDict[toReference(priceEnum: price.PKohlrabi)] = KohlrabiPrice
+            cartData.priceDict[toReference(priceEnum: price.PGreen_Onions)] = GreenOnionsPrice
+            cartData.priceDict[toReference(priceEnum: price.PGarlic)] = GarlicPrice
+            cartData.priceDict[toReference(priceEnum: price.POnions)] = OnionsPrice
+            cartData.priceDict[toReference(priceEnum: price.PSummer_Squash)] = SummerSquashPrice
+            cartData.priceDict[toReference(priceEnum: price.PRadishes)] = RadishesPrice
+            cartData.priceDict[toReference(priceEnum: price.PSquash)] = SquashPrice
+            cartData.priceDict[toReference(priceEnum: price.PMelons)] = MelonsPrice
+            cartData.priceDict[toReference(priceEnum: price.PSnow_Peas)] = SnowPeasPrice
+            cartData.priceDict[toReference(priceEnum: price.PMicrogreens)] = MicrogreensPrice
+            cartData.priceDict[toReference(priceEnum: price.PBeets)] = BeetsPrice
+            cartData.priceDict[toReference(priceEnum: price.PTurnips)] = TurnipsPrice
+            cartData.priceDict[toReference(priceEnum: price.PCabbage)] = CabbagePrice
+            cartData.priceDict[toReference(priceEnum: price.PPotatoes)] = PotatoesPrice
+            cartData.priceDict[toReference(priceEnum: price.PSalsa)] = SalsaPrice
+            cartData.priceDict[toReference(priceEnum: price.PPhil_Sauce)] = PhilSaucePrice
+            cartData.priceDict[toReference(priceEnum: price.PPickled_Onions)] = PickledOnionsPrice
+            cartData.priceDict[toReference(priceEnum: price.PSoup)] = SoupPrice
+            cartData.priceDict[toReference(priceEnum: price.PPickled_Beets)] = PickledBeetsPrice
+            cartData.priceDict[toReference(priceEnum: price.PPickled_Carrots)] = PickledCarrotsPrice
+            cartData.priceDict[toReference(priceEnum: price.PSweet_Carrots)] = SweetCarrotsPrice
+            cartData.priceDict[toReference(priceEnum: price.PLamb_Lasagna)] = LambLasagnaPrice
+            cartData.priceDict[toReference(priceEnum: price.PCarrot_Cake)] = CarrotCakePrice
+            cartData.priceDict[toReference(priceEnum: price.PBaguette)] = BaguettePrice
+            cartData.priceDict[toReference(priceEnum: price.PCheese)] = CheesePrice
+            cartData.priceDict[toReference(priceEnum: price.PChicken)] = ChickenPrice
+            cartData.priceDict[toReference(priceEnum: price.PCoffee)] = CoffeePrice
+            cartData.priceDict[toReference(priceEnum: price.PGround_Beef)] = GroundBeefPrice
+            cartData.priceDict[toReference(priceEnum: price.PStewing_Beef)] = StewingBeefPrice
+            cartData.priceDict[toReference(priceEnum: price.PWhole_Chicken)] = WholeChickenPrice
             
             print(cartData.priceDict)
         } //close button
@@ -750,54 +758,55 @@ struct AdminView: View {
 } //close view
 
 extension AdminView {
+    //the price Enum type has P as a prefix to all of its cases. So Carrots becomes PCarrots etc. This is to differentiate them from the isVisible Enum cases. These Enum types get converted into Strings and are the keys used to identify their values in app storage. The P prefix from the price Enum cases is removed before storing it as a String in PriceDict in CartData so that the Strings can be formatted in the same way as reference names for products.
     enum price: String {
-        case P_carrots
-        case P_beets
-        case P_peppers
-        case P_dill
-        case P_garlic
-        case P_snowPeas
-        case P_potatoes
-        case P_saladGreens
-        case P_leeks
-        case P_eggPlant
-        case P_basil
-        case P_onions
-        case P_microgreens
-        case P_headLettuce
-        case P_spinach
-        case P_cucumbers
-        case P_fennel
-        case P_summerSquash
-        case P_radishes
-        case P_kale
-        case P_tomatoes
-        case P_parsley
-        case P_kohlrabi
-        case P_squash
-        case P_turnips
-        case P_swissChard
-        case P_cherryTomatoes
-        case P_cilantro
-        case P_greenOnions
-        case P_melons
-        case P_cabbage
-        case P_salsa
-        case P_pickledCarrots
-        case P_philSauce
-        case P_sweetCarrots
-        case P_pickledOnions
-        case P_lambLasagna
-        case P_soup
-        case P_carrotCake
-        case P_pickledBeets
-        case P_baguette
-        case P_stewingBeef
-        case P_cheese
-        case P_wholeChicken
-        case P_chicken
-        case P_coffee
-        case P_groundBeef
+        case PCarrots
+        case PBeets
+        case PPeppers
+        case PDill
+        case PGarlic
+        case PSnow_Peas
+        case PPotatoes
+        case PSalad_Greens
+        case PLeeks
+        case PEgg_Plant
+        case PBasil
+        case POnions
+        case PMicrogreens
+        case PHead_Lettuce
+        case PSpinach
+        case PCucumbers
+        case PFennel
+        case PSummer_Squash
+        case PRadishes
+        case PKale
+        case PTomatoes
+        case PParsley
+        case PKohlrabi
+        case PSquash
+        case PTurnips
+        case PSwiss_Chard
+        case PCherry_Tomatoes
+        case PCilantro
+        case PGreen_Onions
+        case PMelons
+        case PCabbage
+        case PSalsa
+        case PPickled_Carrots
+        case PPhil_Sauce
+        case PSweet_Carrots
+        case PPickled_Onions
+        case PLamb_Lasagna
+        case PSoup
+        case PCarrot_Cake
+        case PPickled_Beets
+        case PBaguette
+        case PStewing_Beef
+        case PCheese
+        case PWhole_Chicken
+        case PChicken
+        case PCoffee
+        case PGround_Beef
     }
     
     enum isVisible: String {

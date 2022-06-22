@@ -24,7 +24,6 @@ struct CartObject: Identifiable, Equatable, Hashable {
 extension CartObject {
     static func == (lhs: CartObject, rhs: CartObject) -> Bool {
         return
-            lhs.cartName == rhs.cartName &&
-            lhs.price == rhs.price
+            lhs.cartName == rhs.cartName
     }
 }

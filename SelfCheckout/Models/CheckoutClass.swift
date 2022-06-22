@@ -15,7 +15,8 @@ class CheckoutClass: ObservableObject, Equatable {
     
     @Published var totalPrice = 0.00
     
-    var priceDict:[String:String] = [
+    var priceDict:[String:String] = [:]
+        /*
         "Small Carrot Bag": "3.25",
         "Large Carrot Bag": "6.25",
         "Head Lettuce": "3.75",
@@ -75,7 +76,7 @@ class CheckoutClass: ObservableObject, Equatable {
         "Small Melon": "3.00",
         "Medium Melon": "4.00",
         "Large Melon": "5.00"
-    ]
+         */
     
     @Published var isAvailable:[String:Bool] = [:]//bool to represent whether each product is available and should be displayed
     
