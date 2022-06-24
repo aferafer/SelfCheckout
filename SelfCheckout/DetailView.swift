@@ -28,8 +28,16 @@ struct DetailView: View {
                             }
                         },
                         onCommit: {
-                            myCart.cartObjects.append(CartObject(cartName: scrum.cartName, price: customPrice, quantity: 1))
-                            myCart.totalPrice += Double(customPrice)!
+                            //myCart.cartObjects.append(CartObject(cartName: scrum.cartName, price: customPrice, quantity: 1))
+                            //myCart.totalPrice += Double(customPrice)!
+                            myCart.totalPrice += Double(scrum.price)!
+                            let findObject = CartObject.init(cartName: scrum.cartName, price: myCart.priceDict[scrum.referenceName]!, quantity: 1)
+                            let itemIndex = myCart.cartObjects.firstIndex(of: findObject)
+                            if (itemIndex == nil) {
+                                myCart.cartObjects.append(findObject) //add new checkout object
+                            } else {
+                                myCart.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                            }
                             action: do { self.presentationMode.wrappedValue.dismiss() }
                         })
                         .keyboardType(.decimalPad)

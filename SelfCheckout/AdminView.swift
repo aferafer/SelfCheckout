@@ -10,7 +10,7 @@ import SwiftUI
 struct AdminView: View {
     var scrums: [DailyScrum]
     @ObservedObject var cartData: CheckoutClass
-    
+    @ObservedObject var Switch: AppState
     func toReference(priceEnum: price) -> String {
         //converts a price Enum to a product reference String. Example: price.PCarrots returns "Carrots"
         var stringForm = priceEnum.rawValue
@@ -70,17 +70,27 @@ struct AdminView: View {
     @AppStorage(isVisible.Whole_Chicken.rawValue) var WholeChickenVisible = true
     
     //item prices
-    @AppStorage(price.PCarrots.rawValue) var CarrotsPrice = "3.25" //variations
+    //@AppStorage(price.PCarrots.rawValue) var CarrotsPrice = "3.25" //variations
+    @AppStorage(price.PSmallCarrots.rawValue) var SmallCarrotsPrice = "3.25"
+    @AppStorage(price.PLargeCarrots.rawValue) var LargeCarrotsPrice = "3.25"
+    
     @AppStorage(price.PHead_Lettuce.rawValue) var HeadLettucePrice = "3.75"
     @AppStorage(price.PSalad_Greens.rawValue) var SaladGreensPrice = "5.25"
     @AppStorage(price.PKale.rawValue) var KalePrice = "5.50"
     @AppStorage(price.PSwiss_Chard.rawValue) var SwissChardPrice = "5.50"
-    @AppStorage(price.PBeets.rawValue) var BeetsPrice = "3.00" //variations
+    //@AppStorage(price.PBeets.rawValue) var BeetsPrice = "3.00" //variations
+    @AppStorage(price.PStripedBeets.rawValue) var StripedBeetsPrice = "3.00"
+    @AppStorage(price.PCylindraBeets.rawValue) var CylindraBeetsPrice = "3.00"
+    @AppStorage(price.PGoldenBeets.rawValue) var GoldenBeetsPrice = "3.00"
+    
     @AppStorage(price.PLeeks.rawValue) var LeeksPrice = "5.00"
     @AppStorage(price.PSpinach.rawValue) var SpinachPrice = "5.50"
     @AppStorage(price.PTomatoes.rawValue) var TomatoesPrice = "5.00"
     @AppStorage(price.PCherry_Tomatoes.rawValue) var CherryTomatoesPrice = "5.50"
-    @AppStorage(price.PPeppers.rawValue) var PeppersPrice = "3.00" //variations
+    //@AppStorage(price.PPeppers.rawValue) var PeppersPrice = "3.00" //variations
+    @AppStorage(price.PGreenPeppers.rawValue) var GreenPeppersPrice = "3.00"
+    @AppStorage(price.PColoredPeppers.rawValue) var ColoredPeppersPrice = "3.00"
+    
     @AppStorage(price.PEgg_Plant.rawValue) var EggPlantPrice = "1.75"
     @AppStorage(price.PCucumbers.rawValue) var CucumbersPrice = "1.75"
     @AppStorage(price.PParsley.rawValue) var ParsleyPrice = "3.00"
@@ -93,8 +103,11 @@ struct AdminView: View {
     @AppStorage(price.PGarlic.rawValue) var GarlicPrice = "3.00"
     @AppStorage(price.POnions.rawValue) var OnionsPrice = "1.75"
     @AppStorage(price.PSummer_Squash.rawValue) var SummerSquashPrice = "1.50"
-    @AppStorage(price.PSquash.rawValue) var SquashPrice = "1.50"
-    @AppStorage(price.PMelons.rawValue) var MelonsPrice = "3.00" //variations
+    //@AppStorage(price.PMelons.rawValue) var MelonsPrice = "3.00" //variations
+    @AppStorage(price.PSmallMelons.rawValue) var SmallMelonsPrice = "3.00"
+    @AppStorage(price.PMediumMelons.rawValue) var MediumMelonsPrice = "3.00"
+    @AppStorage(price.PLargeMelons.rawValue) var LargeMelonsPrice = "3.00"
+    
     @AppStorage(price.PSnow_Peas.rawValue) var SnowPeasPrice = "4.00"
     @AppStorage(price.PMicrogreens.rawValue) var MicrogreensPrice = "4.75"
     @AppStorage(price.PRadishes.rawValue) var RadishesPrice = "3.00"
@@ -120,8 +133,8 @@ struct AdminView: View {
     
 
     var body: some View {
-        //var prices = [WholeChickenPrice, GroundBeefPrice, StewingBeefPrice, CoffeePrice, ChickenPrice, CheesePrice]
-        Button("Load settings") {
+        Spacer(minLength: 10)
+        Button {
             print("loading")
             cartData.isAvailable[isVisible.Carrots.rawValue] = CarrotsVisible
             cartData.isAvailable[isVisible.Head_Lettuce.rawValue] = HeadLettuceVisible
@@ -174,17 +187,21 @@ struct AdminView: View {
             
             print(cartData.isAvailable)
             
-            cartData.priceDict[toReference(priceEnum: price.PCarrots)] = CarrotsPrice
+            cartData.priceDict[toReference(priceEnum: price.PSmallCarrots)] = SmallCarrotsPrice
+            cartData.priceDict[toReference(priceEnum: price.PLargeCarrots)] = LargeCarrotsPrice
             cartData.priceDict[toReference(priceEnum: price.PHead_Lettuce)] = HeadLettucePrice
             cartData.priceDict[toReference(priceEnum: price.PSalad_Greens)] = SaladGreensPrice
             cartData.priceDict[toReference(priceEnum: price.PKale)] = KalePrice
             cartData.priceDict[toReference(priceEnum: price.PSwiss_Chard)] = SwissChardPrice
-            cartData.priceDict[toReference(priceEnum: price.PBeets)] = BeetsPrice
+            cartData.priceDict[toReference(priceEnum: price.PStripedBeets)] = StripedBeetsPrice
+            cartData.priceDict[toReference(priceEnum: price.PCylindraBeets)] = CylindraBeetsPrice
+            cartData.priceDict[toReference(priceEnum: price.PGoldenBeets)] = GoldenBeetsPrice
             cartData.priceDict[toReference(priceEnum: price.PLeeks)] = LeeksPrice
             cartData.priceDict[toReference(priceEnum: price.PSpinach)] = SpinachPrice
             cartData.priceDict[toReference(priceEnum: price.PTomatoes)] = TomatoesPrice
             cartData.priceDict[toReference(priceEnum: price.PCherry_Tomatoes)] = CherryTomatoesPrice
-            cartData.priceDict[toReference(priceEnum: price.PPeppers)] = PeppersPrice
+            cartData.priceDict[toReference(priceEnum: price.PGreenPeppers)] = GreenPeppersPrice
+            cartData.priceDict[toReference(priceEnum: price.PColoredPeppers)] = ColoredPeppersPrice
             cartData.priceDict[toReference(priceEnum: price.PEgg_Plant)] = EggPlantPrice
             cartData.priceDict[toReference(priceEnum: price.PCucumbers)] = CucumbersPrice
             cartData.priceDict[toReference(priceEnum: price.PParsley)] = ParsleyPrice
@@ -198,11 +215,13 @@ struct AdminView: View {
             cartData.priceDict[toReference(priceEnum: price.POnions)] = OnionsPrice
             cartData.priceDict[toReference(priceEnum: price.PSummer_Squash)] = SummerSquashPrice
             cartData.priceDict[toReference(priceEnum: price.PRadishes)] = RadishesPrice
-            cartData.priceDict[toReference(priceEnum: price.PSquash)] = SquashPrice
-            cartData.priceDict[toReference(priceEnum: price.PMelons)] = MelonsPrice
+            //cartData.priceDict[toReference(priceEnum: price.PSquash)] = SquashPrice
+            cartData.priceDict[toReference(priceEnum: price.PSmallMelons)] = SmallMelonsPrice
+            cartData.priceDict[toReference(priceEnum: price.PMediumMelons)] = MediumMelonsPrice
+            cartData.priceDict[toReference(priceEnum: price.PLargeMelons)] = LargeMelonsPrice
             cartData.priceDict[toReference(priceEnum: price.PSnow_Peas)] = SnowPeasPrice
             cartData.priceDict[toReference(priceEnum: price.PMicrogreens)] = MicrogreensPrice
-            cartData.priceDict[toReference(priceEnum: price.PBeets)] = BeetsPrice
+            //cartData.priceDict[toReference(priceEnum: price.PBeets)] = BeetsPrice
             cartData.priceDict[toReference(priceEnum: price.PTurnips)] = TurnipsPrice
             cartData.priceDict[toReference(priceEnum: price.PCabbage)] = CabbagePrice
             cartData.priceDict[toReference(priceEnum: price.PPotatoes)] = PotatoesPrice
@@ -224,7 +243,16 @@ struct AdminView: View {
             cartData.priceDict[toReference(priceEnum: price.PWhole_Chicken)] = WholeChickenPrice
             
             print(cartData.priceDict)
-        } //close button
+            Switch.switchToMainApp = true
+        } label: {
+            Text("Continue To App")
+                .padding(10)
+                .foregroundColor(Color.black)
+                .background(Color.accentColor)
+                .cornerRadius(12)
+        }
+        Spacer(minLength: 20)
+        Text("Price and Availability Settings")
         HStack { //outmost HStack to make prices and visibility toggles side by side
             Form {
                 VStack {
@@ -240,6 +268,10 @@ struct AdminView: View {
                         Toggle(isOn: $TomatoesVisible) {Text("Tomatoes Visible?")}
                         Toggle(isOn: $CherryTomatoesVisible) {Text("Cherry Tomatoes Visible?")}
                     }
+                    .padding(5)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
                     Group {
                         Toggle(isOn: $PeppersVisible) {Text("Peppers Visible?")}
                         Toggle(isOn: $EggPlantVisible) {Text("Egg Plant Visible?")}
@@ -252,6 +284,10 @@ struct AdminView: View {
                         Toggle(isOn: $KohlrabiVisible) {Text("Kohlrabi Visible?")}
                         Toggle(isOn: $GreenOnionsVisible) {Text("GreenOnions Visible?")}
                     }
+                    .padding(5)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
                     Group {
                         Toggle(isOn: $GarlicVisible) {Text("Garlic Visible?")}
                         Toggle(isOn: $OnionsVisible) {Text("Onions Visible?")}
@@ -264,6 +300,10 @@ struct AdminView: View {
                         Toggle(isOn: $TurnipsVisible) {Text("Turnips Visible?")}
                         Toggle(isOn: $CabbageVisible) {Text("Cabbage Visible?")}
                     }
+                    .padding(5)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
                     Group {
                         Toggle(isOn: $PotatoesVisible) {Text("Potatoes Visible?")}
                         Toggle(isOn: $SalsaVisible) {Text("Salsa Visible?")}
@@ -276,6 +316,10 @@ struct AdminView: View {
                         Toggle(isOn: $LambLasagnaVisible) {Text("Lamb Lasagna Visible?")}
                         Toggle(isOn: $CarrotCakeVisible) {Text("Carrot Cake Visible?")}
                     }
+                    .padding(5)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
                     Group {
                         Toggle(isOn: $BaguetteVisible) {Text("Baguettes Visible?")}
                         Toggle(isOn: $CheeseVisible) {Text("Cheese Visible?")}
@@ -285,6 +329,10 @@ struct AdminView: View {
                         Toggle(isOn: $StewingBeefVisible) {Text("Stewing Beef Visible?")}
                         Toggle(isOn: $WholeChickenVisible) {Text("Whole Chicken Visible?")}
                     }
+                    .padding(5)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
                 }// close vStack
             } //close form
             
@@ -292,27 +340,9 @@ struct AdminView: View {
                 VStack {
                     Group {
                     HStack {
-                        let cost = NumberFormatter().number(from: CarrotsPrice)?.doubleValue
-                        Text("Carrots Price: ")
-                        TextField("Enter Item Price...", text: $CarrotsPrice).padding()
-                        if (cost == nil) {
-                            Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
-                        }
-                    }
-                        
-                    HStack {
-                        let cost = NumberFormatter().number(from: BeetsPrice)?.doubleValue
-                        Text("Beets Price: ")
-                        TextField("Enter Item Price...", text: $BeetsPrice).padding()
-                        if (cost == nil) {
-                            Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
-                        }
-                    }
-                    
-                    HStack {
-                        let cost = NumberFormatter().number(from: PeppersPrice)?.doubleValue
-                        Text("Peppers Price: ")
-                        TextField("Enter Item Price...", text: $PeppersPrice).padding()
+                        let cost = NumberFormatter().number(from: SmallMelonsPrice)?.doubleValue
+                        Text("Small Melons Price: ")
+                        TextField("Enter Item Price...", text: $SmallMelonsPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -320,9 +350,28 @@ struct AdminView: View {
                     }
                     
                     HStack {
+                        let cost = NumberFormatter().number(from: MediumMelonsPrice)?.doubleValue
+                        Text("Medium Melons Price: ")
+                        TextField("Enter Item Price...", text: $MediumMelonsPrice)
+                        if (cost == nil) {
+                            Spacer()
+                            Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
+                        }
+                    }
+                    
+                    HStack {
+                        let cost = NumberFormatter().number(from: LargeMelonsPrice)?.doubleValue
+                        Text("Large Melons Price: ")
+                        TextField("Enter Item Price...", text: $LargeMelonsPrice)
+                        if (cost == nil) {
+                            Spacer()
+                            Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
+                        }
+                    }
+                    HStack {
                         let cost = NumberFormatter().number(from: DillPrice)?.doubleValue
                         Text("Dill Price: ")
-                        TextField("Enter Item Price...", text: $DillPrice).padding()
+                        TextField("Enter Item Price...", text: $DillPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -332,7 +381,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: GarlicPrice)?.doubleValue
                         Text("Garlic Price: ")
-                        TextField("Enter Item Price...", text: $GarlicPrice).padding()
+                        TextField("Enter Item Price...", text: $GarlicPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -341,7 +390,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: SnowPeasPrice)?.doubleValue
                         Text("Snow Peas Price: ")
-                        TextField("Enter Item Price...", text: $SnowPeasPrice).padding()
+                        TextField("Enter Item Price...", text: $SnowPeasPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -351,7 +400,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: PotatoesPrice)?.doubleValue
                         Text("Potatoes Price: ")
-                        TextField("Enter Item Price...", text: $PotatoesPrice).padding()
+                        TextField("Enter Item Price...", text: $PotatoesPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -361,7 +410,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: SaladGreensPrice)?.doubleValue
                         Text("Salad Greens Price: ")
-                        TextField("Enter Item Price...", text: $SaladGreensPrice).padding()
+                        TextField("Enter Item Price...", text: $SaladGreensPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -371,7 +420,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: LeeksPrice)?.doubleValue
                         Text("Leeks Price: ")
-                        TextField("Enter Item Price...", text: $LeeksPrice).padding()
+                        TextField("Enter Item Price...", text: $LeeksPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -381,19 +430,23 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: EggPlantPrice)?.doubleValue
                         Text("Egg Plant Price: ")
-                        TextField("Enter Item Price...", text: $EggPlantPrice).padding()
+                        TextField("Enter Item Price...", text: $EggPlantPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
                         }
                     }
                     } //end group
+                    .padding(10)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
                     
                     Group {
                     HStack {
                         let cost = NumberFormatter().number(from: BasilPrice)?.doubleValue
                         Text("Basil Price: ")
-                        TextField("Enter Item Price...", text: $BasilPrice).padding()
+                        TextField("Enter Item Price...", text: $BasilPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -403,7 +456,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: OnionsPrice)?.doubleValue
                         Text("Onions Price: ")
-                        TextField("Enter Item Price...", text: $OnionsPrice).padding()
+                        TextField("Enter Item Price...", text: $OnionsPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -412,7 +465,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: MicrogreensPrice)?.doubleValue
                         Text("Microgreens Price: ")
-                        TextField("Enter Item Price...", text: $MicrogreensPrice).padding()
+                        TextField("Enter Item Price...", text: $MicrogreensPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -422,7 +475,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: HeadLettucePrice)?.doubleValue
                         Text("Head Lettuce Price: ")
-                        TextField("Enter Item Price...", text: $HeadLettucePrice).padding()
+                        TextField("Enter Item Price...", text: $HeadLettucePrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -431,7 +484,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: SpinachPrice)?.doubleValue
                         Text("Spinach Price: ")
-                        TextField("Enter Item Price...", text: $SpinachPrice).padding()
+                        TextField("Enter Item Price...", text: $SpinachPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -441,7 +494,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: CucumbersPrice)?.doubleValue
                         Text("Cucumbers Price: ")
-                        TextField("Enter Item Price...", text: $CucumbersPrice).padding()
+                        TextField("Enter Item Price...", text: $CucumbersPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -451,7 +504,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: FennelPrice)?.doubleValue
                         Text("Fennel Price: ")
-                        TextField("Enter Item Price...", text: $FennelPrice).padding()
+                        TextField("Enter Item Price...", text: $FennelPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -461,7 +514,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: SummerSquashPrice)?.doubleValue
                         Text("Summer Squash Price: ")
-                        TextField("Enter Item Price...", text: $SummerSquashPrice).padding()
+                        TextField("Enter Item Price...", text: $SummerSquashPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -471,7 +524,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: RadishesPrice)?.doubleValue
                         Text("Radishes Price: ")
-                        TextField("Enter Item Price...", text: $RadishesPrice).padding()
+                        TextField("Enter Item Price...", text: $RadishesPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -481,18 +534,22 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: KalePrice)?.doubleValue
                         Text("Kale Price: ")
-                        TextField("Enter Item Price...", text: $KalePrice).padding()
+                        TextField("Enter Item Price...", text: $KalePrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
                         }
                     }
                     } //end group
+                    .padding(10)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
                     Group {
                     HStack {
                         let cost = NumberFormatter().number(from: TomatoesPrice)?.doubleValue
                         Text("BeefSteak Price: ")
-                        TextField("Enter Item Price...", text: $TomatoesPrice).padding()
+                        TextField("Enter Item Price...", text: $TomatoesPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -502,7 +559,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: ParsleyPrice)?.doubleValue
                         Text("Parsley Price: ")
-                        TextField("Enter Item Price...", text: $ParsleyPrice).padding()
+                        TextField("Enter Item Price...", text: $ParsleyPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -512,7 +569,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: KohlrabiPrice)?.doubleValue
                         Text("Kohlrabi Price: ")
-                        TextField("Enter Item Price...", text: $KohlrabiPrice).padding()
+                        TextField("Enter Item Price...", text: $KohlrabiPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -522,7 +579,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: TurnipsPrice)?.doubleValue
                         Text("Turnips Price: ")
-                        TextField("Enter Item Price...", text: $TurnipsPrice).padding()
+                        TextField("Enter Item Price...", text: $TurnipsPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -532,7 +589,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: SwissChardPrice)?.doubleValue
                         Text("Swiss Chard Price: ")
-                        TextField("Enter Item Price...", text: $SwissChardPrice).padding()
+                        TextField("Enter Item Price...", text: $SwissChardPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -542,7 +599,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: CherryTomatoesPrice)?.doubleValue
                         Text("Cherry Tomatoes Price: ")
-                        TextField("Enter Item Price...", text: $CherryTomatoesPrice).padding()
+                        TextField("Enter Item Price...", text: $CherryTomatoesPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -552,7 +609,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: CilantroPrice)?.doubleValue
                         Text("Cilantro Price: ")
-                        TextField("Enter Item Price...", text: $CilantroPrice).padding()
+                        TextField("Enter Item Price...", text: $CilantroPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -562,29 +619,23 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: GreenOnionsPrice)?.doubleValue
                         Text("Green Onions Price: ")
-                        TextField("Enter Item Price...", text: $GreenOnionsPrice).padding()
+                        TextField("Enter Item Price...", text: $GreenOnionsPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
                         }
                     }
                     } //end group
+                    .padding(10)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
                     
                     Group {
                     HStack {
-                        let cost = NumberFormatter().number(from: MelonsPrice)?.doubleValue
-                        Text("Melons Price: ")
-                        TextField("Enter Item Price...", text: $MelonsPrice).padding()
-                        if (cost == nil) {
-                            Spacer()
-                            Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
-                        }
-                    }
-                    
-                    HStack {
                         let cost = NumberFormatter().number(from: CabbagePrice)?.doubleValue
                         Text("Cabbage Price: ")
-                        TextField("Enter Item Price...", text: $CabbagePrice).padding()
+                        TextField("Enter Item Price...", text: $CabbagePrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -594,7 +645,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: SalsaPrice)?.doubleValue
                         Text("Salsa Price: ")
-                        TextField("Enter Item Price...", text: $SalsaPrice).padding()
+                        TextField("Enter Item Price...", text: $SalsaPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -604,7 +655,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: PickledCarrotsPrice)?.doubleValue
                         Text("Pickled Carrots Price: ")
-                        TextField("Enter Item Price...", text: $PickledCarrotsPrice).padding()
+                        TextField("Enter Item Price...", text: $PickledCarrotsPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -614,7 +665,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: PhilSaucePrice)?.doubleValue
                         Text("Phil Sauce Price: ")
-                        TextField("Enter Item Price...", text: $PhilSaucePrice).padding()
+                        TextField("Enter Item Price...", text: $PhilSaucePrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -624,7 +675,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: SweetCarrotsPrice)?.doubleValue
                         Text("Sweet Carrots Price: ")
-                        TextField("Enter Item Price...", text: $SweetCarrotsPrice).padding()
+                        TextField("Enter Item Price...", text: $SweetCarrotsPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -634,7 +685,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: PickledOnionsPrice)?.doubleValue
                         Text("Picled Onions Price: ")
-                        TextField("Enter Item Price...", text: $PickledOnionsPrice).padding()
+                        TextField("Enter Item Price...", text: $PickledOnionsPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -644,7 +695,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: LambLasagnaPrice)?.doubleValue
                         Text("Lamb Lasagna Price: ")
-                        TextField("Enter Item Price...", text: $LambLasagnaPrice).padding()
+                        TextField("Enter Item Price...", text: $LambLasagnaPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -654,7 +705,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: SoupPrice)?.doubleValue
                         Text("Soup Price: ")
-                        TextField("Enter Item Price...", text: $SoupPrice).padding()
+                        TextField("Enter Item Price...", text: $SoupPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -664,19 +715,23 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: CarrotCakePrice)?.doubleValue
                         Text("Carrot Cake Price: ")
-                        TextField("Enter Item Price...", text: $CarrotCakePrice).padding()
+                        TextField("Enter Item Price...", text: $CarrotCakePrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
                         }
                     }
                     } //end Group
+                    .padding(10)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
                     
                     Group {
                     HStack {
                         let cost = NumberFormatter().number(from: PickledBeetsPrice)?.doubleValue
                         Text("Pickled Beets Price: ")
-                        TextField("Enter Item Price...", text: $PickledBeetsPrice).padding()
+                        TextField("Enter Item Price...", text: $PickledBeetsPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -686,7 +741,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: BaguettePrice)?.doubleValue
                         Text("Baguette Price: ")
-                        TextField("Enter Item Price...", text: $BaguettePrice).padding()
+                        TextField("Enter Item Price...", text: $BaguettePrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -696,7 +751,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: StewingBeefPrice)?.doubleValue
                         Text("Stewing Beef Price: ")
-                        TextField("Enter Item Price...", text: $StewingBeefPrice).padding()
+                        TextField("Enter Item Price...", text: $StewingBeefPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -705,7 +760,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: CheesePrice)?.doubleValue
                         Text("Cheese Price: ")
-                        TextField("Enter Item Price...", text: $CheesePrice).padding()
+                        TextField("Enter Item Price...", text: $CheesePrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -714,7 +769,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: WholeChickenPrice)?.doubleValue
                         Text("Whole Chicken Price: ")
-                        TextField("Enter Item Price...", text: $WholeChickenPrice).padding()
+                        TextField("Enter Item Price...", text: $WholeChickenPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -724,7 +779,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: CoffeePrice)?.doubleValue
                         Text("Coffee Price: ")
-                        TextField("Enter Item Price...", text: $CoffeePrice).padding()
+                        TextField("Enter Item Price...", text: $CoffeePrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -734,7 +789,7 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: GroundBeefPrice)?.doubleValue
                         Text("Ground Beef Price: ")
-                        TextField("Enter Item Price...", text: $GroundBeefPrice).padding()
+                        TextField("Enter Item Price...", text: $GroundBeefPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
@@ -744,12 +799,101 @@ struct AdminView: View {
                     HStack {
                         let cost = NumberFormatter().number(from: ChickenPrice)?.doubleValue
                         Text("Chicken Price: ")
-                        TextField("Enter Item Price...", text: $ChickenPrice).padding()
+                        TextField("Enter Item Price...", text: $ChickenPrice)
                         if (cost == nil) {
                             Spacer()
                             Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
                         }                    }
                     } // end Group
+                    .padding(10)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
+                    Group {
+                        HStack {
+                            let cost = NumberFormatter().number(from: SmallCarrotsPrice)?.doubleValue
+                            Text("Small Carrot Bag Price: ")
+                            TextField("Enter Item Price...", text: $LargeCarrotsPrice)
+                            if (cost == nil) {
+                                Spacer()
+                                Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
+                            }
+                        }
+                        
+                        HStack {
+                            let cost = NumberFormatter().number(from: LargeCarrotsPrice)?.doubleValue
+                            Text("Large Carrot Bag Price: ")
+                            TextField("Enter Item Price...", text: $LargeCarrotsPrice)
+                            if (cost == nil) {
+                                Spacer()
+                                Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
+                            }
+                        }
+                        
+                        HStack {
+                            let cost = NumberFormatter().number(from: GreenPeppersPrice)?.doubleValue
+                            Text("Green Peppers Price: ")
+                            TextField("Enter Item Price...", text: $GreenPeppersPrice)
+                            if (cost == nil) {
+                                Spacer()
+                                Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
+                            }
+                        }
+                        
+                        HStack {
+                            let cost = NumberFormatter().number(from: ColoredPeppersPrice)?.doubleValue
+                            Text("Colored Peppers Price: ")
+                            TextField("Enter Item Price...", text: $ColoredPeppersPrice)
+                            if (cost == nil) {
+                                Spacer()
+                                Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
+                            }
+                        }
+                        
+                        HStack {
+                            let cost = NumberFormatter().number(from: StripedBeetsPrice)?.doubleValue
+                            Text("Striped Beets Price: ")
+                            TextField("Enter Item Price...", text: $StripedBeetsPrice)
+                            if (cost == nil) {
+                                Spacer()
+                                Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
+                            }
+                        }
+                        
+                        HStack {
+                            let cost = NumberFormatter().number(from: CylindraBeetsPrice)?.doubleValue
+                            Text("Cylindra Beets Price: ")
+                            TextField("Enter Item Price...", text: $CylindraBeetsPrice)
+                            if (cost == nil) {
+                                Spacer()
+                                Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
+                            }
+                        }
+                        
+                        HStack {
+                            let cost = NumberFormatter().number(from: GoldenBeetsPrice)?.doubleValue
+                            Text("Golden Beets Price: ")
+                            TextField("Enter Item Price...", text: $GoldenBeetsPrice)
+                            if (cost == nil) {
+                                Spacer()
+                                Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
+                            }
+                        }
+                        
+                        HStack {
+                            let cost = NumberFormatter().number(from: GroundBeefPrice)?.doubleValue
+                            Text("Ground Beef Price: ")
+                            TextField("Enter Item Price...", text: $GroundBeefPrice)
+                            if (cost == nil) {
+                                Spacer()
+                                Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()
+                            }
+                        }
+                    } //end group
+                    .padding(10)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .stroke(lineWidth: 2.0))
                 
                 } // Close Vstack for textfields
             } //close form for textfields
@@ -760,9 +904,13 @@ struct AdminView: View {
 extension AdminView {
     //the price Enum type has P as a prefix to all of its cases. So Carrots becomes PCarrots etc. This is to differentiate them from the isVisible Enum cases. These Enum types get converted into Strings and are the keys used to identify their values in app storage. The P prefix from the price Enum cases is removed before storing it as a String in PriceDict in CartData so that the Strings can be formatted in the same way as reference names for products.
     enum price: String {
-        case PCarrots
-        case PBeets
-        case PPeppers
+        case PSmallCarrots
+        case PLargeCarrots
+        case PStripedBeets
+        case PCylindraBeets
+        case PGoldenBeets
+        case PGreenPeppers
+        case PColoredPeppers
         case PDill
         case PGarlic
         case PSnow_Peas
@@ -789,7 +937,9 @@ extension AdminView {
         case PCherry_Tomatoes
         case PCilantro
         case PGreen_Onions
-        case PMelons
+        case PSmallMelons
+        case PMediumMelons
+        case PLargeMelons
         case PCabbage
         case PSalsa
         case PPickled_Carrots

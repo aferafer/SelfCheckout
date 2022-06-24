@@ -21,6 +21,7 @@ struct ScrumsView: View {
     ]
     
     var body: some View {
+        //NavigationView {
         VStack {
             Spacer()
                 .frame(height: 10)
