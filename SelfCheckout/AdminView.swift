@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AdminView: View {
-    var scrums: [DailyScrum]
+    var products: [Products]
     @ObservedObject var cartData: CheckoutClass
     @ObservedObject var Switch: AppState
     func toReference(priceEnum: price) -> String {

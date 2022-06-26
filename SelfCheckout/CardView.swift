@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct CardView: View {
-    let scrum: DailyScrum
+    let product: Products
     var body: some View {
         VStack() {
-            Image(scrum.pic)
+            Image(product.pic)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 140, height: 90)
-            Text(scrum.displayTitle).foregroundColor(.black)
+            Text(product.displayTitle).foregroundColor(.black)
         }.background(Rectangle().fill(Color.white).shadow(radius: 2))
     }
 }
 
 struct CardView_Previews: PreviewProvider {
-    static var scrum = DailyScrum.sampleData[0]
+    static var product = Products.sampleData[0]
     static var previews: some View {
-        CardView(scrum: scrum)
+        CardView(product: product)
             .previewLayout(.fixed(width: 100, height: 400))
     }
 }

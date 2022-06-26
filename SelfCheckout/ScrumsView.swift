@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScrumsView: View {
-    let scrums: [DailyScrum]
+    let products: [Products]
     let produceColor: Color = Color(red: 153/255, green: 255/255, blue: 153/255)
     @ObservedObject var cartClass: CheckoutClass
     @State var total: Double
@@ -48,16 +48,16 @@ struct ScrumsView: View {
                 ScrollView(.horizontal) {
                     HStack {
                         LazyHGrid(rows: rows, spacing: 10) {
-                            ForEach(scrums, id: \.displayTitle) { scrum in
-                                if (scrum.catagory == DailyScrum.produceCatagory.produce && cartClass.isAvailable[scrum.referenceName]!) {
-                                    if (scrum.options != DailyScrum.customOptions.noOptions) {
-                                        NavigationLink(destination: DetailView(myCart: cartClass, scrum: scrum)) {
-                                            CardView(scrum: scrum)
+                            ForEach(products, id: \.displayTitle) { product in
+                                if (product.catagory == Products.produceCatagory.produce && cartClass.isAvailable[product.referenceName]!) {
+                                    if (product.options != Products.customOptions.noOptions) {
+                                        NavigationLink(destination: DetailView(myCart: cartClass, product: product)) {
+                                            CardView(product: product)
                                         }
                                     } else {
-                                        CardView(scrum: scrum).onTapGesture {
-                                            cartClass.totalPrice += Double(cartClass.priceDict[scrum.referenceName]!)!
-                                            let findObject = CartObject.init(cartName: scrum.cartName, price: cartClass.priceDict[scrum.referenceName]!, quantity: 1)
+                                        CardView(product: product).onTapGesture {
+                                            cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
+                                            let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
                                                 cartClass.cartObjects.append(findObject) //add new checkout object
@@ -72,16 +72,16 @@ struct ScrumsView: View {
                         } //end lazyHGrid
                         Spacer(minLength: 50)
                         LazyHGrid(rows: rows, spacing: 10) {
-                            ForEach(scrums, id: \.displayTitle) { scrum in
-                                if (scrum.catagory == DailyScrum.produceCatagory.valueAdded && cartClass.isAvailable[scrum.referenceName]!) {
-                                    if (scrum.options != DailyScrum.customOptions.noOptions) {
-                                        NavigationLink(destination: DetailView(myCart: cartClass, scrum: scrum)) {
-                                            CardView(scrum: scrum)
+                            ForEach(products, id: \.displayTitle) { product in
+                                if (product.catagory == Products.produceCatagory.valueAdded && cartClass.isAvailable[product.referenceName]!) {
+                                    if (product.options != Products.customOptions.noOptions) {
+                                        NavigationLink(destination: DetailView(myCart: cartClass, product: product)) {
+                                            CardView(product: product)
                                         }
                                     } else {
-                                        CardView(scrum: scrum).onTapGesture {
-                                            cartClass.totalPrice += Double(cartClass.priceDict[scrum.referenceName]!)!
-                                            let findObject = CartObject.init(cartName: scrum.cartName, price: cartClass.priceDict[scrum.referenceName]!, quantity: 1)
+                                        CardView(product: product).onTapGesture {
+                                            cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
+                                            let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
                                                 cartClass.cartObjects.append(findObject) //add new checkout object
@@ -95,16 +95,16 @@ struct ScrumsView: View {
                         }
                         Spacer(minLength: 50)
                         LazyHGrid(rows: rows, spacing: 10) {
-                            ForEach(scrums, id: \.displayTitle) { scrum in
-                                if (scrum.catagory == DailyScrum.produceCatagory.retail && cartClass.isAvailable[scrum.referenceName]!) {
-                                    if (scrum.options != DailyScrum.customOptions.noOptions) {
-                                        NavigationLink(destination: DetailView(myCart: cartClass, scrum: scrum)) {
-                                            CardView(scrum: scrum)
+                            ForEach(products, id: \.displayTitle) { product in
+                                if (product.catagory == Products.produceCatagory.retail && cartClass.isAvailable[product.referenceName]!) {
+                                    if (product.options != Products.customOptions.noOptions) {
+                                        NavigationLink(destination: DetailView(myCart: cartClass, product: product)) {
+                                            CardView(product: product)
                                         }
                                     } else {
-                                        CardView(scrum: scrum).onTapGesture {
-                                            cartClass.totalPrice += Double(cartClass.priceDict[scrum.referenceName]!)!
-                                            let findObject = CartObject.init(cartName: scrum.cartName, price: cartClass.priceDict[scrum.referenceName]!, quantity: 1)
+                                        CardView(product: product).onTapGesture {
+                                            cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
+                                            let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
                                                 cartClass.cartObjects.append(findObject) //add new checkout object
@@ -130,7 +130,7 @@ struct ScrumsView: View {
 struct ScrumsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ScrumsView(scrums: DailyScrum.sampleData, cartClass: CheckoutClass(), total: 0)
+            ScrumsView(products: Products.sampleData, cartClass: CheckoutClass(), total: 0)
         }
     }
 }

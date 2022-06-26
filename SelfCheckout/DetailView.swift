@@ -11,11 +11,11 @@ struct DetailView: View {
     @ObservedObject var myCart: CheckoutClass
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var customPrice: String = ""
-    let scrum: DailyScrum
+    let product: Products
     let referenceNames = ProductType.variationData
     var body: some View {
         VStack {
-            if (scrum.options == DailyScrum.customOptions.uniquePrice) {
+            if (product.options == Products.customOptions.uniquePrice) {
                 Text("Please Enter the Price For Your Item")
                     .bold()
                 Spacer()
@@ -28,7 +28,7 @@ struct DetailView: View {
                             }
                         },
                         onCommit: {
-                            myCart.cartObjects.append(CartObject(cartName: scrum.cartName, price: customPrice, quantity: 1))
+                            myCart.cartObjects.append(CartObject(cartName: product.cartName, price: customPrice, quantity: 1))
                             myCart.totalPrice += Double(customPrice)!
                             action: do { self.presentationMode.wrappedValue.dismiss() }
                         })
@@ -40,12 +40,12 @@ struct DetailView: View {
                     }
                 }
             }
-            if (scrum.options == DailyScrum.customOptions.uniqueTypes || scrum.options == DailyScrum.customOptions.uniqueSize) {
+            if (product.options == Products.customOptions.uniqueTypes || product.options == Products.customOptions.uniqueSize) {
                 Text("Please Select One of the Below Options")
                     .bold()
                 Spacer()
                     .frame(height: 50)
-                let parentType: String = scrum.cartName //beets, peppers etc. Used to find associated subtypes like golden beets or colored peppers
+                let parentType: String = product.cartName //beets, peppers etc. Used to find associated subtypes like golden beets or colored peppers
                 HStack {
                     ForEach(referenceNames, id: \.referenceName) { productType in
                         if (productType.parentProduct == parentType) { //display all product variations for parent product
@@ -73,7 +73,7 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DetailView(myCart: CheckoutClass(), scrum: DailyScrum.sampleData[0])
+            DetailView(myCart: CheckoutClass(), product: Products.sampleData[0])
         }
     }
 }

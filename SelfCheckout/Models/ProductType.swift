@@ -1,5 +1,5 @@
 
-//  DailyScrum.swift
+//  Products.swift
 //  SelfCheckout
 //
 //  Created by Aidan Richards on 2022-05-29.
