@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProductTypeView: View {
+    @ObservedObject var myCart: CheckoutClass
     let productVariation: ProductType
     var body: some View {
         VStack() {
@@ -15,16 +16,10 @@ struct ProductTypeView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 150)
-            Text(productVariation.productVariation).foregroundColor(.black)
-            Text(productVariation.price)
+            Text(productVariation.displayName).foregroundColor(.black)
+            Text(myCart.priceDict[productVariation.referenceName]!)
         }.background(Rectangle().fill(Color.white).shadow(radius: 2))
     }
 }
 
-struct ProductTypeView_Previews: PreviewProvider {
-    static var variationInfo = ProductType.variationData[0]
-    static var previews: some View {
-        ProductTypeView(productVariation: variationInfo)
-            .previewLayout(.fixed(width: 100, height: 400))
-    }
-}
+

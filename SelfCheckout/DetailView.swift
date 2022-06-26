@@ -12,7 +12,7 @@ struct DetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var customPrice: String = ""
     let scrum: DailyScrum
-    let productVariations = ProductType.variationData
+    let referenceNames = ProductType.variationData
     var body: some View {
         VStack {
             if (scrum.options == DailyScrum.customOptions.uniquePrice) {
@@ -28,16 +28,8 @@ struct DetailView: View {
                             }
                         },
                         onCommit: {
-                            //myCart.cartObjects.append(CartObject(cartName: scrum.cartName, price: customPrice, quantity: 1))
-                            //myCart.totalPrice += Double(customPrice)!
-                            myCart.totalPrice += Double(scrum.price)!
-                            let findObject = CartObject.init(cartName: scrum.cartName, price: myCart.priceDict[scrum.referenceName]!, quantity: 1)
-                            let itemIndex = myCart.cartObjects.firstIndex(of: findObject)
-                            if (itemIndex == nil) {
-                                myCart.cartObjects.append(findObject) //add new checkout object
-                            } else {
-                                myCart.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
-                            }
+                            myCart.cartObjects.append(CartObject(cartName: scrum.cartName, price: customPrice, quantity: 1))
+                            myCart.totalPrice += Double(customPrice)!
                             action: do { self.presentationMode.wrappedValue.dismiss() }
                         })
                         .keyboardType(.decimalPad)
@@ -55,15 +47,15 @@ struct DetailView: View {
                     .frame(height: 50)
                 let parentType: String = scrum.cartName //beets, peppers etc. Used to find associated subtypes like golden beets or colored peppers
                 HStack {
-                    ForEach(productVariations, id: \.productVariation) { productType in
+                    ForEach(referenceNames, id: \.referenceName) { productType in
                         if (productType.parentProduct == parentType) { //display all product variations for parent product
                             Spacer()
-                            ProductTypeView(productVariation: productType).onTapGesture {
-                                myCart.totalPrice += Double(myCart.priceDict[productType.productVariation]!)!
-                                let findObject = CartObject.init(cartName: productType.productVariation, price: productType.price, quantity: 0)
+                            ProductTypeView(myCart: myCart, productVariation: productType).onTapGesture {
+                                myCart.totalPrice += Double(myCart.priceDict[productType.referenceName]!)!
+                                let findObject = CartObject.init(cartName: productType.cartName, price: myCart.priceDict[productType.referenceName]!, quantity: 0)
                                 let itemIndex = myCart.cartObjects.firstIndex(of: findObject)
                                 if (itemIndex == nil) {
-                                    myCart.cartObjects.append(CartObject(cartName: productType.productVariation, price: productType.price, quantity: 1)) //create new checkout object for item since none currently exist
+                                    myCart.cartObjects.append(CartObject(cartName: productType.cartName, price: myCart.priceDict[productType.referenceName]!, quantity: 1)) //create new checkout object for item since none currently exist
                                 } else {
                                     myCart.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
                                 }

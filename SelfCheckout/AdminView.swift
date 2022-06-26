@@ -813,7 +813,7 @@ struct AdminView: View {
                         HStack {
                             let cost = NumberFormatter().number(from: SmallCarrotsPrice)?.doubleValue
                             Text("Small Carrot Bag Price: ")
-                            TextField("Enter Item Price...", text: $LargeCarrotsPrice)
+                            TextField("Enter Item Price...", text: $SmallCarrotsPrice)
                             if (cost == nil) {
                                 Spacer()
                                 Text("Error. Please enter a valid price").foregroundColor(Color.red).bold()

@@ -70,6 +70,8 @@ struct CheckoutView: View {
     func makePayment() {
         var dollarAmount = Double(myCart.totalPrice)
         var centAmount = Int(dollarAmount*100)
+        myCart.totalPrice = 0 //reset total
+        myCart.cartObjects = [] //empty cart
                 // Replace with your app's URL scheme.
         let callbackURL = URL(string: "SelfCheckout://")!
                 // Your client ID is the same as your Square Application ID.
@@ -92,7 +94,7 @@ struct CheckoutView: View {
                             clearsDefaultFees: false,
                             returnsAutomaticallyAfterPayment: true,
                             disablesKeyedInCardEntry: true,
-                            skipsReceipt: false
+                            skipsReceipt: true
                         )
                     // Open Point of Sale to complete the payment.
 

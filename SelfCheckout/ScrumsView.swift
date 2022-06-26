@@ -56,7 +56,7 @@ struct ScrumsView: View {
                                         }
                                     } else {
                                         CardView(scrum: scrum).onTapGesture {
-                                            cartClass.totalPrice += Double(scrum.price)!
+                                            cartClass.totalPrice += Double(cartClass.priceDict[scrum.referenceName]!)!
                                             let findObject = CartObject.init(cartName: scrum.cartName, price: cartClass.priceDict[scrum.referenceName]!, quantity: 1)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
@@ -80,7 +80,7 @@ struct ScrumsView: View {
                                         }
                                     } else {
                                         CardView(scrum: scrum).onTapGesture {
-                                            cartClass.totalPrice += Double(scrum.price)!
+                                            cartClass.totalPrice += Double(cartClass.priceDict[scrum.referenceName]!)!
                                             let findObject = CartObject.init(cartName: scrum.cartName, price: cartClass.priceDict[scrum.referenceName]!, quantity: 1)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
@@ -103,7 +103,7 @@ struct ScrumsView: View {
                                         }
                                     } else {
                                         CardView(scrum: scrum).onTapGesture {
-                                            cartClass.totalPrice += Double(scrum.price)!
+                                            cartClass.totalPrice += Double(cartClass.priceDict[scrum.referenceName]!)!
                                             let findObject = CartObject.init(cartName: scrum.cartName, price: cartClass.priceDict[scrum.referenceName]!, quantity: 1)
                                             let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
                                             if (itemIndex == nil) {
