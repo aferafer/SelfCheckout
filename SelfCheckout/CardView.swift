@@ -21,7 +21,7 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
-    static var product = Products.sampleData[0]
+    static var product = Products.productData[0]
     static var previews: some View {
         CardView(product: product)
             .previewLayout(.fixed(width: 100, height: 400))

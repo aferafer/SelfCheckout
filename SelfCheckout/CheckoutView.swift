@@ -53,6 +53,7 @@ struct CheckoutView: View {
                         .cornerRadius(12)
                 }
                 Button {
+                    print(myCart.isAvailable)
                     myCart.cartObjects = []
                     myCart.totalPrice = 0
                 } label: {

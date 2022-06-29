@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E24D786286B82ED002739C3 /* priceEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E24D785286B82ED002739C3 /* priceEntryView.swift */; };
+		0E24D788286CACDA002739C3 /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E24D787286CACDA002739C3 /* FolderView.swift */; };
 		0E268ACF285B76B4007FA970 /* CartObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E268ACE285B76B4007FA970 /* CartObject.swift */; };
 		0E268AD1285CE606007FA970 /* CheckoutObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E268AD0285CE606007FA970 /* CheckoutObjectView.swift */; };
-		0E29D69F2843DBC500519E03 /* DailyScrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29D69E2843DBC500519E03 /* DailyScrum.swift */; };
+		0E29D69F2843DBC500519E03 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29D69E2843DBC500519E03 /* Products.swift */; };
 		0E29D6A12843DCE000519E03 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29D6A02843DCE000519E03 /* CardView.swift */; };
-		0E29D6A32843DF7700519E03 /* ScrumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29D6A22843DF7700519E03 /* ScrumsView.swift */; };
+		0E29D6A32843DF7700519E03 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29D6A22843DF7700519E03 /* ProductsView.swift */; };
 		0E29D6A52846762A00519E03 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29D6A42846762A00519E03 /* DetailView.swift */; };
 		0E2E482228410C40003DC5E9 /* SelfCheckoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2E482128410C40003DC5E9 /* SelfCheckoutApp.swift */; };
 		0E2E482628410C40003DC5E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E2E482528410C40003DC5E9 /* Assets.xcassets */; };
@@ -45,11 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E24D785286B82ED002739C3 /* priceEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priceEntryView.swift; sourceTree = "<group>"; };
+		0E24D787286CACDA002739C3 /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
 		0E268ACE285B76B4007FA970 /* CartObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartObject.swift; sourceTree = "<group>"; };
 		0E268AD0285CE606007FA970 /* CheckoutObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutObjectView.swift; sourceTree = "<group>"; };
-		0E29D69E2843DBC500519E03 /* DailyScrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScrum.swift; sourceTree = "<group>"; };
+		0E29D69E2843DBC500519E03 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		0E29D6A02843DCE000519E03 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		0E29D6A22843DF7700519E03 /* ScrumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumsView.swift; sourceTree = "<group>"; };
+		0E29D6A22843DF7700519E03 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		0E29D6A42846762A00519E03 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0E2E481E28410C40003DC5E9 /* SelfCheckout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelfCheckout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2E482128410C40003DC5E9 /* SelfCheckoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfCheckoutApp.swift; sourceTree = "<group>"; };
@@ -97,7 +101,7 @@
 		0E29D69D2843DBA900519E03 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0E29D69E2843DBC500519E03 /* DailyScrum.swift */,
+				0E29D69E2843DBC500519E03 /* Products.swift */,
 				0EB206F52856614E004EE9E9 /* ProductType.swift */,
 				0EB206F128529961004EE9E9 /* CheckoutClass.swift */,
 				0E268ACE285B76B4007FA970 /* CartObject.swift */,
@@ -133,9 +137,11 @@
 				0E2E482128410C40003DC5E9 /* SelfCheckoutApp.swift */,
 				0E29D6A02843DCE000519E03 /* CardView.swift */,
 				0EC6089E2847D53E00E16B3E /* CheckoutView.swift */,
-				0E29D6A22843DF7700519E03 /* ScrumsView.swift */,
+				0E29D6A22843DF7700519E03 /* ProductsView.swift */,
 				0EF88FF4285E6E910042D579 /* AdminView.swift */,
+				0E24D785286B82ED002739C3 /* priceEntryView.swift */,
 				0E29D6A42846762A00519E03 /* DetailView.swift */,
+				0E24D787286CACDA002739C3 /* FolderView.swift */,
 				0E268AD0285CE606007FA970 /* CheckoutObjectView.swift */,
 				0EB206F32856608F004EE9E9 /* ProductTypeView.swift */,
 				0E2E482528410C40003DC5E9 /* Assets.xcassets */,
@@ -306,15 +312,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E29D6A52846762A00519E03 /* DetailView.swift in Sources */,
-				0E29D69F2843DBC500519E03 /* DailyScrum.swift in Sources */,
+				0E29D69F2843DBC500519E03 /* Products.swift in Sources */,
 				0EF88FF5285E6E910042D579 /* AdminView.swift in Sources */,
+				0E24D786286B82ED002739C3 /* priceEntryView.swift in Sources */,
 				0EB206F42856608F004EE9E9 /* ProductTypeView.swift in Sources */,
 				0EC6089F2847D53E00E16B3E /* CheckoutView.swift in Sources */,
 				0E268ACF285B76B4007FA970 /* CartObject.swift in Sources */,
 				0E268AD1285CE606007FA970 /* CheckoutObjectView.swift in Sources */,
+				0E24D788286CACDA002739C3 /* FolderView.swift in Sources */,
 				0EB206F62856614E004EE9E9 /* ProductType.swift in Sources */,
 				0E29D6A12843DCE000519E03 /* CardView.swift in Sources */,
-				0E29D6A32843DF7700519E03 /* ScrumsView.swift in Sources */,
+				0E29D6A32843DF7700519E03 /* ProductsView.swift in Sources */,
 				0E2E482228410C40003DC5E9 /* SelfCheckoutApp.swift in Sources */,
 				0EB206F228529961004EE9E9 /* CheckoutClass.swift in Sources */,
 			);

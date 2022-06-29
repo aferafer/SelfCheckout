@@ -18,13 +18,13 @@ struct SelfCheckoutApp: App {
     var body: some Scene {
         WindowGroup {
             if (switchViews.switchToMainApp) {
-                //ScrumsView(products: Products.sampleData, total: 0)
+                //ScrumsView(products: Products.productData, total: 0)
                 //ChoiceView()
                 NavigationView {
-                    ScrumsView(products: Products.sampleData, cartClass: cartClass, total: 0)
+                    ScrumsView(products: Products.productData, cartClass: cartClass, total: 0)
                 }.navigationViewStyle(StackNavigationViewStyle())
             } else {
-                AdminView(products: Products.sampleData, cartData: cartClass, Switch: switchViews)
+                AdminView(products: Products.productData, cartData: cartClass, Switch: switchViews)
             }
         } //close windows group
     }

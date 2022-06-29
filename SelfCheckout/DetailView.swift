@@ -73,7 +73,7 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DetailView(myCart: CheckoutClass(), product: Products.sampleData[0])
+            DetailView(myCart: CheckoutClass(), product: Products.productData[0])
         }
     }
 }
