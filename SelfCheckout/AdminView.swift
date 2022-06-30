@@ -228,15 +228,25 @@ struct AdminView: View {
         Spacer(minLength: 10)
         Button {
             print("loading")
+            //Produce
+            cartData.isAvailable[isVisible.Arugala.rawValue] = ArugalaVisible
+            cartData.isAvailable[isVisible.Asparagus.rawValue] = AsparagusVisible
             cartData.isAvailable[isVisible.Basil.rawValue] = BasilVisible
+            cartData.isAvailable[isVisible.Filet_Beans.rawValue] = Filet_BeansVisible
             cartData.isAvailable[isVisible.Beets.rawValue] = BeetsVisible
+            cartData.isAvailable[isVisible.Bok_Choy.rawValue] = Bok_ChoyVisible
+            cartData.isAvailable[isVisible.Broccoli.rawValue] = BroccoliVisible
+            cartData.isAvailable[isVisible.Brussel_Sprouts.rawValue] = Brussel_SproutsVisible
+            cartData.isAvailable[isVisible.Butterhead_Lettuce.rawValue] = Butterhead_LettuceVisible
             cartData.isAvailable[isVisible.Cabbage.rawValue] = CabbageVisible
             cartData.isAvailable[isVisible.Carrots.rawValue] = CarrotsVisible
+            cartData.isAvailable[isVisible.Celariac.rawValue] = CelariacVisible
             cartData.isAvailable[isVisible.Cherry_Tomatoes.rawValue] = CherryTomatoesVisible
             cartData.isAvailable[isVisible.Cilantro.rawValue] = CilantroVisible
             cartData.isAvailable[isVisible.Cucumbers.rawValue] = CucumbersVisible
             cartData.isAvailable[isVisible.Dill.rawValue] = DillVisible
             cartData.isAvailable[isVisible.Egg_Plant.rawValue] = EggPlantVisible
+            cartData.isAvailable[isVisible.Endives.rawValue] = EndivesVisible
             cartData.isAvailable[isVisible.Fennel.rawValue] = FennelVisible
             cartData.isAvailable[isVisible.Garlic.rawValue] = GarlicVisible
             cartData.isAvailable[isVisible.Green_Onions.rawValue] = GreenOnionsVisible
@@ -247,38 +257,33 @@ struct AdminView: View {
             cartData.isAvailable[isVisible.Melons.rawValue] = MelonsVisible
             cartData.isAvailable[isVisible.Microgreens.rawValue] = MicrogreensVisible
             cartData.isAvailable[isVisible.Onions.rawValue] = OnionsVisible
+            cartData.isAvailable[isVisible.Onion_Bags.rawValue] = Onion_BagsVisible
             cartData.isAvailable[isVisible.Parsley.rawValue] = ParsleyVisible
+            cartData.isAvailable[isVisible.Parsnips.rawValue] = ParsnipsVisible
             cartData.isAvailable[isVisible.Peppers.rawValue] = PeppersVisible
             cartData.isAvailable[isVisible.Potatoes.rawValue] = PotatoesVisible
+            cartData.isAvailable[isVisible.Pumpkins.rawValue] = PumpkinsVisible
             cartData.isAvailable[isVisible.Radishes.rawValue] = RadishesVisible
+            cartData.isAvailable[isVisible.RedGreen_Headlettuce.rawValue] = RedGreen_HeadlettuceVisible
+            cartData.isAvailable[isVisible.Rutabaga.rawValue] = RutabagaVisible
             cartData.isAvailable[isVisible.Salad_Greens.rawValue] = SaladGreensVisible
             cartData.isAvailable[isVisible.Snow_Peas.rawValue] = SnowPeasVisible
             cartData.isAvailable[isVisible.Spinach.rawValue] = SpinachVisible
             cartData.isAvailable[isVisible.Squash.rawValue] = SquashVisible
             cartData.isAvailable[isVisible.Summer_Squash.rawValue] = SummerSquashVisible
+            cartData.isAvailable[isVisible.Sweet_Potatoes.rawValue] = Sweet_PotatoesVisible
             cartData.isAvailable[isVisible.Swiss_Chard.rawValue] = SwissChardVisible
+            cartData.isAvailable[isVisible.Tatsoi.rawValue] = TatsoiVisible
             cartData.isAvailable[isVisible.Tomatoes.rawValue] = TomatoesVisible
             cartData.isAvailable[isVisible.Turnips.rawValue] = TurnipsVisible
             
-            cartData.isAvailable[isVisible.Arugala.rawValue] = ArugalaVisible
-            cartData.isAvailable[isVisible.Asparagus.rawValue] = AsparagusVisible
-            cartData.isAvailable[isVisible.Tatsoi.rawValue] = TatsoiVisible
-            cartData.isAvailable[isVisible.Bok_Choy.rawValue] = Bok_ChoyVisible
-            cartData.isAvailable[isVisible.Broccoli.rawValue] = BroccoliVisible
-            cartData.isAvailable[isVisible.Celariac.rawValue] = CelariacVisible
-            cartData.isAvailable[isVisible.Brussel_Sprouts.rawValue] = Brussel_SproutsVisible
-            cartData.isAvailable[isVisible.Endives.rawValue] = EndivesVisible
-            cartData.isAvailable[isVisible.Parsnips.rawValue] = ParsnipsVisible
-            cartData.isAvailable[isVisible.Pumpkins.rawValue] = PumpkinsVisible
-            cartData.isAvailable[isVisible.Rutabaga.rawValue] = RutabagaVisible
-            cartData.isAvailable[isVisible.Sweet_Potatoes.rawValue] = Sweet_PotatoesVisible
-            cartData.isAvailable[isVisible.Butterhead_Lettuce.rawValue] = Butterhead_LettuceVisible
-            cartData.isAvailable[isVisible.RedGreen_Headlettuce.rawValue] = RedGreen_HeadlettuceVisible
-            cartData.isAvailable[isVisible.Onion_Bags.rawValue] = Onion_BagsVisible
-            cartData.isAvailable[isVisible.Filet_Beans.rawValue] = Filet_BeansVisible
             cartData.isAvailable[isVisible.Eggs.rawValue] = EggsVisible
             cartData.isAvailable[isVisible.Beet_Greens.rawValue] = Beet_GreensVisible
             cartData.isAvailable[isVisible.Romaine_Lettuce.rawValue] = Romaine_LettuceVisible
+            
+            //value added
+            
+            //retail
             
             cartData.isAvailable[isVisible.Salsa.rawValue] = SalsaVisible
             cartData.isAvailable[isVisible.Phil_Sauce.rawValue] = PhilSauceVisible
@@ -290,7 +295,7 @@ struct AdminView: View {
             cartData.isAvailable[isVisible.Lamb_Lasagna.rawValue] = LambLasagnaVisible
             cartData.isAvailable[isVisible.Carrot_Cake.rawValue] = CarrotCakeVisible
             cartData.isAvailable[isVisible.Baguette.rawValue] = BaguetteVisible
-            cartData.isAvailable[isVisible.Cheese.rawValue] = CheeseVisible
+            cartData.isAvailable[isVisible.Cheese.rawValue] = CheeseVisible//
             cartData.isAvailable[isVisible.Chicken.rawValue] = ChickenVisible
             cartData.isAvailable[isVisible.Coffee.rawValue] = CoffeeVisible
             cartData.isAvailable[isVisible.Ground_Beef.rawValue] = GroundBeefVisible

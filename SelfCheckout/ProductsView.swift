@@ -70,7 +70,7 @@ struct ScrumsView: View {
                                 
                             } //end forEach
                         } //end lazyHGrid
-                        Spacer(minLength: 50)
+                        Spacer(minLength: 160)
                         LazyHGrid(rows: rows, spacing: 10) {
                             ForEach(products, id: \.displayTitle) { product in
                                 if (product.catagory == Products.productCatagory.valueAdded && cartClass.isAvailable[product.referenceName]!) {
@@ -92,8 +92,8 @@ struct ScrumsView: View {
                                     } //end if-else
                                 }
                             }
-                        }
-                        Spacer(minLength: 50)
+                        }.frame(width: 300)
+                        //Spacer(minLength: 50)
                         LazyHGrid(rows: rows, spacing: 10) {
                             ForEach(products, id: \.displayTitle) { product in
                                 if (product.catagory == Products.productCatagory.retail && cartClass.isAvailable[product.referenceName]!) {
