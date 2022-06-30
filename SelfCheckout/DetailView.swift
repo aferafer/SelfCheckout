@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DetailView: View {
     @ObservedObject var myCart: CheckoutClass
@@ -22,21 +23,27 @@ struct DetailView: View {
                     .frame(height: 50)
                 VStack {
                     HStack {
-                        TextField("Enter Price Here", text: $customPrice, onEditingChanged: { (isBegin) in
+                        TextField("input price", text: $customPrice, onEditingChanged: {(isBegin) in
                             if isBegin {
-                                print("Begins editing")
+                                print("User has begun editing")
                             }
                         },
-                        onCommit: {
+                                  onCommit: {
                             myCart.cartObjects.append(CartObject(cartName: product.cartName, price: customPrice, quantity: 1))
                             myCart.totalPrice += Double(customPrice)!
                             action: do { self.presentationMode.wrappedValue.dismiss() }
                         })
-                        .keyboardType(.decimalPad)
-                        .padding(20)
-                        .frame(width: 240, height: 100)
-                        .font(.largeTitle)
-                        .border(Color.black)
+                            .keyboardType(.numberPad)
+                            .padding(20)
+                            .frame(width: 240, height: 100)
+                            .font(.largeTitle)
+                            .border(Color.black)
+                            .onReceive(Just(customPrice)) { newValue in
+                                let filtered = newValue.filter { "0123456789.".contains($0) }
+                                if filtered != newValue {
+                                    self.customPrice = filtered
+                                }
+                            }
                     }
                 }
             }

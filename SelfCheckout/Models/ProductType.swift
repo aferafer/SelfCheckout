@@ -33,6 +33,12 @@ extension ProductType {
         ProductType(parentProduct: "Melon", referenceName: "MediumMelons", displayName: "Medium Melons", cartName: "Medium Melon", pic: "melons"),
         ProductType(parentProduct: "Melon", referenceName: "LargeMelons", displayName: "Large Melons", cartName: "Large Melon", pic: "melons"),
         
+        ProductType(parentProduct: "Honey", referenceName: "Wildflower_Honey", displayName: "Wildflower", cartName: "Wildflower Honey Jar", pic: "wildflower_honey"),
+        ProductType(parentProduct: "Honey", referenceName: "White_Cream_Honey", displayName: "White Cream", cartName: "White Cream Honey Jar", pic: "white_cream_honey"),
+        ProductType(parentProduct: "Honey", referenceName: "Cinamon_Cream_Honey", displayName: "Cinamon Cream", cartName: "Cinamon Cream Honey Jar", pic: "cinamon_cream_honey"),
+        //cartData.isAvailable[isVisible.Wildflower_Honey.rawValue] = Wildflower_HoneyVisible
+        //cartData.isAvailable[isVisible.White_Cream_Honey.rawValue] = White_Cream_HoneyVisible
+        //cartData.isAvailable[isVisible.Cinamon_Cream_Honey.rawValue] = Cinamon_Cream_HoneyVisible
     ]
 }
 
