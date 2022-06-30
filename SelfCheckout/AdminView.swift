@@ -96,10 +96,11 @@ struct AdminView: View {
     @AppStorage(isVisible.Pickled_Cauliflower.rawValue) var Pickled_CauliflowerVisible = true
     @AppStorage(isVisible.Zuchini_Relish.rawValue) var Zuchini_RelishVisible = true
     @AppStorage(isVisible.Beef_Burgers.rawValue) var Beef_BurgersVisible = true
-    @AppStorage(isVisible.Wildflower_Honey.rawValue) var Wildflower_HoneyVisible = true
-    @AppStorage(isVisible.White_Cream_Honey.rawValue) var White_Cream_HoneyVisible = true
+    //@AppStorage(isVisible.Wildflower_Honey.rawValue) var Wildflower_HoneyVisible = true
+    //@AppStorage(isVisible.White_Cream_Honey.rawValue) var White_Cream_HoneyVisible = true
     @AppStorage(isVisible.Chocolate_Bar.rawValue) var Chocolate_BarVisible = true
-    @AppStorage(isVisible.Cinamon_Cream_Honey.rawValue) var Cinamon_Cream_HoneyVisible = true
+    //@AppStorage(isVisible.Cinamon_Cream_Honey.rawValue) var Cinamon_Cream_HoneyVisible = true
+    @AppStorage(isVisible.Honey.rawValue) var HoneyVisible = true
     @AppStorage(isVisible.French_Loaf.rawValue) var French_LoafVisible = true
     @AppStorage(isVisible.Baba_Ganoush.rawValue) var Baba_GanoushVisible = true
     @AppStorage(isVisible.TBone_Steak.rawValue) var TBone_SteakVisible = true
@@ -303,10 +304,11 @@ struct AdminView: View {
             cartData.isAvailable[isVisible.Pickled_Cauliflower.rawValue] = Pickled_CauliflowerVisible
             cartData.isAvailable[isVisible.Zuchini_Relish.rawValue] = Zuchini_RelishVisible
             cartData.isAvailable[isVisible.Beef_Burgers.rawValue] = Beef_BurgersVisible
-            cartData.isAvailable[isVisible.Wildflower_Honey.rawValue] = Wildflower_HoneyVisible
-            cartData.isAvailable[isVisible.White_Cream_Honey.rawValue] = White_Cream_HoneyVisible
+            //cartData.isAvailable[isVisible.Wildflower_Honey.rawValue] = Wildflower_HoneyVisible
+            //cartData.isAvailable[isVisible.White_Cream_Honey.rawValue] = White_Cream_HoneyVisible
             cartData.isAvailable[isVisible.Chocolate_Bar.rawValue] = Chocolate_BarVisible
-            cartData.isAvailable[isVisible.Cinamon_Cream_Honey.rawValue] = Cinamon_Cream_HoneyVisible
+            //cartData.isAvailable[isVisible.Cinamon_Cream_Honey.rawValue] = Cinamon_Cream_HoneyVisible
+            cartData.isAvailable[isVisible.Honey.rawValue] = HoneyVisible
             cartData.isAvailable[isVisible.French_Loaf.rawValue] = French_LoafVisible
             cartData.isAvailable[isVisible.Baba_Ganoush.rawValue] = Baba_GanoushVisible
             cartData.isAvailable[isVisible.TBone_Steak.rawValue] = TBone_SteakVisible
@@ -590,19 +592,20 @@ struct AdminView: View {
                             Toggle(isOn: $CheeseVisible) {Text("Cheese Visible?")}
                             Toggle(isOn: $ChickenVisible) {Text("Chicken Visible?")}
                             Toggle(isOn: $Chocolate_BarVisible) {Text("Chocolate bars Visible?")}
-                            Toggle(isOn: $Cinamon_Cream_HoneyVisible) {Text("Cinamon Cream Honey Visible?")}
+                            //Toggle(isOn: $Cinamon_Cream_HoneyVisible) {Text("Cinamon Cream Honey Visible?")}
                             Toggle(isOn: $Coconut_YogurtVisible) {Text("Coconut Yogurt Visible?")}
                             Toggle(isOn: $CoffeeVisible) {Text("Coffee Visible?")}
                             Toggle(isOn: $Date_CookiesVisible) {Text("Date Cookies Visible?")}
                             Toggle(isOn: $FalafelsVisible) {Text("Falafels Visible?")}
                             Toggle(isOn: $French_LoafVisible) {Text("French Loaf Visible?")}
+                            Toggle(isOn: $GroundBeefVisible) {Text("Ground Beef Visible?")}
                         }
                         .padding(5)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10.0)
                                 .stroke(lineWidth: 2.0))
                         Group {
-                            Toggle(isOn: $GroundBeefVisible) {Text("Ground Beef Visible?")}
+                            Toggle(isOn: $HoneyVisible) {Text("Honey Visible?")}
                             Toggle(isOn: $KabsaVisible) {Text("Kabsa Visible?")}
                             Toggle(isOn: $LambLasagnaVisible) {Text("Lamb Lasagna Visible?")}
                             Toggle(isOn: $Pickled_AsparagusVisible) {Text("Pickled Asparagus Visible?")}
@@ -618,8 +621,8 @@ struct AdminView: View {
                             RoundedRectangle(cornerRadius: 10.0)
                                 .stroke(lineWidth: 2.0))
                         Group {
-                            Toggle(isOn: $White_Cream_HoneyVisible) {Text("White Cream Honey Visible?")}
-                            Toggle(isOn: $Wildflower_HoneyVisible) {Text("Wildflower Honey Visible?")}
+                            //Toggle(isOn: $White_Cream_HoneyVisible) {Text("White Cream Honey Visible?")}
+                            //Toggle(isOn: $Wildflower_HoneyVisible) {Text("Wildflower Honey Visible?")}
                             Toggle(isOn: $YalanjiVisible) {Text("Yalanji Visible?")}
                             
                         }
@@ -928,6 +931,7 @@ extension AdminView {
         case PWhite_Cream_Honey
         case PChocolate_Bar
         case PCinamon_Cream_Honey
+        case PHoney
         case PFrench_Loaf
         case PBaba_Ganoush
         case PTBone_Steak
@@ -1024,6 +1028,7 @@ extension AdminView {
         case White_Cream_Honey
         case Chocolate_Bar
         case Cinamon_Cream_Honey
+        case Honey
         case French_Loaf
         case Baba_Ganoush
         case TBone_Steak
