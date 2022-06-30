@@ -16,31 +16,23 @@ struct CheckoutView: View {
             Text("Your Items")
                 .underline()
             Divider()
-            ScrollView {
-                VStack {
-                    ForEach(myCart.cartObjects) { item in
-                        if (item.quantity > 0) {
-                            HStack {
-                                Text(String(item.quantity))
-                                Text("·").bold().font(.custom("San Francisco", size: 25))
-                                Text(item.name)
-                                Spacer()
-                                Text(String(format: "%.2f", Double(item.price)! * Double(item.quantity)))
-                                Button {
-                                    let findObject = CartObject.init(name: item.name, price: item.price, quantity: 0)
-                                    myCart.cartObjects = myCart.cartObjects.filter { $0 != findObject }
-                                    print("clear item not working")
-                                }  label: {
-                                    Text("x")
-                                        .foregroundColor(Color.black)
-                                        .bold()
-                                        .font(.custom("San Francisco", size: 25))
-                                        .offset(x: 0, y: -2)
-                                }
-
+            ScrollViewReader { scrollView in
+                ScrollView {
+                    VStack {
+                        ForEach($myCart.cartObjects) { $item in
+                            if (item.quantity > 0) {
+                                CheckoutObjectView(myCart: myCart, item: $item)
+                                    .id(myCart.cartObjects.count)
                             }
                         }
                     }
+                }
+                .onChange(of: myCart.cartObjects) { _ in
+                    print("count: " + String(myCart.cartObjects.count))
+                    scrollView.scrollTo(myCart.cartObjects.count)
+                }
+                if (myCart.cartObjects.count > 17) {
+                    Text("Display space exceeded. Scroll down to view new checkout items")
                 }
             }
             Spacer()
@@ -61,6 +53,7 @@ struct CheckoutView: View {
                         .cornerRadius(12)
                 }
                 Button {
+                    print(myCart.isAvailable)
                     myCart.cartObjects = []
                     myCart.totalPrice = 0
                 } label: {
@@ -78,6 +71,8 @@ struct CheckoutView: View {
     func makePayment() {
         var dollarAmount = Double(myCart.totalPrice)
         var centAmount = Int(dollarAmount*100)
+        myCart.totalPrice = 0 //reset total
+        myCart.cartObjects = [] //empty cart
                 // Replace with your app's URL scheme.
         let callbackURL = URL(string: "SelfCheckout://")!
                 // Your client ID is the same as your Square Application ID.
@@ -100,7 +95,7 @@ struct CheckoutView: View {
                             clearsDefaultFees: false,
                             returnsAutomaticallyAfterPayment: true,
                             disablesKeyedInCardEntry: true,
-                            skipsReceipt: false
+                            skipsReceipt: true
                         )
                     // Open Point of Sale to complete the payment.
 

@@ -7,14 +7,25 @@
 
 import SwiftUI
 
+class AppState: ObservableObject {
+    @Published var switchToMainApp = false
+}
+
 @main
 struct SelfCheckoutApp: App {
+    @StateObject var cartClass = CheckoutClass()
+    @ObservedObject var switchViews = AppState()
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                ScrumsView(scrums: DailyScrum.sampleData, total: 0)
+            if (switchViews.switchToMainApp) {
+                //ScrumsView(products: Products.productData, total: 0)
+                //ChoiceView()
+                NavigationView {
+                    ScrumsView(products: Products.productData, cartClass: cartClass, total: 0)
+                }.navigationViewStyle(StackNavigationViewStyle())
+            } else {
+                AdminView(products: Products.productData, cartData: cartClass, Switch: switchViews)
             }
-            .navigationViewStyle(StackNavigationViewStyle())
-        }
+        } //close windows group
     }
 }
