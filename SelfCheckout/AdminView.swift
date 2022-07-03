@@ -22,7 +22,9 @@ struct AdminView: View {
     }
         
     //whether or not item is available and should be displayed
-    @AppStorage(isVisible.Carrots.rawValue) var CarrotsVisible = true
+    @AppStorage(isVisible.Carrots.rawValue) var CarrotsVisible = true //options
+    @AppStorage(isVisible.Small_Carrots.rawValue) var SmallCarrotsVisible = true
+    @AppStorage(isVisible.Large_Carrots.rawValue) var LargeCarrotsVisible = true
     @AppStorage(isVisible.Head_Lettuce.rawValue) var HeadLettuceVisible = true
     @AppStorage(isVisible.Salad_Greens.rawValue) var SaladGreensVisible = true
     @AppStorage(isVisible.Kale.rawValue) var KaleVisible = true
@@ -33,6 +35,8 @@ struct AdminView: View {
     @AppStorage(isVisible.Tomatoes.rawValue) var TomatoesVisible = true
     @AppStorage(isVisible.Cherry_Tomatoes.rawValue) var CherryTomatoesVisible = true
     @AppStorage(isVisible.Peppers.rawValue) var PeppersVisible = true
+    @AppStorage(isVisible.Green_Peppers.rawValue) var GreenPeppersVisible = true
+    @AppStorage(isVisible.Colored_Peppers.rawValue) var ColoredPeppersVisible = true
     @AppStorage(isVisible.Egg_Plant.rawValue) var EggPlantVisible = true
     @AppStorage(isVisible.Cucumbers.rawValue) var CucumbersVisible = true
     @AppStorage(isVisible.Parsley.rawValue) var ParsleyVisible = true
@@ -47,6 +51,9 @@ struct AdminView: View {
     @AppStorage(isVisible.Summer_Squash.rawValue) var SummerSquashVisible = true
     @AppStorage(isVisible.Squash.rawValue) var SquashVisible = true
     @AppStorage(isVisible.Melons.rawValue) var MelonsVisible = true
+    @AppStorage(isVisible.Small_Melons.rawValue) var SmallMelonsVisible = true
+    @AppStorage(isVisible.Medium_Melons.rawValue) var MediumMelonsVisible = true
+    @AppStorage(isVisible.Large_Melons.rawValue) var LargeMelonsVisible = true
     @AppStorage(isVisible.Snow_Peas.rawValue) var SnowPeasVisible = true
     @AppStorage(isVisible.Microgreens.rawValue) var MicrogreensVisible = true
     @AppStorage(isVisible.Radishes.rawValue) var RadishesVisible = true
@@ -96,10 +103,10 @@ struct AdminView: View {
     @AppStorage(isVisible.Pickled_Cauliflower.rawValue) var Pickled_CauliflowerVisible = true
     @AppStorage(isVisible.Zuchini_Relish.rawValue) var Zuchini_RelishVisible = true
     @AppStorage(isVisible.Beef_Burgers.rawValue) var Beef_BurgersVisible = true
-    //@AppStorage(isVisible.Wildflower_Honey.rawValue) var Wildflower_HoneyVisible = true
-    //@AppStorage(isVisible.White_Cream_Honey.rawValue) var White_Cream_HoneyVisible = true
+    @AppStorage(isVisible.Wildflower_Honey.rawValue) var Wildflower_HoneyVisible = true
+    @AppStorage(isVisible.White_Cream_Honey.rawValue) var White_Cream_HoneyVisible = true
     @AppStorage(isVisible.Chocolate_Bar.rawValue) var Chocolate_BarVisible = true
-    //@AppStorage(isVisible.Cinamon_Cream_Honey.rawValue) var Cinamon_Cream_HoneyVisible = true
+    @AppStorage(isVisible.Cinamon_Cream_Honey.rawValue) var Cinamon_Cream_HoneyVisible = true
     @AppStorage(isVisible.Honey.rawValue) var HoneyVisible = true
     @AppStorage(isVisible.French_Loaf.rawValue) var French_LoafVisible = true
     @AppStorage(isVisible.Baba_Ganoush.rawValue) var Baba_GanoushVisible = true
@@ -118,25 +125,25 @@ struct AdminView: View {
 
     //item prices
     //@AppStorage(price.PCarrots.rawValue) var CarrotsPrice = "3.25" //variations
-    @AppStorage(price.PSmallCarrots.rawValue) var SmallCarrotsPrice = "3.75"
-    @AppStorage(price.PLargeCarrots.rawValue) var LargeCarrotsPrice = "6.50"
+    @AppStorage(price.PSmall_Carrots.rawValue) var SmallCarrotsPrice = "3.75"
+    @AppStorage(price.PLarge_Carrots.rawValue) var LargeCarrotsPrice = "6.50"
     
     @AppStorage(price.PHead_Lettuce.rawValue) var HeadLettucePrice = "3.75"
     @AppStorage(price.PSalad_Greens.rawValue) var SaladGreensPrice = "5.50"
     @AppStorage(price.PKale.rawValue) var KalePrice = "5.25"
     @AppStorage(price.PSwiss_Chard.rawValue) var SwissChardPrice = "5.25"
     //@AppStorage(price.PBeets.rawValue) var BeetsPrice = "3.00" //variations
-    @AppStorage(price.PStripedBeets.rawValue) var StripedBeetsPrice = "3.75"
-    @AppStorage(price.PCylindraBeets.rawValue) var CylindraBeetsPrice = "3.75"
-    @AppStorage(price.PGoldenBeets.rawValue) var GoldenBeetsPrice = "3.75"
+    @AppStorage(price.PStriped_Beets.rawValue) var StripedBeetsPrice = "3.75"
+    @AppStorage(price.PCylindra_Beets.rawValue) var CylindraBeetsPrice = "3.75"
+    @AppStorage(price.PGolden_Beets.rawValue) var GoldenBeetsPrice = "3.75"
     
     @AppStorage(price.PLeeks.rawValue) var LeeksPrice = "5.00"
     @AppStorage(price.PSpinach.rawValue) var SpinachPrice = "5.50"
     @AppStorage(price.PTomatoes.rawValue) var TomatoesPrice = "5.00"
     @AppStorage(price.PCherry_Tomatoes.rawValue) var CherryTomatoesPrice = "3.00"
     //@AppStorage(price.PPeppers.rawValue) var PeppersPrice = "3.00" //variations
-    @AppStorage(price.PGreenPeppers.rawValue) var GreenPeppersPrice = "1.50"
-    @AppStorage(price.PColoredPeppers.rawValue) var ColoredPeppersPrice = "3.00"
+    @AppStorage(price.PGreen_Peppers.rawValue) var GreenPeppersPrice = "1.50"
+    @AppStorage(price.PColored_Peppers.rawValue) var ColoredPeppersPrice = "3.00"
     
     @AppStorage(price.PEgg_Plant.rawValue) var EggPlantPrice = "2.00"
     @AppStorage(price.PCucumbers.rawValue) var CucumbersPrice = "2.00"
@@ -151,9 +158,9 @@ struct AdminView: View {
     @AppStorage(price.POnions.rawValue) var OnionsPrice = "2.00" //and 1.75 * 5 for 5 pound bags
     @AppStorage(price.PSummer_Squash.rawValue) var SummerSquashPrice = "1.50"
     //@AppStorage(price.PMelons.rawValue) var MelonsPrice = "3.00" //variations
-    @AppStorage(price.PSmallMelons.rawValue) var SmallMelonsPrice = "3.00"
-    @AppStorage(price.PMediumMelons.rawValue) var MediumMelonsPrice = "4.00"
-    @AppStorage(price.PLargeMelons.rawValue) var LargeMelonsPrice = "5.00"
+    @AppStorage(price.PSmall_Melons.rawValue) var SmallMelonsPrice = "3.00"
+    @AppStorage(price.PMedium_Melons.rawValue) var MediumMelonsPrice = "4.00"
+    @AppStorage(price.PLarge_Melons.rawValue) var LargeMelonsPrice = "5.00"
     
     @AppStorage(price.PSnow_Peas.rawValue) var SnowPeasPrice = "2.25" //starts off at 2.25 then doubles in size and changes to 4
     @AppStorage(price.PMicrogreens.rawValue) var MicrogreensPrice = "5.00"
@@ -165,74 +172,79 @@ struct AdminView: View {
     @AppStorage(price.PArugala.rawValue) var ArugalaPrice = "5.25"
     @AppStorage(price.PAsparagus.rawValue) var AsparagusPrice = "5.00"
     @AppStorage(price.PTatsoi.rawValue) var TatsoiPrice = "5.00" //tbd
-    @AppStorage(price.PBok_Choy.rawValue) var Bok_ChoyPrice = "5.00" //tbd
+    @AppStorage(price.PBok_Choy.rawValue) var Bok_ChoyPrice = "5.25" //tbd
     @AppStorage(price.PBroccoli.rawValue) var BroccoliPrice = "5.00"
     @AppStorage(price.PCelariac.rawValue) var CelariacPrice = "5.00"
-    @AppStorage(price.PBrussel_Sprouts.rawValue) var Brussel_SproutsPrice = "5.00"
-    @AppStorage(price.PEndives.rawValue) var EndivesPrice = "5.00"
+    @AppStorage(price.PBrussel_Sprouts.rawValue) var Brussel_SproutsPrice = "5.00"//
+    @AppStorage(price.PEndives.rawValue) var EndivesPrice = "5.25"
     @AppStorage(price.PParsnips.rawValue) var ParsnipsPrice = "5.00"
-    @AppStorage(price.PPumpkins.rawValue) var PumpkinsPrice = "5.00"
+    @AppStorage(price.PPumpkins.rawValue) var PumpkinsPrice = "5.00"//do the same as melons
     @AppStorage(price.PRutabaga.rawValue) var RutabagaPrice = "5.00"
     @AppStorage(price.PSweet_Potatoes.rawValue) var Sweet_PotatoesPrice = "5.00"
-    @AppStorage(price.PButterhead_Lettuce.rawValue) var Butterhead_LettucePrice = "5.00"
-    @AppStorage(price.PRedGreen_Headlettuce.rawValue) var RedGreen_HeadlettucePrice = "5.00"
-    @AppStorage(price.POnion_Bags.rawValue) var Onion_BagsPrice = "5.00"
-    @AppStorage(price.PFilet_Beans.rawValue) var Filet_BeansPrice = "5.00"
-    @AppStorage(price.PEggs.rawValue) var EggsPrice = "5.00"
-    @AppStorage(price.PBeet_Greens.rawValue) var Beet_GreensPrice = "5.00"
-    @AppStorage(price.PRomaine_Lettuce.rawValue) var Romaine_LettucePrice = "5.00"
+    @AppStorage(price.PButterhead_Lettuce.rawValue) var Butterhead_LettucePrice = "3.75"
+    @AppStorage(price.PRedGreen_Headlettuce.rawValue) var RedGreen_HeadlettucePrice = "6.50"
+    @AppStorage(price.POnion_Bags.rawValue) var Onion_BagsPrice = "8.75"
+    @AppStorage(price.PFilet_Beans.rawValue) var Filet_BeansPrice = "3.50" //check store
+    @AppStorage(price.PEggs.rawValue) var EggsPrice = "7.25"
+    @AppStorage(price.PBeet_Greens.rawValue) var Beet_GreensPrice = "5.25"
+    @AppStorage(price.PRomaine_Lettuce.rawValue) var Romaine_LettucePrice = "3.75"
     
-    @AppStorage(price.PSalsa.rawValue) var SalsaPrice = "5.00"
+    @AppStorage(price.PSalsa.rawValue) var SalsaPrice = "10.00"
     @AppStorage(price.PPhil_Sauce.rawValue) var PhilSaucePrice = "5.00"
-    @AppStorage(price.PPickled_Onions.rawValue) var PickledOnionsPrice = "5.00"
-    @AppStorage(price.PSoup.rawValue) var SoupPrice = "5.00"
-    @AppStorage(price.PPickled_Beets.rawValue) var PickledBeetsPrice = "3.00"
-    @AppStorage(price.PPickled_Carrots.rawValue) var PickledCarrotsPrice = "3.00"
-    @AppStorage(price.PSweet_Carrots.rawValue) var SweetCarrotsPrice = "3.00"
-    @AppStorage(price.PLamb_Lasagna.rawValue) var LambLasagnaPrice = "3.00"
-    @AppStorage(price.PCarrot_Cake.rawValue) var CarrotCakePrice = "3.00"
-    @AppStorage(price.PBaguette.rawValue) var BaguettePrice = "3.00"
+    @AppStorage(price.PPickled_Onions.rawValue) var PickledOnionsPrice = "6.50"
+    @AppStorage(price.PSoup.rawValue) var SoupPrice = "10.00"
+    @AppStorage(price.PPickled_Beets.rawValue) var PickledBeetsPrice = "6.50"
+    @AppStorage(price.PPickled_Carrots.rawValue) var PickledCarrotsPrice = "8.50"
+    @AppStorage(price.PSweet_Carrots.rawValue) var SweetCarrotsPrice = "3.00" //delete
+    @AppStorage(price.PLamb_Lasagna.rawValue) var LambLasagnaPrice = "26.00"
+    @AppStorage(price.PCarrot_Cake.rawValue) var CarrotCakePrice = "8.50"
+    @AppStorage(price.PBaguette.rawValue) var BaguettePrice = "5.00"
     @AppStorage(price.PCheese.rawValue) var CheesePrice = "3.00"
-    @AppStorage(price.PChicken.rawValue) var ChickenPrice = "3.00"
-    @AppStorage(price.PCoffee.rawValue) var CoffeePrice = "3.00"
-    @AppStorage(price.PGround_Beef.rawValue) var GroundBeefPrice = "3.00"
-    @AppStorage(price.PStewing_Beef.rawValue) var StewingBeefPrice = "3.00"
-    @AppStorage(price.PWhole_Chicken.rawValue) var WholeChickenPrice = "3.00"
+    @AppStorage(price.PChicken.rawValue) var ChickenPrice = "3.00" //unique price
+    @AppStorage(price.PCoffee.rawValue) var CoffeePrice = "16.00"
+    @AppStorage(price.PGround_Beef.rawValue) var GroundBeefPrice = "6.50"
+    @AppStorage(price.PStewing_Beef.rawValue) var StewingBeefPrice = "3.00" //check store. Not sure if by weight or constant price
+    @AppStorage(price.PWhole_Chicken.rawValue) var WholeChickenPrice = "3.00" //custom price
     
-    @AppStorage(price.PDill_Carrots.rawValue) var Dill_CarrotsPrice = "5.00"
-    @AppStorage(price.PPickled_Asparagus.rawValue) var Pickled_AsparagusPrice = "5.00"
-    @AppStorage(price.PRed_Onion_Jam.rawValue) var Red_Onion_JamPrice = "5.00"
-    @AppStorage(price.PPickled_Cauliflower.rawValue) var Pickled_CauliflowerPrice = "5.00"
-    @AppStorage(price.PZuchini_Relish.rawValue) var Zuchini_RelishPrice = "5.00"
-    @AppStorage(price.PBeef_Burgers.rawValue) var Beef_BurgersPrice = "5.00"
-    @AppStorage(price.PWildflower_Honey.rawValue) var Wildflower_HoneyPrice = "5.00"
-    @AppStorage(price.PWhite_Cream_Honey.rawValue) var White_Cream_HoneyPrice = "5.00"
-    @AppStorage(price.PChocolate_Bar.rawValue) var Chocolate_BarPrice = "5.00"
-    @AppStorage(price.PCinamon_Cream_Honey.rawValue) var Cinamon_Cream_HoneyPrice = "5.00"
-    @AppStorage(price.PFrench_Loaf.rawValue) var French_LoafPrice = "5.00"
-    @AppStorage(price.PBaba_Ganoush.rawValue) var Baba_GanoushPrice = "5.00"
+    @AppStorage(price.PDill_Carrots.rawValue) var Dill_CarrotsPrice = "8.50"
+    @AppStorage(price.PPickled_Asparagus.rawValue) var Pickled_AsparagusPrice = "11.00" //check store
+    @AppStorage(price.PRed_Onion_Jam.rawValue) var Red_Onion_JamPrice = "6.50" //hockley pickling and vegan meals trying to get rid of
+    @AppStorage(price.PPickled_Cauliflower.rawValue) var Pickled_CauliflowerPrice = "12.00" //check store
+    @AppStorage(price.PZuchini_Relish.rawValue) var Zuchini_RelishPrice = "7.00"
+    @AppStorage(price.PBeef_Burgers.rawValue) var Beef_BurgersPrice = "13.00"
+    @AppStorage(price.PWildflower_Honey.rawValue) var Wildflower_HoneyPrice = "15.00"//
+    @AppStorage(price.PWhite_Cream_Honey.rawValue) var White_Cream_HoneyPrice = "16.65"//
+    @AppStorage(price.PChocolate_Bar.rawValue) var Chocolate_BarPrice = "6.75"
+    @AppStorage(price.PCinamon_Cream_Honey.rawValue) var Cinamon_Cream_HoneyPrice = "16.65"//
+    @AppStorage(price.PFrench_Loaf.rawValue) var French_LoafPrice = "6.00"
+    @AppStorage(price.PBaba_Ganoush.rawValue) var Baba_GanoushPrice = "5.50"
     @AppStorage(price.PTBone_Steak.rawValue) var TBone_SteakPrice = "5.00"
-    @AppStorage(price.PYalanji.rawValue) var YalanjiPrice = "5.00"
+    @AppStorage(price.PYalanji.rawValue) var YalanjiPrice = "6.00" //
     @AppStorage(price.PDate_Cookies.rawValue) var Date_CookiesPrice = "5.00"
-    @AppStorage(price.PTurkey_Pot_Pie.rawValue) var Turkey_Pot_PiePrice = "5.00"
-    @AppStorage(price.PBeef_Sausage.rawValue) var Beef_SausagePrice = "5.00"
-    @AppStorage(price.PButter_Chicken_Curry.rawValue) var Butter_Chicken_CurryPrice = "5.00"
-    @AppStorage(price.PBeef_Lasagna.rawValue) var Beef_LasagnaPrice = "5.00"
+    @AppStorage(price.PTurkey_Pot_Pie.rawValue) var Turkey_Pot_PiePrice = "12.00" //
+    @AppStorage(price.PBeef_Sausage.rawValue) var Beef_SausagePrice = "12.00" //check if custom price
+    @AppStorage(price.PButter_Chicken_Curry.rawValue) var Butter_Chicken_CurryPrice = "26.00"
+    @AppStorage(price.PBeef_Lasagna.rawValue) var Beef_LasagnaPrice = "26.00"
     @AppStorage(price.PChutney.rawValue) var ChutneyPrice = "5.00"
-    @AppStorage(price.PKabsa.rawValue) var KabsaPrice = "5.00"
-    @AppStorage(price.PSamosas.rawValue) var SamosasPrice = "5.00"
-    @AppStorage(price.PCoconut_Yogurt.rawValue) var Coconut_YogurtPrice = "5.00"
-    @AppStorage(price.PFalafels.rawValue) var FalafelsPrice = "5.00"
+    @AppStorage(price.PKabsa.rawValue) var KabsaPrice = "5.00" //variations with nuts its 5.50
+    @AppStorage(price.PSamosas.rawValue) var SamosasPrice = "60.00"
+    @AppStorage(price.PCoconut_Yogurt.rawValue) var Coconut_YogurtPrice = "12.00"
+    @AppStorage(price.PFalafels.rawValue) var FalafelsPrice = "7.00"
     
 
     var body: some View {
         Spacer(minLength: 10)
         Button {
             print("loading")
-            cartData.isAvailable[isVisible.Basil.rawValue] = BasilVisible
             cartData.isAvailable[isVisible.Beets.rawValue] = BeetsVisible
+            cartData.isAvailable[isVisible.Cylindra_Beets.rawValue] = BeetsVisible
+            cartData.isAvailable[isVisible.Golden_Beets.rawValue] = BeetsVisible
+            cartData.isAvailable[isVisible.Striped_Beets.rawValue] = BeetsVisible
+            cartData.isAvailable[isVisible.Basil.rawValue] = BasilVisible
             cartData.isAvailable[isVisible.Cabbage.rawValue] = CabbageVisible
             cartData.isAvailable[isVisible.Carrots.rawValue] = CarrotsVisible
+            cartData.isAvailable[isVisible.Small_Carrots.rawValue] = CarrotsVisible
+            cartData.isAvailable[isVisible.Large_Carrots.rawValue] = CarrotsVisible
             cartData.isAvailable[isVisible.Cherry_Tomatoes.rawValue] = CherryTomatoesVisible
             cartData.isAvailable[isVisible.Cilantro.rawValue] = CilantroVisible
             cartData.isAvailable[isVisible.Cucumbers.rawValue] = CucumbersVisible
@@ -245,11 +257,16 @@ struct AdminView: View {
             cartData.isAvailable[isVisible.Kale.rawValue] = KaleVisible
             cartData.isAvailable[isVisible.Kohlrabi.rawValue] = KohlrabiVisible
             cartData.isAvailable[isVisible.Leeks.rawValue] = LeeksVisible
+            cartData.isAvailable[isVisible.Small_Melons.rawValue] = SmallMelonsVisible
+            cartData.isAvailable[isVisible.Medium_Melons.rawValue] = MediumMelonsVisible
+            cartData.isAvailable[isVisible.Large_Melons.rawValue] = LargeMelonsVisible
             cartData.isAvailable[isVisible.Melons.rawValue] = MelonsVisible
             cartData.isAvailable[isVisible.Microgreens.rawValue] = MicrogreensVisible
             cartData.isAvailable[isVisible.Onions.rawValue] = OnionsVisible
             cartData.isAvailable[isVisible.Parsley.rawValue] = ParsleyVisible
             cartData.isAvailable[isVisible.Peppers.rawValue] = PeppersVisible
+            cartData.isAvailable[isVisible.Green_Peppers.rawValue] = GreenPeppersVisible
+            cartData.isAvailable[isVisible.Colored_Peppers.rawValue] = ColoredPeppersVisible
             cartData.isAvailable[isVisible.Potatoes.rawValue] = PotatoesVisible
             cartData.isAvailable[isVisible.Radishes.rawValue] = RadishesVisible
             cartData.isAvailable[isVisible.Salad_Greens.rawValue] = SaladGreensVisible
@@ -304,10 +321,10 @@ struct AdminView: View {
             cartData.isAvailable[isVisible.Pickled_Cauliflower.rawValue] = Pickled_CauliflowerVisible
             cartData.isAvailable[isVisible.Zuchini_Relish.rawValue] = Zuchini_RelishVisible
             cartData.isAvailable[isVisible.Beef_Burgers.rawValue] = Beef_BurgersVisible
-            //cartData.isAvailable[isVisible.Wildflower_Honey.rawValue] = Wildflower_HoneyVisible
-            //cartData.isAvailable[isVisible.White_Cream_Honey.rawValue] = White_Cream_HoneyVisible
+            cartData.isAvailable[isVisible.Wildflower_Honey.rawValue] = Wildflower_HoneyVisible
+            cartData.isAvailable[isVisible.White_Cream_Honey.rawValue] = White_Cream_HoneyVisible
             cartData.isAvailable[isVisible.Chocolate_Bar.rawValue] = Chocolate_BarVisible
-            //cartData.isAvailable[isVisible.Cinamon_Cream_Honey.rawValue] = Cinamon_Cream_HoneyVisible
+            cartData.isAvailable[isVisible.Cinamon_Cream_Honey.rawValue] = Cinamon_Cream_HoneyVisible
             cartData.isAvailable[isVisible.Honey.rawValue] = HoneyVisible
             cartData.isAvailable[isVisible.French_Loaf.rawValue] = French_LoafVisible
             cartData.isAvailable[isVisible.Baba_Ganoush.rawValue] = Baba_GanoushVisible
@@ -327,20 +344,20 @@ struct AdminView: View {
             print(cartData.isAvailable)
             
             cartData.priceDict[toReference(priceEnum: price.PHead_Lettuce)] = HeadLettucePrice
-            cartData.priceDict[toReference(priceEnum: price.PSmallCarrots)] = SmallCarrotsPrice
-            cartData.priceDict[toReference(priceEnum: price.PLargeCarrots)] = LargeCarrotsPrice
+            cartData.priceDict[toReference(priceEnum: price.PSmall_Carrots)] = SmallCarrotsPrice
+            cartData.priceDict[toReference(priceEnum: price.PLarge_Carrots)] = LargeCarrotsPrice
             cartData.priceDict[toReference(priceEnum: price.PSalad_Greens)] = SaladGreensPrice
             cartData.priceDict[toReference(priceEnum: price.PKale)] = KalePrice
             cartData.priceDict[toReference(priceEnum: price.PSwiss_Chard)] = SwissChardPrice
-            cartData.priceDict[toReference(priceEnum: price.PStripedBeets)] = StripedBeetsPrice
-            cartData.priceDict[toReference(priceEnum: price.PCylindraBeets)] = CylindraBeetsPrice
-            cartData.priceDict[toReference(priceEnum: price.PGoldenBeets)] = GoldenBeetsPrice
+            cartData.priceDict[toReference(priceEnum: price.PStriped_Beets)] = StripedBeetsPrice
+            cartData.priceDict[toReference(priceEnum: price.PCylindra_Beets)] = CylindraBeetsPrice
+            cartData.priceDict[toReference(priceEnum: price.PGolden_Beets)] = GoldenBeetsPrice
             cartData.priceDict[toReference(priceEnum: price.PLeeks)] = LeeksPrice
             cartData.priceDict[toReference(priceEnum: price.PSpinach)] = SpinachPrice
             cartData.priceDict[toReference(priceEnum: price.PTomatoes)] = TomatoesPrice
             cartData.priceDict[toReference(priceEnum: price.PCherry_Tomatoes)] = CherryTomatoesPrice
-            cartData.priceDict[toReference(priceEnum: price.PGreenPeppers)] = GreenPeppersPrice
-            cartData.priceDict[toReference(priceEnum: price.PColoredPeppers)] = ColoredPeppersPrice
+            cartData.priceDict[toReference(priceEnum: price.PGreen_Peppers)] = GreenPeppersPrice
+            cartData.priceDict[toReference(priceEnum: price.PColored_Peppers)] = ColoredPeppersPrice
             cartData.priceDict[toReference(priceEnum: price.PEgg_Plant)] = EggPlantPrice
             cartData.priceDict[toReference(priceEnum: price.PCucumbers)] = CucumbersPrice
             cartData.priceDict[toReference(priceEnum: price.PParsley)] = ParsleyPrice
@@ -355,9 +372,9 @@ struct AdminView: View {
             cartData.priceDict[toReference(priceEnum: price.PSummer_Squash)] = SummerSquashPrice
             cartData.priceDict[toReference(priceEnum: price.PRadishes)] = RadishesPrice
             //cartData.priceDict[toReference(priceEnum: price.PSquash)] = SquashPrice
-            cartData.priceDict[toReference(priceEnum: price.PSmallMelons)] = SmallMelonsPrice
-            cartData.priceDict[toReference(priceEnum: price.PMediumMelons)] = MediumMelonsPrice
-            cartData.priceDict[toReference(priceEnum: price.PLargeMelons)] = LargeMelonsPrice
+            cartData.priceDict[toReference(priceEnum: price.PSmall_Melons)] = SmallMelonsPrice
+            cartData.priceDict[toReference(priceEnum: price.PMedium_Melons)] = MediumMelonsPrice
+            cartData.priceDict[toReference(priceEnum: price.PLarge_Melons)] = LargeMelonsPrice
             cartData.priceDict[toReference(priceEnum: price.PSnow_Peas)] = SnowPeasPrice
             cartData.priceDict[toReference(priceEnum: price.PMicrogreens)] = MicrogreensPrice
             //cartData.priceDict[toReference(priceEnum: price.PBeets)] = BeetsPrice
@@ -845,13 +862,13 @@ struct AdminView: View {
 extension AdminView {
     //the price Enum type has P as a prefix to all of its cases. So Carrots becomes PCarrots etc. This is to differentiate them from the isVisible Enum cases. These Enum types get converted into Strings and are the keys used to identify their values in app storage. The P prefix from the price Enum cases is removed before storing it as a String in PriceDict in CartData so that the Strings can be formatted in the same way as reference names for products.
     enum price: String {
-        case PSmallCarrots
-        case PLargeCarrots
-        case PStripedBeets
-        case PCylindraBeets
-        case PGoldenBeets
-        case PGreenPeppers
-        case PColoredPeppers
+        case PSmall_Carrots
+        case PLarge_Carrots
+        case PStriped_Beets
+        case PCylindra_Beets
+        case PGolden_Beets
+        case PGreen_Peppers
+        case PColored_Peppers
         case PDill
         case PGarlic
         case PSnow_Peas
@@ -878,9 +895,9 @@ extension AdminView {
         case PCherry_Tomatoes
         case PCilantro
         case PGreen_Onions
-        case PSmallMelons
-        case PMediumMelons
-        case PLargeMelons
+        case PSmall_Melons
+        case PMedium_Melons
+        case PLarge_Melons
         case PCabbage
         
         case PArugala
@@ -950,7 +967,14 @@ extension AdminView {
     
     enum isVisible: String {
         case Carrots
+        case Small_Carrots
+        case Large_Carrots
         case Beets
+        case Striped_Beets
+        case Cylindra_Beets
+        case Golden_Beets
+        case Green_Peppers
+        case Colored_Peppers
         case Peppers
         case Dill
         case Garlic
@@ -979,6 +1003,9 @@ extension AdminView {
         case Cilantro
         case Green_Onions
         case Melons
+        case Small_Melons
+        case Medium_Melons
+        case Large_Melons
         case Cabbage
         
         case Arugala
@@ -1026,8 +1053,8 @@ extension AdminView {
         case Beef_Burgers
         case Wildflower_Honey
         case White_Cream_Honey
-        case Chocolate_Bar
         case Cinamon_Cream_Honey
+        case Chocolate_Bar
         case Honey
         case French_Loaf
         case Baba_Ganoush

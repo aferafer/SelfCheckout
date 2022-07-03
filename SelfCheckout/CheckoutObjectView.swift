@@ -29,7 +29,7 @@ struct CheckoutObjectView: View {
                  */
             }  label: {
                 Text("x")
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.red)
                     .bold()
                     .font(.custom("San Francisco", size: 25))
                     .offset(x: 0, y: -2)

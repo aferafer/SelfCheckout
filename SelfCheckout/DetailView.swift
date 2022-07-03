@@ -12,6 +12,7 @@ struct DetailView: View {
     @ObservedObject var myCart: CheckoutClass
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var customPrice: String = ""
+    @Binding var searchText: String
     let product: Products
     let referenceNames = ProductType.variationData
     var body: some View {
@@ -31,6 +32,7 @@ struct DetailView: View {
                                   onCommit: {
                             myCart.cartObjects.append(CartObject(cartName: product.cartName, price: customPrice, quantity: 1))
                             myCart.totalPrice += Double(customPrice)!
+                            searchText = "" //clear search before returning to main screen
                             action: do { self.presentationMode.wrappedValue.dismiss() }
                         })
                             .keyboardType(.numberPad)
@@ -66,6 +68,7 @@ struct DetailView: View {
                                 } else {
                                     myCart.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
                                 }
+                                searchText = "" //clear search before returning to main screen
                                 action: do { self.presentationMode.wrappedValue.dismiss() }
                                 }
                         }
@@ -76,11 +79,3 @@ struct DetailView: View {
         } //VStack
     } //body
 } //view
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            DetailView(myCart: CheckoutClass(), product: Products.productData[0])
-        }
-    }
-}
