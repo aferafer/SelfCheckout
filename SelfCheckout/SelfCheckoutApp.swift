@@ -21,7 +21,7 @@ struct SelfCheckoutApp: App {
                 //ScrumsView(products: Products.productData, total: 0)
                 //ChoiceView()
                 NavigationView {
-                    ScrumsView(products: Products.productData, cartClass: cartClass, total: 0)
+                    ProductsView(products: Products.productData, cartClass: cartClass, total: 0)
                 }.navigationViewStyle(StackNavigationViewStyle())
             } else {
                 AdminView(products: Products.productData, cartData: cartClass, Switch: switchViews)

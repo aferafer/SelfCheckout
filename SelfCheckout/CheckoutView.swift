@@ -29,6 +29,7 @@ struct CheckoutView: View {
                     .frame(width: 200, height: 35)
                     .border(Color.black)
                     .onReceive(Just(productSearch)) { newValue in
+                        //print(newValue)
                         let filtered = newValue.filter { "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ".contains($0) }
                         if filtered != newValue {
                             self.productSearch = filtered

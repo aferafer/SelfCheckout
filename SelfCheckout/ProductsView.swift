@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct ScrumsView: View {
+struct ProductsView: View {
     let products: [Products]
     let produceColor: Color = Color(red: 153/255, green: 255/255, blue: 153/255)
     @ObservedObject var cartClass: CheckoutClass
     @State var total: Double
     @State var searchText = ""
+    //@State var itemAttempt = 0 //attempts to scroll to products until it finds one that exists. Also used with search bar
+    //@State var firstSearchProduct = Products.productData[0]
     var rows = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -52,131 +54,144 @@ struct ScrumsView: View {
                         .font(.custom("San Francisco", size: 25))
                 }
                 HStack  {
-                    ScrollView(.horizontal) {
-                        HStack {
-                            if (searchText == "") { //if nothing is typed in product search bar
-                                LazyHGrid(rows: rows, spacing: 10) {
-                                    ForEach(products, id: \.displayTitle) { product in
-                                        if (product.catagory == Products.productCatagory.produce && cartClass.isAvailable[product.referenceName]! && product.options != Products.customOptions.subVariation) {
-                                            if (product.options != Products.customOptions.noOptions) {
-                                                NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
-                                                    CardView(product: product)
-                                                }
-                                            } else {
-                                                CardView(product: product).onTapGesture {
-                                                    searchText = "" //clear search after product has been selected
-                                                    cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
-                                                    let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
-                                                    let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
-                                                    if (itemIndex == nil) {
-                                                        cartClass.cartObjects.append(findObject) //add new checkout object
-                                                    } else {
-                                                        cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                    ScrollViewReader { scrollView in
+                        ScrollView(.horizontal) {
+                            HStack {
+                                if (searchText == "") { //if nothing is typed in product search bar
+                                    LazyHGrid(rows: rows, spacing: 10) {
+                                        ForEach(products, id: \.displayTitle) { product in
+                                            if (product.catagory == Products.productCatagory.produce && cartClass.isAvailable[product.referenceName]! && product.options != Products.customOptions.subVariation) {
+                                                if (product.options != Products.customOptions.noOptions) {
+                                                    NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
+                                                        CardView(product: product)
+                                                            
                                                     }
-                                                }
-                                            } //end if-else
-                                        } //end if
-                                        
-                                    } //end forEach
-                                } //end lazyHGrid
-                                Spacer(minLength: 100)
-                                LazyHGrid(rows: rows, spacing: 10) {
-                                    ForEach(products, id: \.displayTitle) { product in
-                                        if (product.catagory == Products.productCatagory.valueAdded && cartClass.isAvailable[product.referenceName]! && product.options != Products.customOptions.subVariation) {
-                                            if (product.options != Products.customOptions.noOptions) {
-                                                NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
-                                                    CardView(product: product)
-                                                }
-                                            } else {
-                                                CardView(product: product).onTapGesture {
-                                                    searchText = "" //clear search after product has been selected
-                                                    cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
-                                                    let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
-                                                    let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
-                                                    if (itemIndex == nil) {
-                                                        cartClass.cartObjects.append(findObject) //add new checkout object
-                                                    } else {
-                                                        cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                                                } else {
+                                                    CardView(product: product).onTapGesture {
+                                                        searchText = "" //clear search after product has been selected
+                                                        cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
+                                                        let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
+                                                        let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
+                                                        if (itemIndex == nil) {
+                                                            cartClass.cartObjects.append(findObject) //add new checkout object
+                                                        } else {
+                                                            cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                                                        }
                                                     }
-                                                }
-                                            } //end if-else
+                                                } //end if-else
+                                            } //end if
+                                            
+                                        } //end forEach
+                                    } //end lazyHGrid
+                                    Spacer(minLength: 100)
+                                    LazyHGrid(rows: rows, spacing: 10) {
+                                        ForEach(products, id: \.displayTitle) { product in
+                                            if (product.catagory == Products.productCatagory.valueAdded && cartClass.isAvailable[product.referenceName]! && product.options != Products.customOptions.subVariation) {
+                                                if (product.options != Products.customOptions.noOptions) {
+                                                    NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
+                                                        CardView(product: product)
+                                                            
+                                                    }
+                                                } else {
+                                                    CardView(product: product).onTapGesture {
+                                                        searchText = "" //clear search after product has been selected
+                                                        cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
+                                                        let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
+                                                        let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
+                                                        if (itemIndex == nil) {
+                                                            cartClass.cartObjects.append(findObject) //add new checkout object
+                                                        } else {
+                                                            cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                                                        }
+                                                    }
+                                                } //end if-else
+                                            }
                                         }
                                     }
-                                }
-                                Spacer(minLength: 100)
-                                LazyHGrid(rows: rows, spacing: 10) {
-                                    ForEach(products, id: \.displayTitle) { product in
-                                        if (product.catagory == Products.productCatagory.retail && cartClass.isAvailable[product.referenceName]! && product.options != Products.customOptions.subVariation) {
-                                            if (product.options != Products.customOptions.noOptions) {
-                                                NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
-                                                    CardView(product: product)
-                                                }
-                                            } else {
-                                                CardView(product: product).onTapGesture {
-                                                    searchText = "" //clear search after product has been selected
-                                                    cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
-                                                    let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
-                                                    let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
-                                                    if (itemIndex == nil) {
-                                                        cartClass.cartObjects.append(findObject) //add new checkout object
-                                                    } else {
-                                                        cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                                    Spacer(minLength: 100)
+                                    LazyHGrid(rows: rows, spacing: 10) {
+                                        ForEach(products, id: \.displayTitle) { product in
+                                            if (product.catagory == Products.productCatagory.retail && cartClass.isAvailable[product.referenceName]! && product.options != Products.customOptions.subVariation) {
+                                                if (product.options != Products.customOptions.noOptions) {
+                                                    NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
+                                                        CardView(product: product)
+                                                            
                                                     }
-                                                }
-                                            } //end if-else
-                                        } //close outer if statement
-                                    } //close 3rd ForEach used to display products
-                                } //close 3rd lazyHGrid
-                            } else { //else if something has been typed into the product search bar
-                                LazyHGrid(rows: searchRows, spacing: 10) {
-                                    ForEach(products, id: \.displayTitle) { product in
-                                        if (cartClass.isAvailable[product.referenceName]! && product.searchName.hasPrefix(searchText.lowercased()) && (product.options != Products.customOptions.uniqueTypes) && (product.options != Products.customOptions.uniqueSize)) {
-                                            if (product.options != Products.customOptions.noOptions) {
-                                                NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
-                                                    CardView(product: product)
-                                                }
-                                            } else {
-                                                CardView(product: product).onTapGesture {
-                                                    searchText = "" //clear search after product has been selected
-                                                    cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
-                                                    let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
-                                                    let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
-                                                    if (itemIndex == nil) {
-                                                        cartClass.cartObjects.append(findObject) //add new checkout object
-                                                    } else {
-                                                        cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                                                } else {
+                                                    CardView(product: product).onTapGesture {
+                                                        searchText = "" //clear search after product has been selected
+                                                        cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
+                                                        let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
+                                                        let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
+                                                        if (itemIndex == nil) {
+                                                            cartClass.cartObjects.append(findObject) //add new checkout object
+                                                        } else {
+                                                            cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                                                        }
                                                     }
-                                                }
-                                            } //end if-else
-                                        } //close outer if statement
-                                    } //close 'product search' ForEach used to display products highly relevant to search
-                                    ForEach(products, id: \.displayTitle) { product in
-                                        if (cartClass.isAvailable[product.referenceName]! && product.searchName.contains(searchText.lowercased()) &&  !product.searchName.hasPrefix(searchText.lowercased()) && (product.options != Products.customOptions.uniqueTypes) && (product.options != Products.customOptions.uniqueSize)) {
-                                            if (product.options != Products.customOptions.noOptions) {
-                                                NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
-                                                    CardView(product: product)
-                                                }
-                                            } else {
-                                                CardView(product: product).onTapGesture {
-                                                    cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
-                                                    let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
-                                                    let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
-                                                    if (itemIndex == nil) {
-                                                        cartClass.cartObjects.append(findObject) //add new checkout object
-                                                    } else {
-                                                        cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                                                } //end if-else
+                                            } //close outer if statement
+                                        } //close 3rd ForEach used to display products
+                                    } //close 3rd lazyHGrid
+                                } else { //else if something has been typed into the product search bar
+                                    LazyHGrid(rows: searchRows, spacing: 10) {
+                                        ForEach(products, id: \.displayTitle) { product in
+                                            if (cartClass.isAvailable[product.referenceName]! && product.searchName.hasPrefix(searchText.lowercased()) && (product.options != Products.customOptions.uniqueTypes) && (product.options != Products.customOptions.uniqueSize)) {
+                                                if (product.options != Products.customOptions.noOptions) {
+                                                    NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
+                                                        CardView(product: product)
+                                                            .id(product)
                                                     }
-                                                }
-                                            } //end if-else
-                                        } //close outer if statement
-                                    } //close 'product search' ForEach used to display products less relevant to search
-                                } //close 'product search' lazyHGrid
-                            } //close if-else that decides how to display products depending on if the product search bar is being used
-                        } //close HStack containing scrollable product sections
-                        if (searchText != "") { //if product search bar is active push products to top of screen so they're visible
-                            Spacer(minLength: 425)
+                                                } else {
+                                                    CardView(product: product).id(product).onTapGesture {
+                                                        searchText = "" //clear search after product has been selected
+                                                        cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
+                                                        let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
+                                                        let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
+                                                        if (itemIndex == nil) {
+                                                            cartClass.cartObjects.append(findObject) //add new checkout object
+                                                        } else {
+                                                            cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                                                        }
+                                                    }
+                                                } //end if-else
+                                            } //close outer if statement
+                                        } //close 'product search' ForEach used to display products highly relevant to search
+                                        ForEach(products, id: \.displayTitle) { product in
+                                            if (cartClass.isAvailable[product.referenceName]! && product.searchName.contains(searchText.lowercased()) &&  !product.searchName.hasPrefix(searchText.lowercased()) && (product.options != Products.customOptions.uniqueTypes) && (product.options != Products.customOptions.uniqueSize)) {
+                                                if (product.options != Products.customOptions.noOptions) {
+                                                    NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
+                                                        CardView(product: product)
+                                                            .id(product)
+                                                    }
+                                                } else {
+                                                    CardView(product: product).id(product).onTapGesture {
+                                                        cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
+                                                        let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
+                                                        let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
+                                                        if (itemIndex == nil) {
+                                                            cartClass.cartObjects.append(findObject) //add new checkout object
+                                                        } else {
+                                                            cartClass.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
+                                                        }
+                                                    }
+                                                } //end if-else
+                                            } //close outer if statement
+                                        } //close 'product search' ForEach used to display products less relevant to search
+                                    } //close 'product search' lazyHGrid
+                                } //close if-else that decides how to display products depending on if the product search bar is being used
+                            } //close HStack containing scrollable product sections
+                            if (searchText != "") { //if product search bar is active push products to top of screen so they're visible
+                                Spacer(minLength: 425)
+                            }
+                        } //close scrollview
+                        .onChange(of: searchText) { changedText in
+                            print("Text changed to \(changedText)!")
+                            print("product: " + findFirstProduct().displayTitle)
+                            let scrollBeggining = findFirstProduct()
+                            scrollView.scrollTo(scrollBeggining)
                         }
-                    } //close scrollview
+                    } //close scrollview reader
                     .navigationBarTitle("Go back without purchasing").navigationBarHidden(true)
                         .statusBar(hidden: true)
                     CheckoutView(myCart: cartClass, productSearch: $searchText)
@@ -186,13 +201,45 @@ struct ScrumsView: View {
         } //close geometry reader
         .ignoresSafeArea(.keyboard, edges: .all)
     } //body close
+    
+    //determines first product displayed when starting to use search bar
+    func findFirstProduct() -> Products {
+        var itemAttempt = 0
+        while ((itemAttempt < Products.productData.count-1)) { //high priority matches
+            let productN = Products.productData[itemAttempt]//current product be checked to see if its displayed
+            let productAvailable = cartClass.isAvailable[productN.referenceName]!
+            let prefixMatch = productN.searchName.hasPrefix(searchText.lowercased())
+            let isParentType = (productN.options == Products.customOptions.uniqueTypes) || (productN.options == Products.customOptions.uniqueSize)
+            if (productAvailable && prefixMatch && !isParentType) { //then product is currently displayed
+                return Products.productData[itemAttempt] //returns first item to be scrolled to
+            } else {
+                //print(productN.displayTitle + "item not displayed")
+            }
+            itemAttempt += 1
+        } //close while
+        itemAttempt = 0
+        //Second while loop looks to see if there's a low priority search match
+        while ((itemAttempt < Products.productData.count-1)) {
+            let productN = Products.productData[itemAttempt]//current product be checked to see if its displayed
+            let productAvailable = cartClass.isAvailable[productN.referenceName]!
+            let doesContain = productN.searchName.contains(searchText.lowercased())
+            let isParentType = (productN.options == Products.customOptions.uniqueTypes) || (productN.options == Products.customOptions.uniqueSize)
+            if (productAvailable && doesContain && !isParentType) { //then product is currently displayed
+                return Products.productData[itemAttempt] //returns first item to be scrolled to
+            } else {
+                //print(productN.displayTitle + "item not displayed")
+            }
+            itemAttempt += 1
+        } //close while
+        return Products(displayTitle: "error", cartName: "error", referenceName: "error", searchName: "error", pic: "error", catagory: Products.productCatagory.valueAdded, options: Products.customOptions.noOptions)
+    }
 } //view close
 
 
 struct ScrumsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ScrumsView(products: Products.productData, cartClass: CheckoutClass(), total: 0)
+            ProductsView(products: Products.productData, cartClass: CheckoutClass(), total: 0)
         }
     }
 }
