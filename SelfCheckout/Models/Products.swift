@@ -18,7 +18,9 @@ struct Products: Hashable {
     
     enum productCatagory {
         case produce
-        case valueAdded
+        case preparedFoods
+        case meats
+        case preserves
         case retail
     }
     
@@ -45,7 +47,7 @@ extension Products {
         Products(displayTitle: "Cylindra Beets", cartName: "Cylindra Beet Bunch", referenceName: "Cylindra_Beets", searchName: "beets cylindra", pic: "cylindra_beets", catagory: productCatagory.produce, options: customOptions.subVariation),
         Products(displayTitle: "Golden Beets", cartName: "Golden Beet Bunch", referenceName: "Golden_Beets", searchName: "beets golden", pic: "golden_beets", catagory: productCatagory.produce, options: customOptions.subVariation),
         Products(displayTitle: "Striped Beets", cartName: "Striped Beet Bunch", referenceName: "Striped_Beets", searchName: "beets striped", pic: "striped_beets", catagory: productCatagory.produce, options: customOptions.subVariation),
-        Products(displayTitle: "Beet Greens", cartName: "Beet Green Bag", referenceName: "Beet_Greens", searchName: "beet greens", pic: "beet_greens", catagory: productCatagory.produce, options: customOptions.subVariation),
+        Products(displayTitle: "Beet Greens", cartName: "Beet Green Bag", referenceName: "Beet_Greens", searchName: "beet greens", pic: "beet_greens", catagory: productCatagory.produce, options: customOptions.noOptions),
         Products(displayTitle: "Bok Choy", cartName: "Bok Choy Bunch", referenceName: "Bok_Choy", searchName: "bok choy", pic: "bok_choy", catagory: productCatagory.produce, options: customOptions.noOptions),
         Products(displayTitle: "Broccoli", cartName: "Broccoli", referenceName: "Broccoli", searchName: "broccoli", pic: "broccoli", catagory: productCatagory.produce, options: customOptions.noOptions),
         Products(displayTitle: "Brussel Sprouts", cartName: "Brussel Sprouts Bag", referenceName: "Brussel_Sprouts", searchName: "brussel sprouts", pic: "brussel_sprouts", catagory: productCatagory.produce, options: customOptions.noOptions),
@@ -99,18 +101,18 @@ extension Products {
         Products(displayTitle: "Turnips", cartName: "Turnip Bunch", referenceName: "Turnips", searchName: "turnips", pic: "turnips", catagory: productCatagory.produce, options: customOptions.noOptions),
         Products(displayTitle: "Zucchini", cartName: "Zucchini", referenceName: "Summer_Squash", searchName: "zucchini", pic: "summer_squash", catagory: productCatagory.produce, options: customOptions.noOptions),
         
-        //productCatagory.valueAdded
-        Products(displayTitle: "Carrot Cake", cartName: "Carrot Cake", referenceName: "Carrot_Cake", searchName: "carrot cake", pic: "carrot_cake", catagory: productCatagory.valueAdded, options: customOptions.noOptions),
-        Products(displayTitle: "Chutney", cartName: "Chutney Jar", referenceName: "Chutney", searchName: "chutney", pic: "chutney", catagory: productCatagory.valueAdded, options: customOptions.noOptions),
-        Products(displayTitle: "Dill Carrots", cartName: "Dill Carrot Jar", referenceName: "Dill_Carrots", searchName: "pickled dill carrots", pic: "dill_carrots", catagory: productCatagory.valueAdded, options: customOptions.noOptions),
-        Products(displayTitle: "Pickled Carrots", cartName: "Pickled Carrot Jar", referenceName: "Pickled_Carrots", searchName: "pickled carrots", pic: "pickled_carrots", catagory: productCatagory.valueAdded, options: customOptions.noOptions),
-        Products(displayTitle: "Pickled Beets", cartName: "Pickled Beet Jar", referenceName: "Pickled_Beets", searchName: "pickled beets", pic: "pickled_beets", catagory: productCatagory.valueAdded, options: customOptions.noOptions),
-        Products(displayTitle: "Pickled Onions", cartName: "Pickled Onion Jar", referenceName: "Pickled_Onions", searchName: "pickled onions", pic: "pickled_onions", catagory: productCatagory.valueAdded, options: customOptions.noOptions),
-        Products(displayTitle: "Red Onion Jam", cartName: "Red Onion Jam Jar", referenceName: "Red_Onion_Jam", searchName: "jam red onion", pic: "red_onion_jam", catagory: productCatagory.valueAdded, options: customOptions.noOptions),
-        Products(displayTitle: "Salsa", cartName: "Salsa Jar", referenceName: "Salsa", searchName: "salsa", pic: "salsa", catagory: productCatagory.valueAdded, options: customOptions.noOptions),
-        Products(displayTitle: "Soup", cartName: "Soup", referenceName: "Soup", searchName: "soup", pic: "soup", catagory: productCatagory.valueAdded, options: customOptions.noOptions),
-        Products(displayTitle: "Zucchini Relish", cartName: "Zucchini Relish Jar", referenceName: "Zuchini_Relish", searchName: "relish zucchini", pic: "zuchinni_relish", catagory: productCatagory.valueAdded, options: customOptions.noOptions),
-        //Products(displayTitle: "Sweet Carrots", cartName: "Sweet Carrot Jar", referenceName: "Sweet_Carrots", searchName: "", pic: "sweet_carrots", catagory: productCatagory.valueAdded, options: customOptions.noOptions), //delete maybe
+        //productCatagory.preserves
+        Products(displayTitle: "Carrot Cake", cartName: "Carrot Cake", referenceName: "Carrot_Cake", searchName: "carrot cake", pic: "carrot_cake", catagory: productCatagory.preserves, options: customOptions.noOptions),
+        Products(displayTitle: "Chutney", cartName: "Chutney Jar", referenceName: "Chutney", searchName: "chutney", pic: "chutney", catagory: productCatagory.preserves, options: customOptions.noOptions),
+        Products(displayTitle: "Dill Carrots", cartName: "Dill Carrot Jar", referenceName: "Dill_Carrots", searchName: "pickled dill carrots", pic: "dill_carrots", catagory: productCatagory.preserves, options: customOptions.noOptions),
+        Products(displayTitle: "Pickled Carrots", cartName: "Pickled Carrot Jar", referenceName: "Pickled_Carrots", searchName: "pickled carrots", pic: "pickled_carrots", catagory: productCatagory.preserves, options: customOptions.noOptions),
+        Products(displayTitle: "Pickled Beets", cartName: "Pickled Beet Jar", referenceName: "Pickled_Beets", searchName: "pickled beets", pic: "pickled_beets", catagory: productCatagory.preserves, options: customOptions.noOptions),
+        Products(displayTitle: "Pickled Onions", cartName: "Pickled Onion Jar", referenceName: "Pickled_Onions", searchName: "pickled onions", pic: "pickled_onions", catagory: productCatagory.preserves, options: customOptions.noOptions),
+        Products(displayTitle: "Red Onion Jam", cartName: "Red Onion Jam Jar", referenceName: "Red_Onion_Jam", searchName: "jam red onion", pic: "red_onion_jam", catagory: productCatagory.preserves, options: customOptions.noOptions),
+        Products(displayTitle: "Salsa", cartName: "Salsa Jar", referenceName: "Salsa", searchName: "salsa", pic: "salsa", catagory: productCatagory.preserves, options: customOptions.noOptions),
+        Products(displayTitle: "Soup", cartName: "Soup", referenceName: "Soup", searchName: "soup", pic: "soup", catagory: productCatagory.preserves, options: customOptions.noOptions),
+        Products(displayTitle: "Zucchini Relish", cartName: "Zucchini Relish Jar", referenceName: "Zuchini_Relish", searchName: "relish zucchini", pic: "zuchinni_relish", catagory: productCatagory.preserves, options: customOptions.noOptions),
+        //Products(displayTitle: "Sweet Carrots", cartName: "Sweet Carrot Jar", referenceName: "Sweet_Carrots", searchName: "", pic: "sweet_carrots", catagory: productCatagory.preserves, options: customOptions.noOptions), //delete maybe
         
         
         //productCatagory.retail
@@ -129,7 +131,7 @@ extension Products {
         Products(displayTitle: "Falafels", cartName: "Falafel Pack", referenceName: "Falafels", searchName: "falafels", pic: "falafel", catagory: productCatagory.retail, options: customOptions.noOptions),
         Products(displayTitle: "French Loaf", cartName: "French Loaf", referenceName: "French_Loaf", searchName: "french loaf bread", pic: "french_loaf", catagory: productCatagory.retail, options: customOptions.noOptions),
         Products(displayTitle: "Ground Beef", cartName: "Ground Beef Pack", referenceName: "Ground_Beef", searchName: "ground beef", pic: "ground_beef", catagory: productCatagory.retail, options: customOptions.noOptions),
-        Products(displayTitle: "Honey", cartName: "Honey", referenceName: "Honey", searchName: "honey", pic: "honey", catagory: productCatagory.retail, options: customOptions.uniqueTypes),
+        Products(displayTitle: "Honey", cartName: "Honey", referenceName: "Honey", searchName: "honey", pic: "white_cream_honey", catagory: productCatagory.retail, options: customOptions.uniqueTypes),
         Products(displayTitle: "Wildflower Honey", cartName: "Wildflower Honey Jar", referenceName: "Wildflower_Honey", searchName: "honey wildflower", pic: "wildflower_honey", catagory: productCatagory.retail, options: customOptions.subVariation),
         Products(displayTitle: "White Cream Honey", cartName: "White Cream Honey Jar", referenceName: "White_Cream_Honey", searchName: "honey white cream", pic: "white_cream_honey", catagory: productCatagory.retail, options: customOptions.subVariation),
         Products(displayTitle: "Cinamon Cream Honey", cartName: "Cinamon Cream Honey Jar", referenceName: "Cinamon_Cream_Honey", searchName: "honey cinamon cream", pic: "cinamon_cream_honey", catagory: productCatagory.retail, options: customOptions.subVariation),

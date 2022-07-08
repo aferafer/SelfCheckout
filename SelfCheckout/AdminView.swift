@@ -108,6 +108,7 @@ struct AdminView: View {
     @AppStorage(isVisible.Chocolate_Bar.rawValue) var Chocolate_BarVisible = true
     @AppStorage(isVisible.Cinamon_Cream_Honey.rawValue) var Cinamon_Cream_HoneyVisible = true
     @AppStorage(isVisible.Honey.rawValue) var HoneyVisible = true
+    
     @AppStorage(isVisible.French_Loaf.rawValue) var French_LoafVisible = true
     @AppStorage(isVisible.Baba_Ganoush.rawValue) var Baba_GanoushVisible = true
     @AppStorage(isVisible.TBone_Steak.rawValue) var TBone_SteakVisible = true
@@ -445,7 +446,7 @@ struct AdminView: View {
             cartData.priceDict[toReference(priceEnum: price.PFalafels)] = FalafelsPrice
             
             print(cartData.priceDict)
-            Switch.switchToMainApp = true
+            Switch.appState = "itemsPage"
         } label: {
             Text("Continue To App")
                 .padding(10)

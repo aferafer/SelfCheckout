@@ -11,6 +11,7 @@ struct ProductsView: View {
     let products: [Products]
     let produceColor: Color = Color(red: 153/255, green: 255/255, blue: 153/255)
     @ObservedObject var cartClass: CheckoutClass
+    @ObservedObject var appState: AppState
     @State var total: Double
     @State var searchText = ""
     //@State var itemAttempt = 0 //attempts to scroll to products until it finds one that exists. Also used with search bar
@@ -58,7 +59,7 @@ struct ProductsView: View {
                         ScrollView(.horizontal) {
                             HStack {
                                 if (searchText == "") { //if nothing is typed in product search bar
-                                    LazyHGrid(rows: rows, spacing: 10) {
+                                    LazyHGrid(rows: rows, spacing: 10) { //
                                         ForEach(products, id: \.displayTitle) { product in
                                             if (product.catagory == Products.productCatagory.produce && cartClass.isAvailable[product.referenceName]! && product.options != Products.customOptions.subVariation) {
                                                 if (product.options != Products.customOptions.noOptions) {
@@ -86,7 +87,7 @@ struct ProductsView: View {
                                     Spacer(minLength: 100)
                                     LazyHGrid(rows: rows, spacing: 10) {
                                         ForEach(products, id: \.displayTitle) { product in
-                                            if (product.catagory == Products.productCatagory.valueAdded && cartClass.isAvailable[product.referenceName]! && product.options != Products.customOptions.subVariation) {
+                                            if (product.catagory == Products.productCatagory.preserves && cartClass.isAvailable[product.referenceName]! && product.options != Products.customOptions.subVariation) {
                                                 if (product.options != Products.customOptions.noOptions) {
                                                     NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
                                                         CardView(product: product)
@@ -137,8 +138,10 @@ struct ProductsView: View {
                                     LazyHGrid(rows: searchRows, spacing: 10) {
                                         ForEach(products, id: \.displayTitle) { product in
                                             if (cartClass.isAvailable[product.referenceName]! && product.searchName.hasPrefix(searchText.lowercased()) && (product.options != Products.customOptions.uniqueTypes) && (product.options != Products.customOptions.uniqueSize)) {
-                                                if (product.options != Products.customOptions.noOptions) {
-                                                    NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
+                                                if ((product.options != Products.customOptions.noOptions) && (product.options != Products.customOptions.subVariation)) {
+                                                    NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product).onDisappear() {
+                                                        searchText = ""
+                                                    }) {
                                                         CardView(product: product)
                                                             .id(product)
                                                     }
@@ -159,13 +162,16 @@ struct ProductsView: View {
                                         } //close 'product search' ForEach used to display products highly relevant to search
                                         ForEach(products, id: \.displayTitle) { product in
                                             if (cartClass.isAvailable[product.referenceName]! && product.searchName.contains(searchText.lowercased()) &&  !product.searchName.hasPrefix(searchText.lowercased()) && (product.options != Products.customOptions.uniqueTypes) && (product.options != Products.customOptions.uniqueSize)) {
-                                                if (product.options != Products.customOptions.noOptions) {
-                                                    NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product)) {
+                                                if ((product.options != Products.customOptions.noOptions) && (product.options != Products.customOptions.subVariation)) {
+                                                    NavigationLink(destination: DetailView(myCart: cartClass, searchText: $searchText, product: product).onDisappear() {
+                                                        searchText = ""
+                                                    }) {
                                                         CardView(product: product)
                                                             .id(product)
                                                     }
                                                 } else {
                                                     CardView(product: product).id(product).onTapGesture {
+                                                        searchText = ""
                                                         cartClass.totalPrice += Double(cartClass.priceDict[product.referenceName]!)!
                                                         let findObject = CartObject.init(cartName: product.cartName, price: cartClass.priceDict[product.referenceName]!, quantity: 1)
                                                         let itemIndex = cartClass.cartObjects.firstIndex(of: findObject)
@@ -194,7 +200,7 @@ struct ProductsView: View {
                     } //close scrollview reader
                     .navigationBarTitle("Go back without purchasing").navigationBarHidden(true)
                         .statusBar(hidden: true)
-                    CheckoutView(myCart: cartClass, productSearch: $searchText)
+                    CheckoutView(myCart: cartClass, appState: appState, productSearch: $searchText)
                         .frame(width: 240, height: .infinity, alignment: .topTrailing)
                 } //close HStack containing 3 product sections
             } //close VStack containing entire view
@@ -231,15 +237,6 @@ struct ProductsView: View {
             }
             itemAttempt += 1
         } //close while
-        return Products(displayTitle: "error", cartName: "error", referenceName: "error", searchName: "error", pic: "error", catagory: Products.productCatagory.valueAdded, options: Products.customOptions.noOptions)
+        return Products(displayTitle: "error", cartName: "error", referenceName: "error", searchName: "error", pic: "error", catagory: Products.productCatagory.preserves, options: Products.customOptions.noOptions)
     }
 } //view close
-
-
-struct ScrumsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ProductsView(products: Products.productData, cartClass: CheckoutClass(), total: 0)
-        }
-    }
-}
