@@ -31,9 +31,11 @@ struct PaymentsPage: View {
                     Text("(3.5% Surcharge)").bold().offset(y:10)
                 }.offset(y:10).onTapGesture {
                     print("before: " + String(myCart.totalPrice))
-                    myCart.totalPrice = myCart.totalPrice * 1.035
                     print("after: " + String(myCart.totalPrice))
-                    makePayment()
+                    makePayment(dollarAmount: myCart.totalPrice * 1.035)
+                    myCart.cartObjects = []
+                    myCart.totalPrice = 0
+                    appState.appState = "itemsPage"
                 }
                 Spacer()
                 VStack() {
@@ -43,7 +45,10 @@ struct PaymentsPage: View {
                         .frame(width: 140, height: 90)
                     Text("debit").foregroundColor(.black)
                 }.background(Rectangle().fill(Color.white).shadow(radius: 2)).onTapGesture {
-                    makePayment()
+                    makePayment(dollarAmount: myCart.totalPrice)
+                    myCart.cartObjects = []
+                    myCart.totalPrice = 0
+                    appState.appState = "itemsPage"
                 }
                 Spacer()
                 VStack() {
@@ -61,9 +66,8 @@ struct PaymentsPage: View {
         }
     }
     
-    func makePayment() {
+    func makePayment(dollarAmount: Double) {
         let purchaseString = createPurchaseString()
-        var dollarAmount = Double(myCart.totalPrice)
         var centAmount = Int(dollarAmount*100)
         //myCart.totalPrice = 0 //reset total
         //myCart.cartObjects = [] //empty cart

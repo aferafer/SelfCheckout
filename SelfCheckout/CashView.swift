@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SquarePointOfSaleSDK
 
 struct CashView: View {
     @ObservedObject var appState: AppState

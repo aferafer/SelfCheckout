@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 class AppState: ObservableObject {
     @Published var appState = "settingsPage" //3 states the app can be in. Settings Page is the first screen that pops up. Next is 'items page' where users can select their items. Finally clicking the checkout button brings you to the 'payments page' where you select credit, debit or cash to pay
@@ -13,6 +14,9 @@ class AppState: ObservableObject {
 
 @main
 struct SelfCheckoutApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
     @StateObject var cartClass = CheckoutClass()
     @ObservedObject var currentState = AppState()
     var body: some Scene {
