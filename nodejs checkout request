@@ -1,0 +1,40 @@
+import { Client, Environment, ApiError } from "square";
+
+const client = new Client({
+  accessToken: "EAAAEJfVscjbYe0i8FTfVuY18hLiSv6l8mu8IjvuIhCy-peFw-M5cQa2v5mKcuGW",
+  environment: Environment.Production,
+});
+
+const terminalApi = client.terminalApi;
+
+const contentType = null;
+const bodyCheckoutAmountMoney = {};
+bodyCheckoutAmountMoney.amount = 6527;
+bodyCheckoutAmountMoney.currency = 'CAD';
+
+const bodyCheckoutDeviceOptions = {
+  deviceId: '205CS145B1000355',
+};
+
+const bodyCheckout = {
+  amountMoney: bodyCheckoutAmountMoney,
+  deviceOptions: bodyCheckoutDeviceOptions,
+};
+bodyCheckout.referenceId = 'id11572';
+bodyCheckout.note = 'A brief note';
+
+const body = {
+  idempotencyKey: '11a0c3bc-7849-11ea-bc55-0242ac120003',
+  checkout: bodyCheckout,
+};
+
+try {
+  const { result, ...httpResponse } = await terminalApi.createTerminalCheckout(body);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch(error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
+  }
+}
