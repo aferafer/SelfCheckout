@@ -10,7 +10,7 @@ import SwiftUI
 struct ProductsView: View {
     let products: [Products]
     @ObservedObject var cartClass: CheckoutClass
-    @ObservedObject var appState: AppState
+    @ObservedObject var appState: AppInfo
     @State var total: Double
     @State var searchText = ""
     

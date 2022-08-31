@@ -7,10 +7,13 @@
 
 import SwiftUI
 import Combine
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct CheckoutView: View {
+    let db = Firestore.firestore()
     @ObservedObject var myCart: CheckoutClass
-    @ObservedObject var appState: AppState
+    @ObservedObject var appState: AppInfo
     @State private var showAlert = false
     @State private var transactionError = false
     @State private var displayMessage = "no message"
@@ -74,6 +77,7 @@ struct CheckoutView: View {
                 NavigationLink(destination: Text("OtherView"), isActive: $isLinkActive) {
                     Button {
                         if (myCart.totalPrice > 0) {
+                            //writeToDatabase()
                             appState.appState = "paymentsPage"
                         }
                     } label: {
@@ -103,6 +107,23 @@ struct CheckoutView: View {
         .padding(.top, 1)
     } //close body
     
+    
+    func writeToDatabase() {
+        db.collection("transactions").addDocument(data: ["total": Int(Float(myCart.totalPrice) * 100), "new": 7.00, "beets": 3.50])
+        /*
+        guard let url = URL(string: "https://itunes.apple.com/search?term=taylor+swift&entity=song") else {
+            print("Invalid URL")
+            return
+        }
+        do {
+            let (_, _) = try URLSession.shared.data(from: url)
+
+            // more code to come
+        } catch {
+            print("Invalid data")
+        }
+         */
+    }
     /*
     func handleTransactionResult() {
         if (transactionError == true) {

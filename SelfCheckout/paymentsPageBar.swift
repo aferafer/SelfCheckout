@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct paymentsPageBar: View {
-    @ObservedObject var appState: AppState
+    @ObservedObject var appState: AppInfo
     var body: some View {
         VStack {
             HStack {
@@ -36,15 +36,15 @@ struct paymentsPageBar: View {
                     .frame(width: 375, height: 135)
                     .offset(x: -100, y: 10)
                 Spacer()
-            }
+            } //close hstack
             .frame(width: .infinity, height: 175)
             .background(Color.green)
-        }
-    }
-}
+        } //close vstack
+    } //close view
+} //close body
 
 struct paymentsPageBar_Previews: PreviewProvider {
     static var previews: some View {
-        paymentsPageBar(appState: AppState.init())
+        paymentsPageBar(appState: AppInfo.init())
     }
 }

@@ -8,10 +8,16 @@
 import SwiftUI
 import Foundation
 import SquarePointOfSaleSDK
+import Firebase
+import FirebaseFunctions
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct PaymentsPage: View {
-    @ObservedObject var appState: AppState
+    @ObservedObject var appState: AppInfo
     @ObservedObject var myCart: CheckoutClass
+    lazy var functions = Functions.functions()
+    let db = Firestore.firestore()
     var body: some View {
         VStack {
             paymentsPageBar(appState: appState)
@@ -32,10 +38,11 @@ struct PaymentsPage: View {
                 }.offset(y:10).onTapGesture {
                     print("before: " + String(myCart.totalPrice))
                     print("after: " + String(myCart.totalPrice))
-                    makePayment(dollarAmount: myCart.totalPrice * 1.035)
+                    //makePayment(dollarAmount: myCart.totalPrice * 1.035)
+                    db.collection("transactions").addDocument(data: createPurchaseString(paymentType: 1))
                     myCart.cartObjects = []
                     myCart.totalPrice = 0
-                    appState.appState = "itemsPage"
+                    appState.appState = "cardThankyouPage"
                 }
                 Spacer()
                 VStack() {
@@ -45,10 +52,11 @@ struct PaymentsPage: View {
                         .frame(width: 140, height: 90)
                     Text("debit").foregroundColor(.black)
                 }.background(Rectangle().fill(Color.white).shadow(radius: 2)).onTapGesture {
-                    makePayment(dollarAmount: myCart.totalPrice)
+                    //makePayment(dollarAmount: myCart.totalPrice)
+                    db.collection("transactions").addDocument(data: createPurchaseString(paymentType: 2))
                     myCart.cartObjects = []
                     myCart.totalPrice = 0
-                    appState.appState = "itemsPage"
+                    appState.appState = "cardThankyouPage"
                 }
                 Spacer()
                 VStack() {
@@ -58,6 +66,7 @@ struct PaymentsPage: View {
                         .frame(width: 140, height: 90)
                     Text("cash").foregroundColor(.black)
                 }.background(Rectangle().fill(Color.white).shadow(radius: 2)).onTapGesture {
+                    //db.collection("transactions").addDocument(data: ["total": Int(Float(myCart.totalPrice) * 100), "purchase string": createPurchaseString()])
                     appState.appState = "cashPage"
                 }
                 Spacer()
@@ -66,8 +75,9 @@ struct PaymentsPage: View {
         }
     }
     
+    /*
     func makePayment(dollarAmount: Double) {
-        let purchaseString = createPurchaseString()
+        //let purchaseString = createPurchaseString()
         var centAmount = Int(dollarAmount*100)
         //myCart.totalPrice = 0 //reset total
         //myCart.cartObjects = [] //empty cart
@@ -87,7 +97,7 @@ struct PaymentsPage: View {
                     amount: money,
                     userInfoString: nil,
                     locationID: nil,
-                    notes: purchaseString,
+                    notes: "food purchase",
                     customerID: nil,
                     supportedTenderTypes: .card,
                     clearsDefaultFees: false,
@@ -101,14 +111,25 @@ struct PaymentsPage: View {
             print(error.localizedDescription)
         }
     } //close function
+     */
     
     //creates string that contains data from purchase to be sent to square and included in purchase notes section
-    func createPurchaseString() -> String {
-        var purchaseString = "Purchase data: "
-        for purchaseItem in myCart.cartObjects {
-            purchaseString += String(purchaseItem.quantity) + " " + String(purchaseItem.cartName) + " ($" + String(format: "%.2f", Double(purchaseItem.price)! * Double(purchaseItem.quantity)) + ")" + ", "
+    func createPurchaseString(paymentType: Int) -> [String: Any]{
+        var purchaseList = [String:Int]()
+        let seconds = Date().timeIntervalSince1970
+        purchaseList["transactionOrder"] = Int(seconds)
+        if (paymentType == 1) {
+                purchaseList["total"] = Int(Float(myCart.totalPrice) * 103.5) //3.5% surcharge on credit payments
+                purchaseList["payment type"] = 1
         }
-        return purchaseString
+        if (paymentType == 2) {
+            purchaseList["total"] = Int(Float(myCart.totalPrice) * 100)
+            purchaseList["payment type"] = 2
+        }
+        for purchaseItem in myCart.cartObjects {
+            purchaseList[purchaseItem.cartName] = purchaseItem.quantity
+        }
+        return purchaseList
     }
 }
 
