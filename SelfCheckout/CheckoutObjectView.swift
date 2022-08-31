@@ -22,14 +22,9 @@ struct CheckoutObjectView: View {
                 myCart.totalPrice -= Double(item.quantity) * Double(item.price)!
                 let findObject = CartObject.init(cartName: item.cartName, price: item.price, quantity: item.quantity)
                 myCart.cartObjects = myCart.cartObjects.filter { $0 != findObject }
-                /*
-                let findObject = CartObject.init(cartName: item.cartName, price: item.price, quantity: item.quantity)
-                myCart.cartObjects = myCart.cartObjects.filter { $0 != findObject }
-                myCart.totalPrice = myCart.totalPrice - Double(findObject.price)! //+ Double(item.quantity)
-                 */
             }  label: {
                 Text("x")
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.red)
                     .bold()
                     .font(.custom("San Francisco", size: 25))
                     .offset(x: 0, y: -2)

@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DetailView: View {
     @ObservedObject var myCart: CheckoutClass
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var customPrice: String = ""
+    @Binding var searchText: String
     let product: Products
     let referenceNames = ProductType.variationData
     var body: some View {
@@ -22,21 +24,28 @@ struct DetailView: View {
                     .frame(height: 50)
                 VStack {
                     HStack {
-                        TextField("Enter Price Here", text: $customPrice, onEditingChanged: { (isBegin) in
+                        TextField("input price", text: $customPrice, onEditingChanged: {(isBegin) in
                             if isBegin {
-                                print("Begins editing")
+                                print("User has begun editing")
                             }
                         },
-                        onCommit: {
+                                  onCommit: {
                             myCart.cartObjects.append(CartObject(cartName: product.cartName, price: customPrice, quantity: 1))
                             myCart.totalPrice += Double(customPrice)!
+                            searchText = "" //clear search before returning to main screen
                             action: do { self.presentationMode.wrappedValue.dismiss() }
                         })
-                        .keyboardType(.decimalPad)
-                        .padding(20)
-                        .frame(width: 240, height: 100)
-                        .font(.largeTitle)
-                        .border(Color.black)
+                            .keyboardType(.numberPad)
+                            .padding(20)
+                            .frame(width: 240, height: 100)
+                            .font(.largeTitle)
+                            .border(Color.black)
+                            .onReceive(Just(customPrice)) { newValue in
+                                let filtered = newValue.filter { "0123456789.".contains($0) }
+                                if filtered != newValue {
+                                    self.customPrice = filtered
+                                }
+                            }
                     }
                 }
             }
@@ -59,6 +68,7 @@ struct DetailView: View {
                                 } else {
                                     myCart.cartObjects[itemIndex!].quantity += 1 //add one to already existing checkout item
                                 }
+                                searchText = "" //clear search before returning to main screen
                                 action: do { self.presentationMode.wrappedValue.dismiss() }
                                 }
                         }
@@ -69,11 +79,3 @@ struct DetailView: View {
         } //VStack
     } //body
 } //view
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            DetailView(myCart: CheckoutClass(), product: Products.productData[0])
-        }
-    }
-}

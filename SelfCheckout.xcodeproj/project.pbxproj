@@ -21,10 +21,22 @@
 		0E2E483D28410C40003DC5E9 /* SelfCheckoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2E483C28410C40003DC5E9 /* SelfCheckoutUITests.swift */; };
 		0E2E483F28410C40003DC5E9 /* SelfCheckoutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2E483E28410C40003DC5E9 /* SelfCheckoutUITestsLaunchTests.swift */; };
 		0E2E484D2842F5C4003DC5E9 /* SquarePointOfSaleSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 0E2E484C2842F5C4003DC5E9 /* SquarePointOfSaleSDK */; };
+		0E569ABB288B10C000FFA837 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0E569ABA288B10C000FFA837 /* FirebaseFirestore */; };
+		0E569ABD288B10C000FFA837 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0E569ABC288B10C000FFA837 /* FirebaseFirestoreCombine-Community */; };
+		0E569ABF288B10C000FFA837 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0E569ABE288B10C000FFA837 /* FirebaseFirestoreSwift */; };
+		0E569AC1288B10C000FFA837 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 0E569AC0288B10C000FFA837 /* FirebaseFunctions */; };
+		0E569AC3288B10C000FFA837 /* FirebaseFunctionsCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0E569AC2288B10C000FFA837 /* FirebaseFunctionsCombine-Community */; };
+		0EA747EF287602C4003196FD /* paymentsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA747EE287602C3003196FD /* paymentsPage.swift */; };
+		0EA747F1287625F1003196FD /* paymentsPageBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA747F0287625F1003196FD /* paymentsPageBar.swift */; };
+		0EA747F528776A49003196FD /* CashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA747F428776A49003196FD /* CashView.swift */; };
+		0EA747F72878A7DF003196FD /* displayProductGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA747F62878A7DF003196FD /* displayProductGroup.swift */; };
+		0EA747F92888699A003196FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EA747F82888699A003196FD /* GoogleService-Info.plist */; };
 		0EB206F228529961004EE9E9 /* CheckoutClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB206F128529961004EE9E9 /* CheckoutClass.swift */; };
 		0EB206F42856608F004EE9E9 /* ProductTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB206F32856608F004EE9E9 /* ProductTypeView.swift */; };
 		0EB206F62856614E004EE9E9 /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB206F52856614E004EE9E9 /* ProductType.swift */; };
 		0EC6089F2847D53E00E16B3E /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC6089E2847D53E00E16B3E /* CheckoutView.swift */; };
+		0ECB0CF028B94C3000FF41C5 /* cashThankyouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB0CEF28B94C3000FF41C5 /* cashThankyouView.swift */; };
+		0ECB0CF228B94C4500FF41C5 /* cardThankyouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECB0CF128B94C4500FF41C5 /* cardThankyouView.swift */; };
 		0EF88FF5285E6E910042D579 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF88FF4285E6E910042D579 /* AdminView.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,10 +75,17 @@
 		0E2E483C28410C40003DC5E9 /* SelfCheckoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfCheckoutUITests.swift; sourceTree = "<group>"; };
 		0E2E483E28410C40003DC5E9 /* SelfCheckoutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfCheckoutUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0E2E484E2842F778003DC5E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0EA747EE287602C3003196FD /* paymentsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentsPage.swift; sourceTree = "<group>"; };
+		0EA747F0287625F1003196FD /* paymentsPageBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentsPageBar.swift; sourceTree = "<group>"; };
+		0EA747F428776A49003196FD /* CashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashView.swift; sourceTree = "<group>"; };
+		0EA747F62878A7DF003196FD /* displayProductGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = displayProductGroup.swift; sourceTree = "<group>"; };
+		0EA747F82888699A003196FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EB206F128529961004EE9E9 /* CheckoutClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutClass.swift; sourceTree = "<group>"; };
 		0EB206F32856608F004EE9E9 /* ProductTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTypeView.swift; sourceTree = "<group>"; };
 		0EB206F52856614E004EE9E9 /* ProductType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
 		0EC6089E2847D53E00E16B3E /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		0ECB0CEF28B94C3000FF41C5 /* cashThankyouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cashThankyouView.swift; sourceTree = "<group>"; };
+		0ECB0CF128B94C4500FF41C5 /* cardThankyouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardThankyouView.swift; sourceTree = "<group>"; };
 		0EF88FF4285E6E910042D579 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +94,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E569ABD288B10C000FFA837 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				0E2E484D2842F5C4003DC5E9 /* SquarePointOfSaleSDK in Frameworks */,
+				0E569AC1288B10C000FFA837 /* FirebaseFunctions in Frameworks */,
+				0E569ABB288B10C000FFA837 /* FirebaseFirestore in Frameworks */,
+				0E569ABF288B10C000FFA837 /* FirebaseFirestoreSwift in Frameworks */,
+				0E569AC3288B10C000FFA837 /* FirebaseFunctionsCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +156,17 @@
 			children = (
 				0E29D69D2843DBA900519E03 /* Models */,
 				0E2E484E2842F778003DC5E9 /* Info.plist */,
+				0EA747F82888699A003196FD /* GoogleService-Info.plist */,
 				0E2E482128410C40003DC5E9 /* SelfCheckoutApp.swift */,
+				0EA747EE287602C3003196FD /* paymentsPage.swift */,
+				0ECB0CEF28B94C3000FF41C5 /* cashThankyouView.swift */,
+				0ECB0CF128B94C4500FF41C5 /* cardThankyouView.swift */,
+				0EA747F428776A49003196FD /* CashView.swift */,
+				0EA747F0287625F1003196FD /* paymentsPageBar.swift */,
 				0E29D6A02843DCE000519E03 /* CardView.swift */,
 				0EC6089E2847D53E00E16B3E /* CheckoutView.swift */,
 				0E29D6A22843DF7700519E03 /* ProductsView.swift */,
+				0EA747F62878A7DF003196FD /* displayProductGroup.swift */,
 				0EF88FF4285E6E910042D579 /* AdminView.swift */,
 				0E24D785286B82ED002739C3 /* priceEntryView.swift */,
 				0E29D6A42846762A00519E03 /* DetailView.swift */,
@@ -190,6 +221,11 @@
 			name = SelfCheckout;
 			packageProductDependencies = (
 				0E2E484C2842F5C4003DC5E9 /* SquarePointOfSaleSDK */,
+				0E569ABA288B10C000FFA837 /* FirebaseFirestore */,
+				0E569ABC288B10C000FFA837 /* FirebaseFirestoreCombine-Community */,
+				0E569ABE288B10C000FFA837 /* FirebaseFirestoreSwift */,
+				0E569AC0288B10C000FFA837 /* FirebaseFunctions */,
+				0E569AC2288B10C000FFA837 /* FirebaseFunctionsCombine-Community */,
 			);
 			productName = SelfCheckout;
 			productReference = 0E2E481E28410C40003DC5E9 /* SelfCheckout.app */;
@@ -265,6 +301,7 @@
 			mainGroup = 0E2E481528410C3F003DC5E9;
 			packageReferences = (
 				0E2E484B2842F5C3003DC5E9 /* XCRemoteSwiftPackageReference "SquarePointOfSaleSDK-iOS" */,
+				0E569AB9288B10C000FFA837 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0E2E481F28410C40003DC5E9 /* Products */;
 			projectDirPath = "";
@@ -284,6 +321,7 @@
 			files = (
 				0E2E482928410C40003DC5E9 /* Preview Assets.xcassets in Resources */,
 				0E2E482628410C40003DC5E9 /* Assets.xcassets in Resources */,
+				0EA747F92888699A003196FD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +348,11 @@
 			files = (
 				0E29D6A52846762A00519E03 /* DetailView.swift in Sources */,
 				0E29D69F2843DBC500519E03 /* Products.swift in Sources */,
+				0ECB0CF028B94C3000FF41C5 /* cashThankyouView.swift in Sources */,
+				0EA747F1287625F1003196FD /* paymentsPageBar.swift in Sources */,
+				0EA747F72878A7DF003196FD /* displayProductGroup.swift in Sources */,
+				0ECB0CF228B94C4500FF41C5 /* cardThankyouView.swift in Sources */,
+				0EA747F528776A49003196FD /* CashView.swift in Sources */,
 				0EF88FF5285E6E910042D579 /* AdminView.swift in Sources */,
 				0E24D786286B82ED002739C3 /* priceEntryView.swift in Sources */,
 				0EB206F42856608F004EE9E9 /* ProductTypeView.swift in Sources */,
@@ -321,6 +364,7 @@
 				0E29D6A32843DF7700519E03 /* ProductsView.swift in Sources */,
 				0E2E482228410C40003DC5E9 /* SelfCheckoutApp.swift in Sources */,
 				0EB206F228529961004EE9E9 /* CheckoutClass.swift in Sources */,
+				0EA747EF287602C4003196FD /* paymentsPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -461,7 +505,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -653,6 +697,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		0E569AB9288B10C000FFA837 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -660,6 +712,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0E2E484B2842F5C3003DC5E9 /* XCRemoteSwiftPackageReference "SquarePointOfSaleSDK-iOS" */;
 			productName = SquarePointOfSaleSDK;
+		};
+		0E569ABA288B10C000FFA837 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E569AB9288B10C000FFA837 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		0E569ABC288B10C000FFA837 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E569AB9288B10C000FFA837 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		0E569ABE288B10C000FFA837 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E569AB9288B10C000FFA837 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		0E569AC0288B10C000FFA837 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E569AB9288B10C000FFA837 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		0E569AC2288B10C000FFA837 /* FirebaseFunctionsCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E569AB9288B10C000FFA837 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFunctionsCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
