@@ -7,16 +7,16 @@
 
 import SwiftUI
 import Foundation
-import SquarePointOfSaleSDK
+//import SquarePointOfSaleSDK
 import Firebase
-import FirebaseFunctions
+//import FirebaseFunctions
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct PaymentsPage: View {
     @ObservedObject var appState: AppInfo
     @ObservedObject var myCart: CheckoutClass
-    lazy var functions = Functions.functions()
+    //lazy var functions = Functions.functions()
     let db = Firestore.firestore()
     var body: some View {
         VStack {
