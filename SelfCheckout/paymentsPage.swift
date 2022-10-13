@@ -127,7 +127,7 @@ struct PaymentsPage: View {
             purchaseList["payment type"] = 2
         }
         for purchaseItem in myCart.cartObjects {
-            purchaseList[purchaseItem.cartName] = purchaseItem.quantity
+            purchaseList[purchaseItem.cartName] = purchaseItem.quantity * Int((Float(purchaseItem.price)!) * 100)
         }
         return purchaseList
     }

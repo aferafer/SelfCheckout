@@ -52,7 +52,7 @@ struct CashView: View {
         purchaseList["payment type"] = 3
         purchaseList["CashTotal"] = Int(Float(myCart.totalPrice) * 100)
         for purchaseItem in myCart.cartObjects {
-            purchaseList[purchaseItem.cartName] = purchaseItem.quantity
+            purchaseList[purchaseItem.cartName] = purchaseItem.quantity * Int((Float(purchaseItem.price)!) * 100)
         }
         return purchaseList
     }
