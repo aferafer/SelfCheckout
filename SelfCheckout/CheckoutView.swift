@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct CheckoutView: View {
-    let db = Firestore.firestore()
+    //let db = Firestore.firestore()
     @ObservedObject var myCart: CheckoutClass
     @ObservedObject var appState: AppInfo
     @State private var showAlert = false
@@ -109,7 +109,7 @@ struct CheckoutView: View {
     
     
     func writeToDatabase() {
-        db.collection("transactions").addDocument(data: ["total": Int(Float(myCart.totalPrice) * 100), "new": 7.00, "beets": 3.50])
+        //db.collection("transactions").addDocument(data: ["total": Int(Float(myCart.totalPrice) * 100), "new": 7.00, "beets": 3.50])
         /*
         guard let url = URL(string: "https://itunes.apple.com/search?term=taylor+swift&entity=song") else {
             print("Invalid URL")

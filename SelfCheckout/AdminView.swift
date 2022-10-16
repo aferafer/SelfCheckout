@@ -25,7 +25,7 @@ struct AdminView: View {
     @AppStorage(isVisible.Carrots.rawValue) var CarrotsVisible = true //options
     @AppStorage(isVisible.Small_Carrots.rawValue) var SmallCarrotsVisible = true
     @AppStorage(isVisible.Large_Carrots.rawValue) var LargeCarrotsVisible = true
-    @AppStorage(isVisible.Head_Lettuce.rawValue) var HeadLettuceVisible = true
+    //@AppStorage(isVisible.Head_Lettuce.rawValue) var HeadLettuceVisible = true
     @AppStorage(isVisible.Salad_Greens.rawValue) var SaladGreensVisible = true
     @AppStorage(isVisible.Kale.rawValue) var KaleVisible = true
     @AppStorage(isVisible.Swiss_Chard.rawValue) var SwissChardVisible = true
@@ -50,6 +50,7 @@ struct AdminView: View {
     @AppStorage(isVisible.Kohlrabi.rawValue) var KohlrabiVisible = true
     @AppStorage(isVisible.Green_Onions.rawValue) var GreenOnionsVisible = true
     @AppStorage(isVisible.Garlic.rawValue) var GarlicVisible = true
+    @AppStorage(isVisible.Onion.rawValue) var OnionVisible = true
     @AppStorage(isVisible.Onions.rawValue) var OnionsVisible = true
     @AppStorage(isVisible.Summer_Squash.rawValue) var SummerSquashVisible = true
     @AppStorage(isVisible.Squash.rawValue) var SquashVisible = true
@@ -63,6 +64,7 @@ struct AdminView: View {
     @AppStorage(isVisible.Turnips.rawValue) var TurnipsVisible = true
     @AppStorage(isVisible.Cabbage.rawValue) var CabbageVisible = true
     @AppStorage(isVisible.Potatoes.rawValue) var PotatoesVisible = true
+    @AppStorage(isVisible.Potato_Bag.rawValue) var PotatoBagVisible = true
     @AppStorage(isVisible.Arugala.rawValue) var ArugalaVisible = true
     @AppStorage(isVisible.Asparagus.rawValue) var AsparagusVisible = true
     @AppStorage(isVisible.Tatsoi.rawValue) var TatsoiVisible = true
@@ -84,12 +86,12 @@ struct AdminView: View {
     @AppStorage(isVisible.Romaine_Lettuce.rawValue) var Romaine_LettuceVisible = true
     
     @AppStorage(isVisible.Salsa.rawValue) var SalsaVisible = true
-    @AppStorage(isVisible.Phil_Sauce.rawValue) var PhilSauceVisible = true
-    @AppStorage(isVisible.Pickled_Onions.rawValue) var PickledOnionsVisible = true
+    //@AppStorage(isVisible.Phil_Sauce.rawValue) var PhilSauceVisible = true
+    //@AppStorage(isVisible.Pickled_Onions.rawValue) var PickledOnionsVisible = true
     @AppStorage(isVisible.Soup.rawValue) var SoupVisible = true
-    @AppStorage(isVisible.Pickled_Beets.rawValue) var PickledBeetsVisible = true
-    @AppStorage(isVisible.Pickled_Carrots.rawValue) var PickledCarrotsVisible = true
-    @AppStorage(isVisible.Sweet_Carrots.rawValue) var SweetCarrotsVisible = true
+    //@AppStorage(isVisible.Pickled_Beets.rawValue) var PickledBeetsVisible = true
+    //@AppStorage(isVisible.Pickled_Carrots.rawValue) var PickledCarrotsVisible = true
+    //@AppStorage(isVisible.Sweet_Carrots.rawValue) var SweetCarrotsVisible = true
     @AppStorage(isVisible.Lasagna.rawValue) var LasagnaVisible = true
     @AppStorage(isVisible.Carrot_Cake.rawValue) var CarrotCakeVisible = true
     @AppStorage(isVisible.Baguette.rawValue) var BaguetteVisible = true
@@ -100,10 +102,10 @@ struct AdminView: View {
     @AppStorage(isVisible.Stewing_Beef.rawValue) var StewingBeefVisible = true
     @AppStorage(isVisible.Whole_Chicken.rawValue) var WholeChickenVisible = true
     
-    @AppStorage(isVisible.Dill_Carrots.rawValue) var Dill_CarrotsVisible = true
-    @AppStorage(isVisible.Pickled_Asparagus.rawValue) var Pickled_AsparagusVisible = true
+    //@AppStorage(isVisible.Dill_Carrots.rawValue) var Dill_CarrotsVisible = true
+    //@AppStorage(isVisible.Pickled_Asparagus.rawValue) var Pickled_AsparagusVisible = true
     @AppStorage(isVisible.Red_Onion_Jam.rawValue) var Red_Onion_JamVisible = true
-    @AppStorage(isVisible.Pickled_Cauliflower.rawValue) var Pickled_CauliflowerVisible = true
+    //@AppStorage(isVisible.Pickled_Cauliflower.rawValue) var Pickled_CauliflowerVisible = true
     @AppStorage(isVisible.Zuchini_Relish.rawValue) var Zuchini_RelishVisible = true
     @AppStorage(isVisible.Beef_Burgers.rawValue) var Beef_BurgersVisible = true
     @AppStorage(isVisible.Wildflower_Honey.rawValue) var Wildflower_HoneyVisible = true
@@ -141,6 +143,7 @@ struct AdminView: View {
     @AppStorage(isVisible.Ground_Chicken.rawValue) var Ground_ChickenVisible = true
     @AppStorage(isVisible.Cacao_Powder.rawValue) var Cacao_PowderVisible = true
     
+    @AppStorage(isVisible.Granola.rawValue) var GranolaVisible = true
     @AppStorage(isVisible.Small_Granola.rawValue) var Small_GranolaVisible = true
     @AppStorage(isVisible.Large_Granola.rawValue) var Large_GranolaVisible = true
     @AppStorage(isVisible.Small_Icecream.rawValue) var Small_IcecreamVisible = true
@@ -195,6 +198,7 @@ struct AdminView: View {
     @AppStorage(price.PKohlrabi.rawValue) var KohlrabiPrice = "3.75"
     @AppStorage(price.PGreen_Onions.rawValue) var GreenOnionsPrice = "3.25"
     @AppStorage(price.PGarlic.rawValue) var GarlicPrice = "3.00"
+    @AppStorage(price.POnion.rawValue) var OnionPrice = "2.00" //and 1.75 * 5 for 5 pound bags
     @AppStorage(price.POnions.rawValue) var OnionsPrice = "2.00" //and 1.75 * 5 for 5 pound bags
     @AppStorage(price.PSummer_Squash.rawValue) var SummerSquashPrice = "1.50"
     //@AppStorage(price.PMelons.rawValue) var MelonsPrice = "3.00" //variations
@@ -208,6 +212,7 @@ struct AdminView: View {
     @AppStorage(price.PTurnips.rawValue) var TurnipsPrice = "3.50"
     @AppStorage(price.PCabbage.rawValue) var CabbagePrice = "5.00"
     @AppStorage(price.PPotatoes.rawValue) var PotatoesPrice = "6.25"
+    @AppStorage(price.PPotato_Bag.rawValue) var PotatoBagPrice = "6.25"
     
     @AppStorage(price.PArugala.rawValue) var ArugalaPrice = "5.25"
     @AppStorage(price.PAsparagus.rawValue) var AsparagusPrice = "5.00"
@@ -230,12 +235,12 @@ struct AdminView: View {
     @AppStorage(price.PRomaine_Lettuce.rawValue) var Romaine_LettucePrice = "3.75"
     
     @AppStorage(price.PSalsa.rawValue) var SalsaPrice = "10.00"
-    @AppStorage(price.PPhil_Sauce.rawValue) var PhilSaucePrice = "5.00"
-    @AppStorage(price.PPickled_Onions.rawValue) var PickledOnionsPrice = "6.50"
+    //@AppStorage(price.PPhil_Sauce.rawValue) var PhilSaucePrice = "5.00"
+    //@AppStorage(price.PPickled_Onions.rawValue) var PickledOnionsPrice = "6.50"
     @AppStorage(price.PSoup.rawValue) var SoupPrice = "10.00"
-    @AppStorage(price.PPickled_Beets.rawValue) var PickledBeetsPrice = "6.50"
-    @AppStorage(price.PPickled_Carrots.rawValue) var PickledCarrotsPrice = "8.50"
-    @AppStorage(price.PSweet_Carrots.rawValue) var SweetCarrotsPrice = "3.00" //delete
+    //@AppStorage(price.PPickled_Beets.rawValue) var PickledBeetsPrice = "6.50"
+    //@AppStorage(price.PPickled_Carrots.rawValue) var PickledCarrotsPrice = "8.50"
+    //@AppStorage(price.PSweet_Carrots.rawValue) var SweetCarrotsPrice = "3.00" //delete
     @AppStorage(price.PLasagna.rawValue) var LasagnaPrice = "26.00"
     @AppStorage(price.PCarrot_Cake.rawValue) var CarrotCakePrice = "8.50"
     @AppStorage(price.PBaguette.rawValue) var BaguettePrice = "5.00"
@@ -246,11 +251,11 @@ struct AdminView: View {
     @AppStorage(price.PStewing_Beef.rawValue) var StewingBeefPrice = "3.00" //check store. Not sure if by weight or constant price
     @AppStorage(price.PWhole_Chicken.rawValue) var WholeChickenPrice = "3.00" //custom price
     
-    @AppStorage(price.PDill_Carrots.rawValue) var Dill_CarrotsPrice = "8.50"
-    @AppStorage(price.PPickled_Asparagus.rawValue) var Pickled_AsparagusPrice = "11.00" //check store
+    //@AppStorage(price.PDill_Carrots.rawValue) var Dill_CarrotsPrice = "8.50"
+    //@AppStorage(price.PPickled_Asparagus.rawValue) var Pickled_AsparagusPrice = "11.00" //check store
     @AppStorage(price.PRed_Onion_Jam.rawValue) var Red_Onion_JamPrice = "6.50" //hockley pickling and vegan meals trying to get rid of
-    @AppStorage(price.PPickled_Cauliflower.rawValue) var Pickled_CauliflowerPrice = "12.00" //check store
-    @AppStorage(price.PZuchini_Relish.rawValue) var Zuchini_RelishPrice = "7.00"
+    //@AppStorage(price.PPickled_Cauliflower.rawValue) var Pickled_CauliflowerPrice = "12.00" //check store
+    //@AppStorage(price.PZuchini_Relish.rawValue) var Zuchini_RelishPrice = "7.00"
     @AppStorage(price.PBeef_Burgers.rawValue) var Beef_BurgersPrice = "13.00"
     @AppStorage(price.PWildflower_Honey.rawValue) var Wildflower_HoneyPrice = "15.00"//
     @AppStorage(price.PWhite_Cream_Honey.rawValue) var White_Cream_HoneyPrice = "16.65"//
@@ -284,6 +289,7 @@ struct AdminView: View {
     @AppStorage(price.PGround_Chicken.rawValue) var Ground_ChickenPrice = "5.00"
     @AppStorage(price.PCacao_Powder.rawValue) var Cacao_PowderPrice = "24.00"
     
+    @AppStorage(price.PGranola.rawValue) var GranolaPrice = "14.00"
     @AppStorage(price.PSmall_Granola.rawValue) var Small_GranolaPrice = "14.00"
     @AppStorage(price.PLarge_Granola.rawValue) var Large_GranolaPrice = "17.00"
     @AppStorage(price.PSmall_Icecream.rawValue) var Small_IcecreamPrice = "3.75"
@@ -323,7 +329,7 @@ struct AdminView: View {
             cartData.isAvailable[isVisible.Fennel.rawValue] = FennelVisible
             cartData.isAvailable[isVisible.Garlic.rawValue] = GarlicVisible
             cartData.isAvailable[isVisible.Green_Onions.rawValue] = GreenOnionsVisible
-            cartData.isAvailable[isVisible.Head_Lettuce.rawValue] = HeadLettuceVisible
+            //cartData.isAvailable[isVisible.Head_Lettuce.rawValue] = HeadLettuceVisible
             cartData.isAvailable[isVisible.Kale.rawValue] = KaleVisible
             cartData.isAvailable[isVisible.Kohlrabi.rawValue] = KohlrabiVisible
             cartData.isAvailable[isVisible.Leeks.rawValue] = LeeksVisible
@@ -332,12 +338,14 @@ struct AdminView: View {
             cartData.isAvailable[isVisible.Large_Melons.rawValue] = LargeMelonsVisible
             cartData.isAvailable[isVisible.Melons.rawValue] = MelonsVisible
             cartData.isAvailable[isVisible.Microgreens.rawValue] = MicrogreensVisible
+            cartData.isAvailable[isVisible.Onion.rawValue] = OnionVisible
             cartData.isAvailable[isVisible.Onions.rawValue] = OnionsVisible
             cartData.isAvailable[isVisible.Parsley.rawValue] = ParsleyVisible
             cartData.isAvailable[isVisible.Peppers.rawValue] = PeppersVisible
             cartData.isAvailable[isVisible.Green_Peppers.rawValue] = GreenPeppersVisible
             cartData.isAvailable[isVisible.Colored_Peppers.rawValue] = ColoredPeppersVisible
             cartData.isAvailable[isVisible.Potatoes.rawValue] = PotatoesVisible
+            cartData.isAvailable[isVisible.Potato_Bag.rawValue] = PotatoBagVisible
             cartData.isAvailable[isVisible.Radishes.rawValue] = RadishesVisible
             cartData.isAvailable[isVisible.Salad_Greens.rawValue] = SaladGreensVisible
             cartData.isAvailable[isVisible.Snow_Peas.rawValue] = SnowPeasVisible
@@ -372,12 +380,12 @@ struct AdminView: View {
             cartData.isAvailable[isVisible.Romaine_Lettuce.rawValue] = Romaine_LettuceVisible
             
             cartData.isAvailable[isVisible.Salsa.rawValue] = SalsaVisible
-            cartData.isAvailable[isVisible.Phil_Sauce.rawValue] = PhilSauceVisible
-            cartData.isAvailable[isVisible.Pickled_Onions.rawValue] = PickledOnionsVisible
+            //cartData.isAvailable[isVisible.Phil_Sauce.rawValue] = PhilSauceVisible
+            //cartData.isAvailable[isVisible.Pickled_Onions.rawValue] = PickledOnionsVisible
             cartData.isAvailable[isVisible.Soup.rawValue] = SoupVisible
-            cartData.isAvailable[isVisible.Pickled_Beets.rawValue] = PickledBeetsVisible
-            cartData.isAvailable[isVisible.Pickled_Carrots.rawValue] = PickledCarrotsVisible
-            cartData.isAvailable[isVisible.Sweet_Carrots.rawValue] = SweetCarrotsVisible
+           //cartData.isAvailable[isVisible.Pickled_Beets.rawValue] = PickledBeetsVisible
+            //cartData.isAvailable[isVisible.Pickled_Carrots.rawValue] = PickledCarrotsVisible
+            //cartData.isAvailable[isVisible.Sweet_Carrots.rawValue] = SweetCarrotsVisible
             cartData.isAvailable[isVisible.Lasagna.rawValue] = LasagnaVisible
             cartData.isAvailable[isVisible.Carrot_Cake.rawValue] = CarrotCakeVisible
             cartData.isAvailable[isVisible.Baguette.rawValue] = BaguetteVisible
@@ -388,10 +396,10 @@ struct AdminView: View {
             cartData.isAvailable[isVisible.Stewing_Beef.rawValue] = StewingBeefVisible
             cartData.isAvailable[isVisible.Whole_Chicken.rawValue] = WholeChickenVisible
             
-            cartData.isAvailable[isVisible.Dill_Carrots.rawValue] = Dill_CarrotsVisible
-            cartData.isAvailable[isVisible.Pickled_Asparagus.rawValue] = Pickled_AsparagusVisible
+            //cartData.isAvailable[isVisible.Dill_Carrots.rawValue] = Dill_CarrotsVisible
+            //cartData.isAvailable[isVisible.Pickled_Asparagus.rawValue] = Pickled_AsparagusVisible
             cartData.isAvailable[isVisible.Red_Onion_Jam.rawValue] = Red_Onion_JamVisible
-            cartData.isAvailable[isVisible.Pickled_Cauliflower.rawValue] = Pickled_CauliflowerVisible
+            //cartData.isAvailable[isVisible.Pickled_Cauliflower.rawValue] = Pickled_CauliflowerVisible
             cartData.isAvailable[isVisible.Zuchini_Relish.rawValue] = Zuchini_RelishVisible
             cartData.isAvailable[isVisible.Beef_Burgers.rawValue] = Beef_BurgersVisible
             cartData.isAvailable[isVisible.Wildflower_Honey.rawValue] = Wildflower_HoneyVisible
@@ -427,6 +435,7 @@ struct AdminView: View {
             cartData.isAvailable[isVisible.Cacao_Powder.rawValue] = Cacao_PowderVisible
             cartData.isAvailable[isVisible.Hummus.rawValue] = HummusVisible
             
+            cartData.isAvailable[isVisible.Granola.rawValue] = GranolaVisible
             cartData.isAvailable[isVisible.Small_Granola.rawValue] = Small_GranolaVisible
             cartData.isAvailable[isVisible.Large_Granola.rawValue] = Large_GranolaVisible
             cartData.isAvailable[isVisible.Small_Icecream.rawValue] = Small_IcecreamVisible
@@ -445,7 +454,7 @@ struct AdminView: View {
             
             print(cartData.isAvailable)
             
-            cartData.priceDict[toReference(priceEnum: price.PHead_Lettuce)] = HeadLettucePrice
+            //cartData.priceDict[toReference(priceEnum: price.PHead_Lettuce)] = HeadLettucePrice
             cartData.priceDict[toReference(priceEnum: price.PSmall_Carrots)] = SmallCarrotsPrice
             cartData.priceDict[toReference(priceEnum: price.PLarge_Carrots)] = LargeCarrotsPrice
             cartData.priceDict[toReference(priceEnum: price.PSalad_Greens)] = SaladGreensPrice
@@ -476,6 +485,7 @@ struct AdminView: View {
             cartData.priceDict[toReference(priceEnum: price.PKohlrabi)] = KohlrabiPrice
             cartData.priceDict[toReference(priceEnum: price.PGreen_Onions)] = GreenOnionsPrice
             cartData.priceDict[toReference(priceEnum: price.PGarlic)] = GarlicPrice
+            cartData.priceDict[toReference(priceEnum: price.POnion)] = OnionPrice
             cartData.priceDict[toReference(priceEnum: price.POnions)] = OnionsPrice
             cartData.priceDict[toReference(priceEnum: price.PSummer_Squash)] = SummerSquashPrice
             cartData.priceDict[toReference(priceEnum: price.PRadishes)] = RadishesPrice
@@ -489,6 +499,7 @@ struct AdminView: View {
             cartData.priceDict[toReference(priceEnum: price.PTurnips)] = TurnipsPrice
             cartData.priceDict[toReference(priceEnum: price.PCabbage)] = CabbagePrice
             cartData.priceDict[toReference(priceEnum: price.PPotatoes)] = PotatoesPrice
+            cartData.priceDict[toReference(priceEnum: price.PPotato_Bag)] = PotatoBagPrice
             
             cartData.priceDict[toReference(priceEnum: price.PArugala)] = ArugalaPrice
             cartData.priceDict[toReference(priceEnum: price.PAsparagus)] = AsparagusPrice
@@ -511,12 +522,12 @@ struct AdminView: View {
             cartData.priceDict[toReference(priceEnum: price.PRomaine_Lettuce)] = Romaine_LettucePrice
             
             cartData.priceDict[toReference(priceEnum: price.PSalsa)] = SalsaPrice
-            cartData.priceDict[toReference(priceEnum: price.PPhil_Sauce)] = PhilSaucePrice
-            cartData.priceDict[toReference(priceEnum: price.PPickled_Onions)] = PickledOnionsPrice
+            //cartData.priceDict[toReference(priceEnum: price.PPhil_Sauce)] = PhilSaucePrice
+            //cartData.priceDict[toReference(priceEnum: price.PPickled_Onions)] = PickledOnionsPrice
             cartData.priceDict[toReference(priceEnum: price.PSoup)] = SoupPrice
-            cartData.priceDict[toReference(priceEnum: price.PPickled_Beets)] = PickledBeetsPrice
-            cartData.priceDict[toReference(priceEnum: price.PPickled_Carrots)] = PickledCarrotsPrice
-            cartData.priceDict[toReference(priceEnum: price.PSweet_Carrots)] = SweetCarrotsPrice
+            //cartData.priceDict[toReference(priceEnum: price.PPickled_Beets)] = PickledBeetsPrice
+            //cartData.priceDict[toReference(priceEnum: price.PPickled_Carrots)] = PickledCarrotsPrice
+            //cartData.priceDict[toReference(priceEnum: price.PSweet_Carrots)] = SweetCarrotsPrice
             cartData.priceDict[toReference(priceEnum: price.PLasagna)] = LasagnaPrice
             cartData.priceDict[toReference(priceEnum: price.PCarrot_Cake)] = CarrotCakePrice
             cartData.priceDict[toReference(priceEnum: price.PBaguette)] = BaguettePrice
@@ -527,11 +538,11 @@ struct AdminView: View {
             cartData.priceDict[toReference(priceEnum: price.PStewing_Beef)] = StewingBeefPrice
             cartData.priceDict[toReference(priceEnum: price.PWhole_Chicken)] = WholeChickenPrice
             
-            cartData.priceDict[toReference(priceEnum: price.PDill_Carrots)] = Dill_CarrotsPrice
-            cartData.priceDict[toReference(priceEnum: price.PPickled_Asparagus)] = Pickled_AsparagusPrice
+            //cartData.priceDict[toReference(priceEnum: price.PDill_Carrots)] = Dill_CarrotsPrice
+            //cartData.priceDict[toReference(priceEnum: price.PPickled_Asparagus)] = Pickled_AsparagusPrice
             cartData.priceDict[toReference(priceEnum: price.PRed_Onion_Jam)] = Red_Onion_JamPrice
-            cartData.priceDict[toReference(priceEnum: price.PPickled_Cauliflower)] = Pickled_CauliflowerPrice
-            cartData.priceDict[toReference(priceEnum: price.PZuchini_Relish)] = Zuchini_RelishPrice
+            //cartData.priceDict[toReference(priceEnum: price.PPickled_Cauliflower)] = Pickled_CauliflowerPrice
+            //cartData.priceDict[toReference(priceEnum: price.PZuchini_Relish)] = Zuchini_RelishPrice
             cartData.priceDict[toReference(priceEnum: price.PBeef_Burgers)] = Beef_BurgersPrice
             cartData.priceDict[toReference(priceEnum: price.PWildflower_Honey)] = Wildflower_HoneyPrice
             cartData.priceDict[toReference(priceEnum: price.PWhite_Cream_Honey)] = White_Cream_HoneyPrice
@@ -565,6 +576,7 @@ struct AdminView: View {
             cartData.priceDict[toReference(priceEnum: price.PCacao_Powder)] = Cacao_PowderPrice
             cartData.priceDict[toReference(priceEnum: price.PHummus)] = HummusPrice
             
+            cartData.priceDict[toReference(priceEnum: price.PGranola)] = GranolaPrice
             cartData.priceDict[toReference(priceEnum: price.PSmall_Granola)] = Small_GranolaPrice
             cartData.priceDict[toReference(priceEnum: price.PLarge_Granola)] = Large_GranolaPrice
             cartData.priceDict[toReference(priceEnum: price.PSmall_Icecream)] = Small_IcecreamPrice
@@ -603,6 +615,7 @@ struct AdminView: View {
                             Toggle(isOn: $AsparagusVisible) {Text("Asparagus Visible?")}
                             Toggle(isOn: $BasilVisible) {Text("Basil Visible?")}
                             Toggle(isOn: $Beet_GreensVisible) {Text("Beet Greens Visible?")}
+                            Toggle(isOn: $Holey_BeetgreensVisible) {Text("Imperfect leaf Beet Greens Visible?")}
                             Toggle(isOn: $BeetsVisible) {Text("Beets Visible?")}
                             Toggle(isOn: $Bok_ChoyVisible) {Text("Bok Choy Visible?")}
                             Toggle(isOn: $Butterhead_LettuceVisible) {Text("Butterhead Lettuce Visible?")}
@@ -632,7 +645,7 @@ struct AdminView: View {
                             Toggle(isOn: $FennelVisible) {Text("Fennel Visible?")}
                             Toggle(isOn: $GarlicVisible) {Text("Garlic Visible?")}
                             Toggle(isOn: $GreenOnionsVisible) {Text("Green Onions Visible?")}
-                            Toggle(isOn: $HeadLettuceVisible) {Text("Head Lettuce Visible?")}
+                            //Toggle(isOn: $HeadLettuceVisible) {Text("Head Lettuce Visible?")}
                             Toggle(isOn: $KaleVisible) {Text("Kale Visible?")}
                             Toggle(isOn: $KohlrabiVisible) {Text("Kohlrabi Visible?")}
                             Toggle(isOn: $LeeksVisible) {Text("Leeks Visible?")}
@@ -644,7 +657,7 @@ struct AdminView: View {
                             RoundedRectangle(cornerRadius: 10.0)
                                 .stroke(lineWidth: 2.0))
                         Group {
-                            Toggle(isOn: $OnionsVisible) {Text("Onions Visible?")}
+                            Toggle(isOn: $OnionVisible) {Text("Onions Visible?")}
                             Toggle(isOn: $Onion_BagsVisible) {Text("Onion Bags Visible?")}
                             Toggle(isOn: $ParsleyVisible) {Text("Parsley Visible?")}
                             Toggle(isOn: $ParsnipsVisible) {Text("Parsnips Visible?")}
@@ -664,6 +677,7 @@ struct AdminView: View {
                             Toggle(isOn: $SaladGreensVisible) {Text("Salad Greens Visible?")}
                             Toggle(isOn: $SnowPeasVisible) {Text("Snow Peas Visible?")}
                             Toggle(isOn: $SpinachVisible) {Text("Spinach Visible?")}
+                            Toggle(isOn: $HoleySpinachVisible) {Text("Imperfect Leaf Spinach Visible?")}
                             Toggle(isOn: $SquashVisible) {Text("Squash Visible?")}
                             Toggle(isOn: $SummerSquashVisible) {Text("Summer Squash Visible?")}
                             Toggle(isOn: $SwissChardVisible) {Text("Swiss Chard Visible?")}
@@ -708,20 +722,20 @@ struct AdminView: View {
                             Toggle(isOn: $Garlic_Scape_ButterVisible) {Text("Garlic Scape Butter Visible?")}
                             Toggle(isOn: $GazpachoVisible) {Text("Gazpacho Visible?")}
                             Toggle(isOn: $HummusVisible) {Text("Hummus Visible?")}
-                            Toggle(isOn: $PickledBeetsVisible) {Text("Pickled Beets Visible?")}
-                            Toggle(isOn: $PickledCarrotsVisible) {Text("Pickled Carrots Visible?")}
+                            //Toggle(isOn: $PickledBeetsVisible) {Text("Pickled Beets Visible?")}
+                            //Toggle(isOn: $PickledCarrotsVisible) {Text("Pickled Carrots Visible?")}
                         }
                         .padding(5)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10.0)
                                 .stroke(lineWidth: 2.0))
                         Group {
-                            Toggle(isOn: $PickledOnionsVisible) {Text("Pickled Onions Visible?")}
+                            //Toggle(isOn: $PickledOnionsVisible) {Text("Pickled Onions Visible?")}
                             Toggle(isOn: $Red_Onion_JamVisible) {Text("Red Onion Jam Visible?")}
                             Toggle(isOn: $SalsaVisible) {Text("Salsa Visible?")}
                             Toggle(isOn: $SfeehaVisible) {Text("Sfeeha Visible?")}
                             Toggle(isOn: $SoupVisible) {Text("Soup Visible?")}
-                            Toggle(isOn: $SweetCarrotsVisible) {Text("Sweet Carrots Visible?")}
+                            //Toggle(isOn: $SweetCarrotsVisible) {Text("Sweet Carrots Visible?")}
                             Toggle(isOn: $Zuchini_RelishVisible) {Text("Zuchini Relish Visible?")}
                         }
                         .padding(5)
@@ -759,9 +773,9 @@ struct AdminView: View {
                             Toggle(isOn: $FalafelsVisible) {Text("Falafels Visible?")}
                             Toggle(isOn: $French_LoafVisible) {Text("French Loaf Visible?")}
                             Toggle(isOn: $GroundBeefVisible) {Text("Ground Beef Visible?")}
-                            
-                            Toggle(isOn: $Small_GranolaVisible) {Text("Small Granola Visible?")}
-                            Toggle(isOn: $Large_GranolaVisible) {Text("Large Granola Visible?")}
+                            Toggle(isOn: $GranolaVisible) {Text("Granola Visible?")}
+                            //Toggle(isOn: $Small_GranolaVisible) {Text("Small Granola Visible?")}
+                            //Toggle(isOn: $Large_GranolaVisible) {Text("Large Granola Visible?")}
                             Toggle(isOn: $Small_IcecreamVisible) {Text("Small Icecream Visible?")}
                             Toggle(isOn: $Large_IcecreamVisible) {Text("Large Icecream Visible?")}
                         }
@@ -773,8 +787,8 @@ struct AdminView: View {
                             Toggle(isOn: $HoneyVisible) {Text("Honey Visible?")}
                             Toggle(isOn: $KabsaVisible) {Text("Kabsa Visible?")}
                             Toggle(isOn: $LasagnaVisible) {Text("Lasagna Visible?")}
-                            Toggle(isOn: $Pickled_AsparagusVisible) {Text("Pickled Asparagus Visible?")}
-                            Toggle(isOn: $Pickled_CauliflowerVisible) {Text("Pickled Cauliflower Visible?")}
+                            //Toggle(isOn: $Pickled_AsparagusVisible) {Text("Pickled Asparagus Visible?")}
+                            //Toggle(isOn: $Pickled_CauliflowerVisible) {Text("Pickled Cauliflower Visible?")}
                             Toggle(isOn: $SamosasVisible) {Text("Samosas Visible?")}
                             Toggle(isOn: $StewingBeefVisible) {Text("Stewing Beef Visible?")}
                             Toggle(isOn: $TBone_SteakVisible) {Text("T-Bone Steak Visible?")}
@@ -790,11 +804,11 @@ struct AdminView: View {
                             //Toggle(isOn: $Wildflower_HoneyVisible) {Text("Wildflower Honey Visible?")}
                             Toggle(isOn: $YalanjiVisible) {Text("Yalanji Visible?")}
                             Toggle(isOn: $WholeChickenVisible) {Text("Whole Chicken Visible?")}
-                            Toggle(isOn: $Chicken_BreastsVisible) {Text("Visible?")}
-                            Toggle(isOn: $Chicken_WingsVisible) {Text("Visible?")}
-                            Toggle(isOn: $Bonein_ChickenVisible) {Text("Visible?")}
-                            Toggle(isOn: $Chicken_DrumsVisible) {Text("Visible?")}
-                            Toggle(isOn: $Ground_ChickenVisible) {Text("Visible?")}
+                            Toggle(isOn: $Chicken_BreastsVisible) {Text("Chicken Breasts Visible?")}
+                            Toggle(isOn: $Chicken_WingsVisible) {Text("Chicken Wings Visible?")}
+                            Toggle(isOn: $Bonein_ChickenVisible) {Text("Bone-in Chicken Visible?")}
+                            Toggle(isOn: $Chicken_DrumsVisible) {Text("Chicken Drums Visible?")}
+                            Toggle(isOn: $Ground_ChickenVisible) {Text("Ground Chicken Visible?")}
                             
                             
                         }
@@ -870,7 +884,7 @@ struct AdminView: View {
                             priceEntryView(cropPrice: $MediumMelonsPrice, price: MediumMelonsPrice, name: "Medium Melons")
                             priceEntryView(cropPrice: $LargeMelonsPrice, price: LargeMelonsPrice, name: "Large Melons")
                             priceEntryView(cropPrice: $MicrogreensPrice, price: MicrogreensPrice, name: "Microgreens")
-                            priceEntryView(cropPrice: $OnionsPrice, price: OnionsPrice, name: "Onions")
+                            priceEntryView(cropPrice: $OnionPrice, price: OnionPrice, name: "Onion")
                             priceEntryView(cropPrice: $Onion_BagsPrice, price: Onion_BagsPrice, name: "Onion Bags")
                             priceEntryView(cropPrice: $ParsleyPrice, price: ParsleyPrice, name: "Parsley")
                             priceEntryView(cropPrice: $ParsnipsPrice, price: ParsnipsPrice, name: "Parsnips")
@@ -923,7 +937,7 @@ struct AdminView: View {
                             priceEntryView(cropPrice: $BroccoliPrice, price: BroccoliPrice, name: "Broccoli")
                             priceEntryView(cropPrice: $Brussel_SproutsPrice, price: Brussel_SproutsPrice, name: "Brussel Sprouts")
                             priceEntryView(cropPrice: $EndivesPrice, price: EndivesPrice, name: "Endives")
-                            priceEntryView(cropPrice: $PotatoesPrice, price: PotatoesPrice, name: "Potatoes")
+                            priceEntryView(cropPrice: $PotatoBagPrice, price: PotatoBagPrice, name: "Potatoes")
                             priceEntryView(cropPrice: $Potato_BasketPrice, price: Potato_BasketPrice, name: "Potato Baskets")
                             priceEntryView(cropPrice: $RutabagaPrice, price: RutabagaPrice, name: "Rutabaga")
                             priceEntryView(cropPrice: $Sweet_PotatoesPrice, price: Sweet_PotatoesPrice, name: "Sweet Potatoes")
@@ -946,7 +960,7 @@ struct AdminView: View {
                             priceEntryView(cropPrice: $Garlic_Scape_ButterPrice, price: Garlic_Scape_ButterPrice, name: "Garlic Scape Butter")
                             priceEntryView(cropPrice: $GazpachoPrice, price: GazpachoPrice, name: "Gazpacho")
                             priceEntryView(cropPrice: $HummusPrice, price: HummusPrice, name: "Hummus")
-                            priceEntryView(cropPrice: $PickledBeetsPrice, price: PickledBeetsPrice, name: "Pickled Beets")
+                            //priceEntryView(cropPrice: $PickledBeetsPrice, price: PickledBeetsPrice, name: "Pickled Beets")
                             priceEntryView(cropPrice: $DillPrice, price: DillPrice, name: "Pickled Dill Carrots")
                         }
                         .padding(10)
@@ -954,14 +968,14 @@ struct AdminView: View {
                             RoundedRectangle(cornerRadius: 10.0)
                                 .stroke(lineWidth: 2.0))
                         Group {
-                            priceEntryView(cropPrice: $PickledCarrotsPrice, price: PickledCarrotsPrice, name: "Pickled Carrots")
-                            priceEntryView(cropPrice: $PickledOnionsPrice, price: PickledOnionsPrice, name: "Pickled Onions")
+                            //priceEntryView(cropPrice: $PickledCarrotsPrice, price: PickledCarrotsPrice, name: "Pickled Carrots")
+                            //priceEntryView(cropPrice: $PickledOnionsPrice, price: PickledOnionsPrice, name: "Pickled Onions")
                             priceEntryView(cropPrice: $Red_Onion_JamPrice, price: Red_Onion_JamPrice, name: "Red Onion Jam")
                             priceEntryView(cropPrice: $SalsaPrice, price: SalsaPrice, name: "Salsa")
                             priceEntryView(cropPrice: $SfeehaPrice, price: SfeehaPrice, name: "Sfeeha")
                             priceEntryView(cropPrice: $SoupPrice, price: SoupPrice, name: "Soup")
-                            priceEntryView(cropPrice: $SweetCarrotsPrice, price: SweetCarrotsPrice, name: "Sweet Carrots")
-                            priceEntryView(cropPrice: $Zuchini_RelishPrice, price: Zuchini_RelishPrice, name: "Zuchini Relish")
+                            //priceEntryView(cropPrice: $SweetCarrotsPrice, price: SweetCarrotsPrice, name: "Sweet Carrots")
+                            //priceEntryView(cropPrice: $Zuchini_RelishPrice, price: Zuchini_RelishPrice, name: "Zuchini Relish")
                         }
                         .padding(5)
                         .overlay(
@@ -1012,8 +1026,8 @@ struct AdminView: View {
                             priceEntryView(cropPrice: $Large_IcecreamPrice, price: Large_IcecreamPrice, name: "Large Icecream")
                             priceEntryView(cropPrice: $KabsaPrice, price: KabsaPrice, name: "Kabsa")
                             priceEntryView(cropPrice: $LasagnaPrice, price: LasagnaPrice, name: "Lasagna")
-                            priceEntryView(cropPrice: $Pickled_AsparagusPrice, price: Pickled_AsparagusPrice, name: "Pickled Asparagus")
-                            priceEntryView(cropPrice: $Pickled_CauliflowerPrice, price: Pickled_CauliflowerPrice, name: "Pickled Cauliflower")
+                            //priceEntryView(cropPrice: $Pickled_AsparagusPrice, price: Pickled_AsparagusPrice, name: "Pickled Asparagus")
+                            //priceEntryView(cropPrice: $Pickled_CauliflowerPrice, price: Pickled_CauliflowerPrice, name: "Pickled Cauliflower")
                             priceEntryView(cropPrice: $SamosasPrice, price: SamosasPrice, name: "Samosas")
                             priceEntryView(cropPrice: $StewingBeefPrice, price: StewingBeefPrice, name: "Stewing Beef")
                             priceEntryView(cropPrice: $TBone_SteakPrice, price: TBone_SteakPrice, name: "T-Bone Steak")
@@ -1053,7 +1067,7 @@ extension AdminView {
         case PDill
         case PGarlic
         case PSnow_Peas
-        case PPotatoes
+        case PPotato_Bag
         case PSalad_Greens
         case PLeeks
         case PEgg_Plant
@@ -1103,14 +1117,14 @@ extension AdminView {
         
         
         case PSalsa
-        case PPickled_Carrots
-        case PPhil_Sauce
-        case PSweet_Carrots
-        case PPickled_Onions
+        //case PPickled_Carrots
+        //case PPhil_Sauce
+        //case PSweet_Carrots
+        //case PPickled_Onions
         case PLasagna
         case PSoup
         case PCarrot_Cake
-        case PPickled_Beets
+        //case PPickled_Beets
         case PBaguette
         case PStewing_Beef
         case PCheese
@@ -1119,11 +1133,11 @@ extension AdminView {
         case PCoffee
         case PGround_Beef
         
-        case PDill_Carrots
-        case PPickled_Asparagus
+        //case PDill_Carrots
+        //case PPickled_Asparagus
         case PRed_Onion_Jam
-        case PPickled_Cauliflower
-        case PZuchini_Relish
+        //case PPickled_Cauliflower
+        //case PZuchini_Relish
         case PBeef_Burgers
         case PWildflower_Honey
         case PWhite_Cream_Honey
@@ -1178,6 +1192,10 @@ extension AdminView {
         case PPea_Shoots
         case PHoley_Beetgreens
         case PHoley_Spinach
+        
+        case PGranola
+        case POnion
+        case PPotatoes
     }
     
     enum isVisible: String {
@@ -1194,7 +1212,7 @@ extension AdminView {
         case Dill
         case Garlic
         case Snow_Peas
-        case Potatoes
+        case Potato_Bag
         case Salad_Greens
         case Leeks
         case Egg_Plant
@@ -1244,14 +1262,14 @@ extension AdminView {
         case Romaine_Lettuce
         
         case Salsa
-        case Pickled_Carrots
-        case Phil_Sauce
-        case Sweet_Carrots
-        case Pickled_Onions
+        //case Pickled_Carrots
+        //case Phil_Sauce
+        //case Sweet_Carrots
+        //case Pickled_Onions
         case Lasagna
         case Soup
         case Carrot_Cake
-        case Pickled_Beets
+        //case Pickled_Beets
         case Baguette
         case Stewing_Beef
         case Cheese
@@ -1260,10 +1278,10 @@ extension AdminView {
         case Coffee
         case Ground_Beef
         
-        case Dill_Carrots
-        case Pickled_Asparagus
+        //case Dill_Carrots
+        //case Pickled_Asparagus
         case Red_Onion_Jam
-        case Pickled_Cauliflower
+        //case Pickled_Cauliflower
         case Zuchini_Relish
         case Beef_Burgers
         case Wildflower_Honey
@@ -1318,5 +1336,9 @@ extension AdminView {
         case Pea_Shoots
         case Holey_Beetgreens
         case Holey_Spinach
+        
+        case Granola
+        case Onion
+        case Potatoes
     }
 }

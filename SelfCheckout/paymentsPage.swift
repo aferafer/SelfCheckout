@@ -34,7 +34,7 @@ struct PaymentsPage: View {
                             .frame(width: 140, height: 90)
                         Text("credit").foregroundColor(.black)
                     }.background(Rectangle().fill(Color.white).shadow(radius: 2))
-                    Text("(3.5% Surcharge)").bold().offset(y:10)
+                    Text("(2.4% Surcharge)").bold().offset(y:10)
                 }.offset(y:10).onTapGesture {
                     print("before: " + String(myCart.totalPrice))
                     print("after: " + String(myCart.totalPrice))
@@ -119,7 +119,7 @@ struct PaymentsPage: View {
         let seconds = Date().timeIntervalSince1970
         purchaseList["transactionOrder"] = Int(seconds)
         if (paymentType == 1) {
-                purchaseList["total"] = Int(Float(myCart.totalPrice) * 103.5) //3.5% surcharge on credit payments
+            purchaseList["total"] = Int(Float(myCart.totalPrice) * 102.4) //2.4% surcharge on credit payments
                 purchaseList["payment type"] = 1
         }
         if (paymentType == 2) {
