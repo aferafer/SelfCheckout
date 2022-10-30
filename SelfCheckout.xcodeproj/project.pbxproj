@@ -72,7 +72,6 @@
 		0E2E483828410C40003DC5E9 /* SelfCheckoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfCheckoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2E483C28410C40003DC5E9 /* SelfCheckoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfCheckoutUITests.swift; sourceTree = "<group>"; };
 		0E2E483E28410C40003DC5E9 /* SelfCheckoutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfCheckoutUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0E2E484E2842F778003DC5E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0EA747EE287602C3003196FD /* paymentsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentsPage.swift; sourceTree = "<group>"; };
 		0EA747F0287625F1003196FD /* paymentsPageBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentsPageBar.swift; sourceTree = "<group>"; };
 		0EA747F428776A49003196FD /* CashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashView.swift; sourceTree = "<group>"; };
@@ -151,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				0E29D69D2843DBA900519E03 /* Models */,
-				0E2E484E2842F778003DC5E9 /* Info.plist */,
 				0EA747F82888699A003196FD /* GoogleService-Info.plist */,
 				0E2E482128410C40003DC5E9 /* SelfCheckoutApp.swift */,
 				0EA747EE287602C3003196FD /* paymentsPage.swift */,
